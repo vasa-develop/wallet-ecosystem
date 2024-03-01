@@ -17,7 +17,7 @@ export default function Page({ params }: { params: { name: string } }) {
             {Array(10)
               .fill(1)
               .map((i, index) => (
-                <CardContent>
+                <CardContent key={index}>
                   <Link href={`#section-${index}`}>Card Content {index}</Link>
                 </CardContent>
               ))}
@@ -39,7 +39,7 @@ export default function Page({ params }: { params: { name: string } }) {
           {Array(10)
             .fill(1)
             .map((i, index) => (
-              <Card id={`section-${index}`}>
+              <Card key={index} id={`section-${index}`}>
                 <CardHeader>
                   <CardTitle>{index}</CardTitle>
                   <CardDescription>Card Description</CardDescription>
