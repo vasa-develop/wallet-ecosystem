@@ -1,0 +1,192 @@
+{
+    "wallet_content": [
+        {
+            "id": "metamask",
+            "name": "Metamask",
+            "icon": "metamask.png",
+            "sections": [
+                {
+                    "id": 0,
+                    "section_name": "Stats",
+                    "sub_sections": [
+                        {
+                            "id": 0,
+                            "sub_section_name": "Downloads",
+                            "type": "data_table",
+                            "columns": [
+                                "Platform",
+                                "Downloads"
+                            ],
+                            "data": [
+                                [
+                                    "Chrome",
+                                    "10,000,000+"
+                                ],
+                                [
+                                    "Firefox",
+                                    "491,097+"
+                                ],
+                                [
+                                    "Opera",
+                                    "359,633+"
+                                ],
+                                [
+                                    "Edge",
+                                    "2,000,000+"
+                                ],
+                                [
+                                    "Android",
+                                    "10,000,000+"
+                                ],
+                                [
+                                    "iOS",
+                                    "??"
+                                ]
+                            ]
+                        },
+                        {
+                            "id": 1,
+                            "sub_section_name": "Staking",
+                            "type": "dune_chart",
+                            "width": "100%",
+                            "height": 600,
+                            "iframe_urls": [
+                                "https://dune.com/embeds/1901264/3192714/"
+                            ]
+                        },
+                        {
+                            "id": 2,
+                            "sub_section_name": "Swap",
+                            "type": "dune_chart",
+                            "width": "100%",
+                            "height": 600,
+                            "iframe_urls": [
+                                "https://dune.com/embeds/1793048/2953820/",
+                                "https://dune.com/embeds/1793048/4456070/"
+                            ]
+                        },
+                        {
+                            "id": 3,
+                            "sub_section_name": "Bridge",
+                            "type": "dune_chart",
+                            "width": "100%",
+                            "height": 600,
+                            "iframe_urls": [
+                                "https://dune.com/embeds/1767108/2914176/",
+                                "https://dune.com/embeds/1767108/2914417/",
+                                "https://dune.com/embeds/2372425/3889795/"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1,
+                    "section_name": "Activity",
+                    "sub_sections": [
+                        {
+                            "id": 0,
+                            "sub_section_name": "Metamask Extension Contributor Count",
+                            "type": "github_contributor_count",
+                            "repo": "MetaMask/metamask-extension"
+                        },
+                        {
+                            "id": 1,
+                            "sub_section_name": "Metamask Extension",
+                            "type": "github_heatmap",
+                            "data": "https://api.github.com/repos/MetaMask/metamask-extension/stats/commit_activity"
+                        },
+                        {
+                            "id": 2,
+                            "sub_section_name": "Metamask Mobile Contributor Count",
+                            "type": "github_contributor_count",
+                            "repo": "MetaMask/metamask-mobile"
+                        },
+                        {
+                            "id": 3,
+                            "sub_section_name": "Metamask Mobile",
+                            "type": "github_heatmap",
+                            "data": "https://api.github.com/repos/MetaMask/metamask-mobile/stats/commit_activity"
+                        },
+                        {
+                            "id": 4,
+                            "sub_section_name": "Metamask Snaps Contributor Count",
+                            "type": "github_contributor_count",
+                            "repo": "MetaMask/snaps"
+                        },
+                        {
+                            "id": 5,
+                            "sub_section_name": "Metamask Snaps",
+                            "type": "github_heatmap",
+                            "data": "https://api.github.com/repos/MetaMask/snaps/stats/commit_activity"
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "section_name": "Security Analysis",
+                    "sub_sections": [
+                        {
+                            "id": 0,
+                            "sub_section_name": "Key Management",
+                            "type": "explainer",
+                            "content": [
+                                {
+                                    "id": 0,
+                                    "type": "image",
+                                    "src": "http://localhost:3000/wallets/metamask_key_management.png",
+                                    "width": 2000,
+                                    "height": 1553
+                                },
+                                {
+                                    "id": 1,
+                                    "type": "html",
+                                    "html": "<p> Metamask allows users to use a password to access the key stored in the user’s local browser’s storage. </p> <p>In case of mobile wallet users can use a password OR biometrics to access the key stored in the user’s device.</p>More info on <a href=\"https://www.wispwisp.com/index.php/2020/12/25/how-metamask-stores-your-wallet-secret/\">how MetaMask stores your wallet secret?</a>"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "section_name": "Section 4",
+                    "sub_sections": []
+                },
+                {
+                    "id": 4,
+                    "section_name": "Section 5",
+                    "sub_sections": []
+                },
+                {
+                    "id": 5,
+                    "section_name": "Section 6",
+                    "sub_sections": []
+                },
+                {
+                    "id": 6,
+                    "section_name": "Section 7",
+                    "sub_sections": []
+                },
+                {
+                    "id": 7,
+                    "section_name": "Section 8",
+                    "sub_sections": []
+                },
+                {
+                    "id": 8,
+                    "section_name": "Section 9",
+                    "sub_sections": []
+                },
+                {
+                    "id": 9,
+                    "section_name": "Section 10",
+                    "sub_sections": []
+                },
+                {
+                    "id": 10,
+                    "section_name": "Section 11",
+                    "sub_sections": []
+                }
+            ]
+        }
+    ]
+}

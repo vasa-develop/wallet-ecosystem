@@ -6,8 +6,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import Link from "next/link";
+} from '@/components/ui/table';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -25,7 +25,7 @@ export default function Home() {
         <TableBody>
           <TableRow>
             <TableCell className="font-medium">
-              <Link className="w-full" href={"/wallet/metamask"}>
+              <Link className="w-full" href={'/wallet/0'}>
                 Metamask
               </Link>
             </TableCell>
@@ -35,7 +35,7 @@ export default function Home() {
           </TableRow>
           <TableRow>
             <TableCell className="font-medium">
-              <Link className="w-full" href={"/wallet/rainbow"}>
+              <Link className="w-full" href={'/wallet/1'}>
                 Rainbow
               </Link>
             </TableCell>
