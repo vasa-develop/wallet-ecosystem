@@ -30,7 +30,12 @@ export default async function Page({ params }: { params: { name: string } }) {
           <Card className="sticky top-4">
             {walletData.sections.map((section, index) => (
               <CardContent key={index}>
-                <Link href={`#${section.section_name.toLocaleLowerCase()}`}>
+                <Link
+                  href={`#${section.section_name
+                    .toLocaleLowerCase()
+                    .split(' ')
+                    .join('_')}`}
+                >
                   {section.section_name}
                 </Link>
               </CardContent>
@@ -41,7 +46,10 @@ export default async function Page({ params }: { params: { name: string } }) {
           {walletData.sections.map((section, index) => (
             <Card
               key={index}
-              id={`#${section.section_name.toLocaleLowerCase()}`}
+              id={`#${section.section_name
+                .toLocaleLowerCase()
+                .split(' ')
+                .join('_')}`}
             >
               <CardHeader>
                 <CardTitle>{section.section_name}</CardTitle>
@@ -95,7 +103,7 @@ export default async function Page({ params }: { params: { name: string } }) {
 
                   return (
                     <Fragment key={index}>
-                      <span>{sub_section.sub_section_name}</span>
+                      <h2>{sub_section.sub_section_name}</h2>
                       {renderSubSection()}
                     </Fragment>
                   );

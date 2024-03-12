@@ -9,7 +9,7 @@ export default function Explainer({ content }: { content: any[] }) {
             <Image
               key={item.id}
               src={item.src}
-              alt="Explainer Image"
+              alt={item.alt}
               width={item.width}
               height={item.height}
             />
