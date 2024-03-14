@@ -16,12 +16,14 @@ export default function GithubHeatmap({
   squareSize: string;
 }) {
   return (
-    <Heatmap
-      colour={colour}
-      squareNumber={squareNumber}
-      count={count}
-      squareGap={squareGap}
-      squareSize={squareSize}
-    />
+    <div className="-m-5">
+      <Heatmap
+        colour={colour}
+        squareNumber={squareNumber}
+        count={count}
+        squareGap={squareGap}
+        squareSize={squareSize}
+      />
+    </div>
   );
 }

@@ -17,6 +17,7 @@ import Link from 'next/link';
 import React, { Fragment } from 'react';
 import wallets from '@/data/wallets';
 import StatCard from '@/components/StatCard';
+import { ArrowTopRightOnSquareIcon } from '@/components/icons/ArrowTopRightOnSquareIcon';
 
 export default function Page({ params }: { params: { name: string } }) {
   const walletData = wallets[params.name];
@@ -60,13 +61,16 @@ export default function Page({ params }: { params: { name: string } }) {
                       switch (sub_section.type) {
                         case WalletSubSectionTypes.GITHUB_HEATMAP:
                           return (
-                            <GithubHeatmap
-                              colour={sub_section.colour}
-                              squareNumber={sub_section.squareNumber}
-                              count={sub_section.count}
-                              squareGap={sub_section.squareGap}
-                              squareSize={sub_section.squareSize}
-                            />
+                            <>
+                              <GithubContributorCount repo={sub_section.repo} />
+                              <GithubHeatmap
+                                colour={sub_section.colour}
+                                squareNumber={sub_section.squareNumber}
+                                count={sub_section.count}
+                                squareGap={sub_section.squareGap}
+                                squareSize={sub_section.squareSize}
+                              />
+                            </>
                           );
                         case WalletSubSectionTypes.DUNE_CHART:
                           return sub_section.iframe_urls.map(
@@ -128,7 +132,21 @@ export default function Page({ params }: { params: { name: string } }) {
                       <Fragment key={index}>
                         {sub_section.sub_section_name && (
                           <h2 className="text-lg text-gray-300 mt-2 font-medium">
-                            {sub_section.sub_section_name}
+                            {sub_section.link ? (
+                              <Link
+                                href={sub_section.link}
+                                target="_blank"
+                                className="flex items-center gap-2"
+                              >
+                                {sub_section.sub_section_name}
+                                <ArrowTopRightOnSquareIcon
+                                  className="opacity-50"
+                                  width={20}
+                                />
+                              </Link>
+                            ) : (
+                              <>{sub_section.sub_section_name}</>
+                            )}
                           </h2>
                         )}
                         {renderSubSection()}

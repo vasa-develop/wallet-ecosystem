@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + ' dark'}>
-        <div className="bg-[#23272E] shadow-md ">
+        <div className="bg-[#202632] shadow-md ">
           <div className="container">
             <NavigationMenu className="py-4 ">
               <NavigationMenuList className="gap-6">
