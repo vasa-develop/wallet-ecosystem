@@ -22,22 +22,24 @@ export default function Page({ params }: { params: { name: string } }) {
 
   return (
     <>
-      <div className="container flex gap-2 m-auto">
-        <div className="w-64 p-2 sticky">
-          <Card className="sticky top-4">
+      <div className=" flex gap-2 m-auto">
+        <div className="w-64 flex-shrink-0 p-2 sticky">
+          <div className="sticky text-sm font-medium top-4">
             {walletData.sections.map((section, index) => (
-              <CardContent key={index}>
+              <div
+                className="relative hover:after:h-full after:content-[''] after:absolute after:h-0 hover:after:top-0 after:w-1 after:left-0 after:bg-white after:transition-all after:duration-200 after:ease-in-out after:top-[50%] group py-2 px-3 rounded-md mb-3 opacity-60 hover:opacity-100 transition-opacity cursor-pointer "
+                key={index}
+              >
                 <Link
                   href={`#${section.section_name
                     .toLocaleLowerCase()
-                    .split(' ')
-                    .join('_')}`}
+                    .replace(' ', '_')}`}
                 >
                   {section.section_name}
                 </Link>
-              </CardContent>
+              </div>
             ))}
-          </Card>
+          </div>
         </div>
         <div className="flex-1 gap-8 flex flex-col p-2">
           {walletData.sections.map((section, index) => (
@@ -45,12 +47,10 @@ export default function Page({ params }: { params: { name: string } }) {
               key={index}
               id={`#${section.section_name
                 .toLocaleLowerCase()
-                .split(' ')
-                .join('_')}`}
+                .replace(' ', '_')}`}
             >
               <CardHeader>
                 <CardTitle>{section.section_name}</CardTitle>
-                <CardDescription>{section.section_name}</CardDescription>
               </CardHeader>
               <CardContent>
                 {section.sub_sections.map((sub_section, index) => {
@@ -107,7 +107,9 @@ export default function Page({ params }: { params: { name: string } }) {
 
                   return (
                     <Fragment key={index}>
-                      <h2>{sub_section.sub_section_name}</h2>
+                      <h2 className="text-xl font-medium">
+                        {sub_section.sub_section_name}
+                      </h2>
                       {renderSubSection()}
                     </Fragment>
                   );
