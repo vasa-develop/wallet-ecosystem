@@ -8,7 +8,7 @@ export default function StatCard(props: {
   stat: string;
 }) {
   return (
-    <div className="flex border rounded px-3 py-2 gap-3 border-gray-700 items-center">
+    <div className="flex hover:shadow-xl transition-shadow border rounded px-3 py-2 gap-3 border-gray-700 items-center">
       <Image src={props.image} width={30} height={30} alt={title} />
       <div>
         <div className="text-sm text-gray-400">{props.title}</div>

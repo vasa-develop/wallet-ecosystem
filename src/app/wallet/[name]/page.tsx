@@ -46,7 +46,7 @@ export default function Page({ params }: { params: { name: string } }) {
           {walletData.sections.map((section, index) => (
             <div>
               <div
-                id={`#${section.section_name
+                id={`${section.section_name
                   .toLocaleLowerCase()
                   .replace(' ', '_')}`}
                 className="text-2xl my-3 font-semibold"
