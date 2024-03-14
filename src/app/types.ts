@@ -6,7 +6,7 @@ export interface WalletDataSubSection {
 }
 
 export interface WalletDataSection {
-  id: 0;
+  id: number;
   section_name: string;
   sub_sections: WalletDataSubSection[];
 }
@@ -26,4 +26,5 @@ export enum WalletSubSectionTypes {
   DUNE_CHART = 'dune_chart',
   DATA_TABLE = 'data_table',
   EXPLAINER = 'explainer',
+  SECURITY_AUDIT = 'security_audit',
 }

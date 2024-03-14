@@ -1,9 +1,10 @@
-import { WalletData, WalletSubSectionTypes } from '@/app/types';
+import { WalletSubSectionTypes } from '@/app/types';
 import DataTable from '@/components/DataTable';
 import DuneChart from '@/components/DuneChart';
 import Explainer from '@/components/Explainer';
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
+import SecurityAudits from '@/components/SecurityAudits';
 import {
   Card,
   CardContent,
@@ -14,14 +15,10 @@ import {
 } from '@/components/ui/card';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
+import wallets from '@/data/wallets';
 
-const getWalletData = async (name: string): Promise<WalletData> => {
-  const response = await fetch(`http://localhost:4000/wallet_content/${name}`);
-  return response.json();
-};
-
-export default async function Page({ params }: { params: { name: string } }) {
-  const walletData = await getWalletData(params.name);
+export default function Page({ params }: { params: { name: string } }) {
+  const walletData = wallets[params.name];
 
   return (
     <>
@@ -96,6 +93,13 @@ export default async function Page({ params }: { params: { name: string } }) {
                         );
                       case WalletSubSectionTypes.EXPLAINER:
                         return <Explainer content={sub_section.content} />;
+                      case WalletSubSectionTypes.SECURITY_AUDIT:
+                        return (
+                          <SecurityAudits
+                            audits={sub_section.audits}
+                            bug_bounties={sub_section.bug_bounties}
+                          />
+                        );
                       default:
                         return <p>Unknown type</p>;
                     }

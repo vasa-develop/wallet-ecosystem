@@ -19,7 +19,7 @@ export default function DataTable({
 }) {
   return (
     <Table>
-      <TableCaption>{caption}</TableCaption>
+      {caption && <TableCaption>{caption}</TableCaption>}
       <TableHeader>
         <TableRow>
           {columns.map((column, index) => (
