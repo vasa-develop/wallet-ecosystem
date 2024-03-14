@@ -5,13 +5,13 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 228, 10%, 20%;
+    --foreground: 0, 0%, 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 228, 10%, 20%;
+    --card-foreground: 0, 0%, 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 228, 10%, 20%;
+    --popover-foreground: 0, 0%, 11%;
 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -30,19 +30,19 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 228, 10%, 20%;
+    --ring: 0, 0%, 11%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 228, 10%, 20%;
+    --background: 0, 0%, 11%;
     --foreground: 210 40% 98%;
 
     --card: 228, 13%, 16%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 228, 10%, 20%;
+    --popover: 0, 0%, 11%;
     --popover-foreground: 210 40% 98%;
 
     --primary: 210 40% 98%;
@@ -73,4 +73,8 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+a {
+  @apply hover:text-white;
 }

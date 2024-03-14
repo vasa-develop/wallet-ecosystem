@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function Explainer({ content }: { content: any[] }) {
   return (
-    <div>
+    <div className="text-gray-400 flex flex-col gap-2 leading-5 text-sm">
       {content.map((item) => {
         if (item.type === 'image') {
           return (

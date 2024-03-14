@@ -1,4 +1,4 @@
-import { WalletData } from '@/app/types';
+import { WalletData, WalletSubSectionTypes } from '@/app/types';
 import { BASE_URL } from '@/constants';
 
 export const wallet_data: WalletData = {
@@ -13,21 +13,44 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'Downloads',
-          type: 'data_table',
-          columns: ['Platform', 'Downloads'],
+          type: WalletSubSectionTypes.STAT_CARDS,
           data: [
-            ['Chrome', '10,000,000+'],
-            ['Firefox', '491,097+'],
-            ['Opera', '359,633+'],
-            ['Edge', '2,000,000+'],
-            ['Android', '10,000,000+'],
-            ['iOS', '??'],
+            {
+              image: '/chrome.png',
+              title: 'Chrome',
+              stat: '10,000,000+',
+            },
+            {
+              image: '/firefox.png',
+              title: 'Firefox',
+              stat: '491,097+',
+            },
+            {
+              image: '/opera.png',
+              title: 'Opera',
+              stat: '359,633+',
+            },
+            {
+              image: '/edge.png',
+              title: 'Edge',
+              stat: '2,000,000+',
+            },
+            {
+              image: '/play-store.png',
+              title: 'Android',
+              stat: '10,000,000+',
+            },
+            {
+              image: '/app-store.png',
+              title: 'IOS',
+              stat: '??',
+            },
           ],
         },
         {
           id: 1,
           sub_section_name: 'Staking',
-          type: 'dune_chart',
+          type: WalletSubSectionTypes.DUNE_CHART,
           width: '100%',
           height: 600,
           iframe_urls: ['https://dune.com/embeds/1901264/3192714/'],
@@ -35,7 +58,7 @@ export const wallet_data: WalletData = {
         {
           id: 2,
           sub_section_name: 'Swap',
-          type: 'dune_chart',
+          type: WalletSubSectionTypes.DUNE_CHART,
           width: '100%',
           height: 600,
           iframe_urls: [
@@ -46,7 +69,7 @@ export const wallet_data: WalletData = {
         {
           id: 3,
           sub_section_name: 'Bridge',
-          type: 'dune_chart',
+          type: WalletSubSectionTypes.DUNE_CHART,
           width: '100%',
           height: 600,
           iframe_urls: [
@@ -64,37 +87,37 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'Metamask Extension Contributor Count',
-          type: 'github_contributor_count',
+          type: WalletSubSectionTypes.GITHUB_CONTRIBUTOR_COUNT,
           repo: 'MetaMask/metamask-extension',
         },
         {
           id: 1,
           sub_section_name: 'Metamask Extension',
-          type: 'github_heatmap',
+          type: WalletSubSectionTypes.GITHUB_HEATMAP,
           data: 'https://api.github.com/repos/MetaMask/metamask-extension/stats/commit_activity',
         },
         {
           id: 2,
           sub_section_name: 'Metamask Mobile Contributor Count',
-          type: 'github_contributor_count',
+          type: WalletSubSectionTypes.GITHUB_CONTRIBUTOR_COUNT,
           repo: 'MetaMask/metamask-mobile',
         },
         {
           id: 3,
           sub_section_name: 'Metamask Mobile',
-          type: 'github_heatmap',
+          type: WalletSubSectionTypes.GITHUB_HEATMAP,
           data: 'https://api.github.com/repos/MetaMask/metamask-mobile/stats/commit_activity',
         },
         {
           id: 4,
           sub_section_name: 'Metamask Snaps Contributor Count',
-          type: 'github_contributor_count',
+          type: WalletSubSectionTypes.GITHUB_CONTRIBUTOR_COUNT,
           repo: 'MetaMask/snaps',
         },
         {
           id: 5,
           sub_section_name: 'Metamask Snaps',
-          type: 'github_heatmap',
+          type: WalletSubSectionTypes.GITHUB_HEATMAP,
           data: 'https://api.github.com/repos/MetaMask/snaps/stats/commit_activity',
         },
       ],
@@ -106,12 +129,12 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'Key Management',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,
               type: 'image',
-              src: `${BASE_URL}/wallets/metamask_key_management.png`,
+              src: `/wallets/metamask_key_management.png`,
               alt: 'Metamask Key Management',
               width: 2000,
               height: 1553,
@@ -126,7 +149,7 @@ export const wallet_data: WalletData = {
         {
           id: 1,
           sub_section_name: 'Account Management',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 1,
@@ -138,7 +161,7 @@ export const wallet_data: WalletData = {
         {
           id: 2,
           sub_section_name: 'Processes',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,
@@ -153,7 +176,7 @@ export const wallet_data: WalletData = {
             {
               id: 2,
               type: 'image',
-              src: `${BASE_URL}/wallets/secp256k1_key_generation.png`,
+              src: `/wallets/secp256k1_key_generation.png`,
               alt: 'Metamask Key Generation',
               width: 2000,
               height: 417,
@@ -171,7 +194,7 @@ export const wallet_data: WalletData = {
             {
               id: 5,
               type: 'image',
-              src: `${BASE_URL}/wallets/secp256k1_trx_sig.png`,
+              src: `/wallets/secp256k1_trx_sig.png`,
               alt: 'Metamask Transaction Signing',
               width: 2000,
               height: 417,
@@ -184,7 +207,7 @@ export const wallet_data: WalletData = {
             {
               id: 7,
               type: 'image',
-              src: `${BASE_URL}/wallets/eth_trx_verification.png`,
+              src: `/wallets/eth_trx_verification.png`,
               alt: 'Metamask Transaction Verification',
               width: 2000,
               height: 417,
@@ -235,7 +258,7 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'List of all Features',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,
@@ -253,7 +276,7 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'Table Legend',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,
@@ -265,7 +288,7 @@ export const wallet_data: WalletData = {
         {
           id: 1,
           sub_section_name: 'EIP Support Status',
-          type: 'data_table',
+          type: WalletSubSectionTypes.DATA_TABLE,
           columns: [
             'EIP name',
             'EIP type',
@@ -479,7 +502,7 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'List of all incentive programs',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,
@@ -498,7 +521,7 @@ export const wallet_data: WalletData = {
           id: 0,
           sub_section_name:
             'List of all chains supported across different platforms',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,
@@ -516,7 +539,7 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: 'List of all security audits',
-          type: 'security_audit',
+          type: WalletSubSectionTypes.SECURITY_AUDIT,
           audits: [
             [
               'Least Authority TFA GmbH',
@@ -562,7 +585,7 @@ export const wallet_data: WalletData = {
           id: 0,
           sub_section_name:
             'The table provides a detailed record of any previous security incidents associated with the crypto wallet. This includes breaches, attacks, or any other events that might have compromised the wallet`s security or user data.',
-          type: 'data_table',
+          type: WalletSubSectionTypes.DATA_TABLE,
           columns: ['Incident', 'Type', 'Date', 'Severity', 'Status'],
           data: [],
         },
@@ -576,7 +599,7 @@ export const wallet_data: WalletData = {
           id: 0,
           sub_section_name:
             "Legal Compliance refers to the wallet's adherence to relevant laws, regulations, and guidelines in the jurisdictions in which it operates. This includes regulations regarding user data privacy, anti-money laundering (AML), Know Your Customer (KYC) processes, and more. Compliance ensures that the wallet operates in a legal and ethical manner, providing users with a secure and trustworthy platform for managing their digital assets.",
-          type: 'data_table',
+          type: WalletSubSectionTypes.DATA_TABLE,
           columns: ['', '', ''],
           data: [
             [
@@ -605,7 +628,7 @@ export const wallet_data: WalletData = {
         {
           id: 0,
           sub_section_name: '',
-          type: 'explainer',
+          type: WalletSubSectionTypes.EXPLAINER,
           content: [
             {
               id: 0,

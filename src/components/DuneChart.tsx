@@ -9,6 +9,7 @@ export default function DuneChart({
 }) {
   return (
     <iframe
+      className="invert"
       src={src}
       width={width}
       height={height}
