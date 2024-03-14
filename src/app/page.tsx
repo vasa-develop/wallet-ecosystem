@@ -25,7 +25,7 @@ export default function Home() {
         <TableBody>
           <TableRow>
             <TableCell className="font-medium">
-              <Link className="w-full" href={'/wallet/0'}>
+              <Link className="w-full" href={'/wallet/metamask'}>
                 Metamask
               </Link>
             </TableCell>
@@ -35,7 +35,7 @@ export default function Home() {
           </TableRow>
           <TableRow>
             <TableCell className="font-medium">
-              <Link className="w-full" href={'/wallet/1'}>
+              <Link className="w-full" href={'/wallet/rainbow'}>
                 Rainbow
               </Link>
             </TableCell>
