@@ -25,6 +25,7 @@ export enum WalletSubSectionTypes {
   GITHUB_CONTRIBUTOR_COUNT = 'github_contributor_count',
   DUNE_CHART = 'dune_chart',
   DATA_TABLE = 'data_table',
+  EIP_SUPPORT_TABLE = 'eip_support_table',
   STAT_CARDS = 'stat_cards',
   EXPLAINER = 'explainer',
   SECURITY_AUDIT = 'security_audit',

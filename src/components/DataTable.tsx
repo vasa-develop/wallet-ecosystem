@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import { Key } from 'react';
 
 export default function DataTable({
   caption,
@@ -20,18 +21,20 @@ export default function DataTable({
   return (
     <Table>
       {caption && <TableCaption>{caption}</TableCaption>}
-      <TableHeader>
-        <TableRow>
-          {columns.map((column, index) => (
-            <TableHead key={index}>{column}</TableHead>
-          ))}
-        </TableRow>
-      </TableHeader>
+      {columns?.length > 0 && (
+        <TableHeader>
+          <TableRow>
+            {columns.map((column, index) => (
+              <TableHead key={index}>{column}</TableHead>
+            ))}
+          </TableRow>
+        </TableHeader>
+      )}
       <TableBody>
         {data.map((row, rowIndex) => (
           <TableRow key={rowIndex}>
-            {columns.map((_, columnIndex) => (
-              <TableCell key={columnIndex}>{row[columnIndex]}</TableCell>
+            {row.map((cell: string, rowIndex: Key) => (
+              <TableCell key={rowIndex}>{cell}</TableCell>
             ))}
           </TableRow>
         ))}

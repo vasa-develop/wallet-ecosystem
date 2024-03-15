@@ -18,6 +18,7 @@ import React, { Fragment } from 'react';
 import wallets from '@/data/wallets';
 import StatCard from '@/components/StatCard';
 import { ArrowTopRightOnSquareIcon } from '@/components/icons/ArrowTopRightOnSquareIcon';
+import EipSupportTable from '@/components/EipSupportTable';
 
 export default function Page({ params }: { params: { name: string } }) {
   const walletData = wallets[params.name];
@@ -28,18 +29,18 @@ export default function Page({ params }: { params: { name: string } }) {
         <div className="w-64 flex-shrink-0 p-2 sticky">
           <div className="sticky text-sm font-medium top-4">
             {walletData.sections.map((section, index) => (
-              <div
-                className="relative hover:after:h-full after:content-[''] after:absolute after:h-0 hover:after:top-0 after:w-1 after:left-0 after:bg-white after:transition-all after:duration-200 after:ease-in-out after:top-[50%] group py-2 px-3 rounded-md mb-3 opacity-60 hover:opacity-100 transition-opacity cursor-pointer "
-                key={index}
+              <Link
+                href={`#${section.section_name
+                  .toLocaleLowerCase()
+                  .replace(' ', '_')}`}
               >
-                <Link
-                  href={`#${section.section_name
-                    .toLocaleLowerCase()
-                    .replace(' ', '_')}`}
+                <div
+                  className="relative hover:after:h-full after:content-[''] after:absolute after:h-0 hover:after:top-0 after:w-1 after:left-0 after:bg-white after:transition-all after:duration-200 after:ease-in-out after:top-[50%] group py-2 px-3 rounded-md mb-3 opacity-60 hover:opacity-100 transition-opacity cursor-pointer "
+                  key={index}
                 >
                   {section.section_name}
-                </Link>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -110,6 +111,8 @@ export default function Page({ params }: { params: { name: string } }) {
                               data={sub_section.data}
                             />
                           );
+                        case WalletSubSectionTypes.EIP_SUPPORT_TABLE:
+                          return <EipSupportTable data={sub_section.data} />;
                         case WalletSubSectionTypes.GITHUB_CONTRIBUTOR_COUNT:
                           return (
                             <GithubContributorCount repo={sub_section.repo} />
@@ -127,11 +130,14 @@ export default function Page({ params }: { params: { name: string } }) {
                           return <p>Unknown type</p>;
                       }
                     };
-
+                    const SectionIcon = sub_section.section_icon;
                     return (
                       <Fragment key={index}>
                         {sub_section.sub_section_name && (
-                          <h2 className="text-lg text-gray-300 mt-2 font-medium">
+                          <h2 className="text-lg text-gray-300 mt-2 font-medium flex items-center gap-2">
+                            {SectionIcon && (
+                              <SectionIcon width={20} height={20} />
+                            )}
                             {sub_section.link ? (
                               <Link
                                 href={sub_section.link}

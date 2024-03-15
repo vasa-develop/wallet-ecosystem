@@ -1,4 +1,5 @@
 import { WalletData, WalletSubSectionTypes } from '@/app/types';
+import GithubIcon from '@/components/icons/GithubIcon';
 import { BASE_URL } from '@/constants';
 
 export const wallet_data: WalletData = {
@@ -87,6 +88,7 @@ export const wallet_data: WalletData = {
         {
           id: 1,
           sub_section_name: 'Metamask Extension',
+          section_icon: GithubIcon,
           type: WalletSubSectionTypes.GITHUB_HEATMAP,
           link: 'https://github.com/MetaMask/metamask-extension',
           repo: 'MetaMask/metamask-extension',
@@ -95,6 +97,7 @@ export const wallet_data: WalletData = {
         {
           id: 2,
           sub_section_name: 'Metamask Mobile',
+          section_icon: GithubIcon,
           type: WalletSubSectionTypes.GITHUB_HEATMAP,
           link: 'https://github.com/MetaMask/metamask-mobile',
           repo: 'MetaMask/metamask-mobile',
@@ -103,6 +106,7 @@ export const wallet_data: WalletData = {
         {
           id: 3,
           sub_section_name: 'Metamask Snaps',
+          section_icon: GithubIcon,
           type: WalletSubSectionTypes.GITHUB_HEATMAP,
           link: 'https://github.com/MetaMask/snaps',
           repo: 'MetaMask/snaps',
@@ -262,223 +266,241 @@ export const wallet_data: WalletData = {
       section_name: 'Supported Standards',
       sub_sections: [
         {
-          id: 0,
-          sub_section_name: 'Table Legend',
-          type: WalletSubSectionTypes.EXPLAINER,
-          content: [
-            {
-              id: 0,
-              type: 'html',
-              html: '<p>✅: Supported</p><p>❎: Not needed</p><p>⌛: WIP</p><p>❌: Not supported</p><p>❓: Not clear</p><p>🛑: EIP not ready</p>',
-            },
-          ],
-        },
-        {
           id: 1,
           sub_section_name: 'EIP Support Status',
-          type: WalletSubSectionTypes.DATA_TABLE,
+          type: WalletSubSectionTypes.EIP_SUPPORT_TABLE,
           columns: [
-            'EIP name',
-            'EIP type',
-            'EIP status',
-            'Wallet Support status',
+            {
+              title: 'EIP name',
+              dataIndex: 'eipName',
+            },
+            {
+              title: 'EIP type',
+              dataIndex: 'eipType',
+            },
+            {
+              title: 'EIP status',
+              dataIndex: 'eipStatus',
+            },
+            {
+              title: 'Wallet Support status',
+              dataIndex: 'status',
+              align: 'center',
+            },
           ],
           data: [
-            [
-              'EIP-3091: Block Explorer API Routes',
-              'Standards Track: Interface',
-              'Draft',
-              '❓',
-            ],
-            [
-              'ERC-4337: Account Abstraction Using Alt Mempool',
-              'Standards Track: ERC',
-              'Draft',
-              '❎',
-            ],
-            [
-              'ERC-6900: Modular Smart Contract Accounts and Plugins',
-              'Standards Track: ERC',
-              'Draft',
-              '❓',
-            ],
-            [
-              'EIP-7039: Scheme-Handler Discovery Option for Wallets',
-              'Standards Track: Interface',
-              'Draft',
-              '❓',
-            ],
-            [
-              'EIP-7377: Migration Transaction',
-              'Standards Track: Core',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'ERC-7484: Registry Extension for ERC-7579',
-              'Standards Track: ERC',
-              'Draft',
-              '❓',
-            ],
-            [
-              'ERC-7529: Contract Discovery and eTLD+1 Association',
-              'Standards Track: ERC',
-              'Draft',
-              '❓',
-            ],
-            [
-              'ERC-7579: Minimal Modular Smart Accounts',
-              'Standards Track: ERC',
-              'Draft',
-              '❓',
-            ],
-            [
-              'EIP-3085: wallet_addEthereumChain RPC Method',
-              'Standards Track: Interface',
-              'Review',
-              '✅',
-            ],
-            [
-              'EIP-4844: Shard Blob Transactions',
-              'Standards Track: Core',
-              'Review',
-              '✅',
-            ],
-            [
-              'ERC-5568: Well-Known Format for Required Actions',
-              'Standards Track: ERC',
-              'Review',
-              '❓',
-            ],
-            [
-              'ERC-831: URI Format for Ethereum',
-              'Standards Track: ERC',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'EIP-1102: Opt-in account exposure',
-              'Standards Track: Interface',
-              'Stagnant',
-              '✅',
-            ],
-            [
-              'EIP-1474: Remote procedure call specification',
-              'Standards Track: Interface',
-              'Stagnant',
-              '✅',
-            ],
-            [
-              'EIP-2015: wallet_updateEthereumChain RPC Method',
-              'Standards Track: Interface',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'ERC-3224: Described Data',
-              'Standards Track: ERC',
-              'Stagnant',
-              '🛑',
-            ],
-            [
-              'EIP-3326: Wallet Switch Ethereum Chain RPC Method (wallet_switchEthereumChain)',
-              'Standards Track: Interface',
-              'Stagnant',
-              '✅',
-            ],
-            [
-              'ERC-4430: Described Transactions',
-              'Standards Track: ERC',
-              'Stagnant',
-              '🛑',
-            ],
-            [
-              'EIP-5003: Insert Code into EOAs with AUTHUSURP',
-              'Standards Track: Core',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'ERC-5139: Remote Procedure Call Provider Lists',
-              'Standards Track: ERC',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'EIP-5792: Wallet Function Call API',
-              'Standards Track: Interface',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'ERC-6384: Human-readable offline signatures',
-              'Standards Track: ERC',
-              'Stagnant',
-              '❓',
-            ],
-            [
-              'ERC-681: URL Format for Transaction Requests',
-              'Standards Track: ERC',
-              'Final',
-              '✅',
-            ],
-            [
-              'EIP-712: Typed structured data hashing and signing',
-              'Standards Track: Interface',
-              'Final',
-              '✅',
-            ],
-            [
-              'EIP-747: wallet_watchAsset RPC Method',
-              'Standards Track: Interface',
-              'Final',
-              '✅',
-            ],
-            [
-              'EIP-1193: Ethereum Provider JavaScript API',
-              'Standards Track: Interface',
-              'Final',
-              '✅',
-            ],
-            [
-              'ERC-1271: Standard Signature Validation Method for Contracts',
-              'Standards Track: ERC',
-              'Final',
-              '❎',
-            ],
-            [
-              'EIP-1559: Fee market change for ETH 1.0 chain',
-              'Standards Track: Core',
-              'Final',
-              '✅',
-            ],
-            [
-              'EIP-2255: Wallet Permissions System',
-              'Standards Track: Interface',
-              'Final',
-              '✅',
-            ],
-            [
-              'EIP-2930: Optional access lists',
-              'Standards Track: Core',
-              'Final',
-              '✅',
-            ],
-            [
-              'EIP-6492: Signature Validation for Predeploy Contracts',
-              'Standards Track: ERC',
-              'Final',
-              '❓',
-            ],
-            [
-              'EIP-6963: Multi Injected Provider Discovery',
-              'Standards Track: Interface',
-              'Final',
-              '✅',
-            ],
-            ['ERC-945: wallet_scanQRCode RPC Method', '', '', '✅'],
-            ['RIP-7560: Native Account Abstraction', '', '', '❓'],
-            ['ERC-7555: Single Sign-On for Account Discovery', '', '', '❓'],
+            {
+              eipName: 'EIP-3091: Block Explorer API Routes',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Draft',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-4337: Account Abstraction Using Alt Mempool',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Draft',
+              supportStatus: '❎',
+            },
+            {
+              eipName: 'ERC-6900: Modular Smart Contract Accounts and Plugins',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Draft',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'EIP-7039: Scheme-Handler Discovery Option for Wallets',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Draft',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'EIP-7377: Migration Transaction',
+              eipType: 'Standards Track: Core',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-7484: Registry Extension for ERC-7579',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Draft',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-7529: Contract Discovery and eTLD+1 Association',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Draft',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-7579: Minimal Modular Smart Accounts',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Draft',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'EIP-3085: wallet_addEthereumChain RPC Method',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Review',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-4844: Shard Blob Transactions',
+              eipType: 'Standards Track: Core',
+              eipStatus: 'Review',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'ERC-5568: Well-Known Format for Required Actions',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Review',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-831: URI Format for Ethereum',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'EIP-1102: Opt-in account exposure',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Stagnant',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-1474: Remote procedure call specification',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Stagnant',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-2015: wallet_updateEthereumChain RPC Method',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-3224: Described Data',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Stagnant',
+              supportStatus: '🛑',
+            },
+            {
+              eipName:
+                'EIP-3326: Wallet Switch Ethereum Chain RPC Method (wallet_switchEthereumChain)',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Stagnant',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'ERC-4430: Described Transactions',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Stagnant',
+              supportStatus: '🛑',
+            },
+            {
+              eipName: 'EIP-5003: Insert Code into EOAs with AUTHUSURP',
+              eipType: 'Standards Track: Core',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-5139: Remote Procedure Call Provider Lists',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'EIP-5792: Wallet Function Call API',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-6384: Human-readable offline signatures',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Stagnant',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-681: URL Format for Transaction Requests',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-712: Typed structured data hashing and signing',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-747: wallet_watchAsset RPC Method',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-1193: Ethereum Provider JavaScript API',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName:
+                'ERC-1271: Standard Signature Validation Method for Contracts',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Final',
+              supportStatus: '❎',
+            },
+            {
+              eipName: 'EIP-1559: Fee market change for ETH 1.0 chain',
+              eipType: 'Standards Track: Core',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-2255: Wallet Permissions System',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-2930: Optional access lists',
+              eipType: 'Standards Track: Core',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'EIP-6492: Signature Validation for Predeploy Contracts',
+              eipType: 'Standards Track: ERC',
+              eipStatus: 'Final',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'EIP-6963: Multi Injected Provider Discovery',
+              eipType: 'Standards Track: Interface',
+              eipStatus: 'Final',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'ERC-945: wallet_scanQRCode RPC Method',
+              eipType: '',
+              eipStatus: '',
+              supportStatus: '✅',
+            },
+            {
+              eipName: 'RIP-7560: Native Account Abstraction',
+              eipType: '',
+              eipStatus: '',
+              supportStatus: '❓',
+            },
+            {
+              eipName: 'ERC-7555: Single Sign-On for Account Discovery',
+              eipType: '',
+              eipStatus: '',
+              supportStatus: '❓',
+            },
           ],
         },
       ],
@@ -588,7 +610,7 @@ export const wallet_data: WalletData = {
           sub_section_name:
             "Legal Compliance refers to the wallet's adherence to relevant laws, regulations, and guidelines in the jurisdictions in which it operates. This includes regulations regarding user data privacy, anti-money laundering (AML), Know Your Customer (KYC) processes, and more. Compliance ensures that the wallet operates in a legal and ethical manner, providing users with a secure and trustworthy platform for managing their digital assets.",
           type: WalletSubSectionTypes.DATA_TABLE,
-          columns: ['', '', ''],
+
           data: [
             [
               'Where is the company registered?',
