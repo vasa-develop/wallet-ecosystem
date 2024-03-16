@@ -33,10 +33,11 @@ export default function Page({ params }: { params: { name: string } }) {
                 href={`#${section.section_name
                   .toLocaleLowerCase()
                   .replace(' ', '_')}`}
+                key={index} // Add key prop
               >
                 <div
                   className="relative hover:after:h-full after:content-[''] after:absolute after:h-0 hover:after:top-0 after:w-1 after:left-0 after:bg-white after:transition-all after:duration-200 after:ease-in-out after:top-[50%] group py-2 px-3 rounded-md mb-3 opacity-60 hover:opacity-100 transition-opacity cursor-pointer "
-                  key={index}
+                  key={index} // Add key prop
                 >
                   {section.section_name}
                 </div>
@@ -46,7 +47,7 @@ export default function Page({ params }: { params: { name: string } }) {
         </div>
         <div className="flex-1 gap-8 flex flex-col p-2">
           {walletData.sections.map((section, index) => (
-            <div>
+            <div key={index}>
               <div
                 id={`${section.section_name
                   .toLocaleLowerCase()
@@ -78,7 +79,7 @@ export default function Page({ params }: { params: { name: string } }) {
                             (url: string, index: number) => {
                               return (
                                 <DuneChart
-                                  key={index}
+                                  key={index} // Add key prop
                                   src={url}
                                   width={sub_section.width}
                                   height={sub_section.height}
@@ -88,7 +89,7 @@ export default function Page({ params }: { params: { name: string } }) {
                           );
                         case WalletSubSectionTypes.STAT_CARDS:
                           return (
-                            <div className="grid grid-cols-4 gap-2">
+                            <div className="grid grid-cols-4 gap-2" key={index}>
                               {sub_section.data.map(
                                 (
                                   stat: {
@@ -98,7 +99,7 @@ export default function Page({ params }: { params: { name: string } }) {
                                   },
                                   index: number
                                 ) => (
-                                  <StatCard key={index} {...stat} />
+                                  <StatCard key={index} {...stat} /> // Add key prop
                                 )
                               )}
                             </div>
@@ -109,25 +110,40 @@ export default function Page({ params }: { params: { name: string } }) {
                               caption={sub_section.caption}
                               columns={sub_section.columns}
                               data={sub_section.data}
+                              key={index} // Add key prop
                             />
                           );
                         case WalletSubSectionTypes.EIP_SUPPORT_TABLE:
-                          return <EipSupportTable data={sub_section.data} />;
+                          return (
+                            <EipSupportTable
+                              data={sub_section.data}
+                              key={index}
+                            />
+                          ); // Add key prop
                         case WalletSubSectionTypes.GITHUB_CONTRIBUTOR_COUNT:
                           return (
-                            <GithubContributorCount repo={sub_section.repo} />
+                            <GithubContributorCount
+                              repo={sub_section.repo}
+                              key={index}
+                            /> // Add key prop
                           );
                         case WalletSubSectionTypes.EXPLAINER:
-                          return <Explainer content={sub_section.content} />;
+                          return (
+                            <Explainer
+                              content={sub_section.content}
+                              key={index}
+                            />
+                          ); // Add key prop
                         case WalletSubSectionTypes.SECURITY_AUDIT:
                           return (
                             <SecurityAudits
                               audits={sub_section.audits}
                               bug_bounties={sub_section.bug_bounties}
+                              key={index} // Add key prop
                             />
                           );
                         default:
-                          return <p>Unknown type</p>;
+                          return <p key={index}>Unknown type</p>; // Add key prop
                       }
                     };
                     const SectionIcon = sub_section.section_icon;
