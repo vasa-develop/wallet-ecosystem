@@ -1,41 +1,14 @@
-enum SECTIONS {
-  STATS = 'Stats',
-  ACTIVITY = 'Activity',
-  SECURITY_ANALYSIS = 'Security Analysis',
-  FEATURES = 'Features',
-  SUPPORTED_STANDARD = 'Supported Standards',
-  INCENTIVES = 'Incentives',
-  SUPPORTED_CHAIN = 'Chain Supported',
-  SECURITY_AUDIT = 'Security Audits',
-  INCIDENTS = 'Past Incidents',
-  LEGAL_COMPLIANCE = 'Legal Compliance',
-  LICENSE = 'License',
-}
+import { Wallet } from '@/types/wallet';
+import {
+  FEATURE_TYPE,
+  SECTIONS,
+  SECURITY_AUDIT_TYPE,
+  STAT_SECTIONS,
+  SUPPORTED_STANDARD_TYPE,
+  WALLET_PLATFORM,
+} from '@/types/enum';
 
-enum STAT_SECTIONS {
-  DOWNLOADS = 'Downloads',
-  DUNE_CHART = 'Dune Chart',
-}
-enum FEATURE_TYPE {
-  IN_APP = 'In App',
-  SECURITY = 'Security',
-}
-enum WALLET_PLATFORM {
-  CHROME = 'Chrome',
-  FIREFOX = 'Firefox',
-  OPERA = 'Opera',
-  EDGE = 'Edge',
-  ANDROID = 'Android',
-  IOS = 'IOS',
-}
-enum SUPPORTED_STANDARD_TYPE {
-  EIP_SUPPORT_STATUS = 'EIP Support Status',
-}
-enum SECURITY_AUDIT_TYPE {
-  AUDIT = 'Audits',
-  BUG_BOUNTY = 'Bug Bounty',
-}
-export const metamask = {
+export const metamask: Wallet = {
   [SECTIONS.STATS]: {
     [STAT_SECTIONS.DOWNLOADS]: {
       [WALLET_PLATFORM.CHROME]: '10,000,000+',
