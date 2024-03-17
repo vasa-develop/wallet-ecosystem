@@ -153,10 +153,7 @@ export const metamask: Wallet = {
       [ENSSupportType.L2]: true,
       [ENSSupportType.CUSTOM]: false,
     },
-    [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: Array<{
-      name: string;
-      imgUrl: string;
-    }>,
+    [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [],
   },
   [SECTIONS.SUPPORTED_STANDARD]: {
     [SUPPORTED_STANDARD_TYPE.SUPPORTED_EIP]: [

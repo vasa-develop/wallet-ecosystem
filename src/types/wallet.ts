@@ -44,6 +44,10 @@ type Features = {
     remark?: string;
   }>;
   [FEATURE_TYPE.ENS_SUPPORT]: { [key in ENSSupportType]: boolean };
+  [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: Array<{
+    name: string;
+    imgUrl: string;
+  }>;
 };
 
 type EIPSupportStatus = Array<{
