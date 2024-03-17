@@ -1,4 +1,6 @@
 import {
+  EIP_SUPPORT_STATUS,
+  ENSSupportType,
   FEATURE_TYPE,
   SECTIONS,
   SECURITY_AUDIT_TYPE,
@@ -41,17 +43,18 @@ type Features = {
     isSupported: Boolean;
     remark?: string;
   }>;
+  [FEATURE_TYPE.ENS_SUPPORT]: { [key in ENSSupportType]: boolean };
 };
 
 type EIPSupportStatus = Array<{
   eipName: string;
   eipType: string;
   eipStatus: string;
-  supportStatus: string;
+  supportStatus: EIP_SUPPORT_STATUS;
 }>;
 
 type SupportedStandard = {
-  [SUPPORTED_STANDARD_TYPE.EIP_SUPPORT_STATUS]: EIPSupportStatus;
+  [SUPPORTED_STANDARD_TYPE.SUPPORTED_EIP]: EIPSupportStatus;
 };
 
 type Incentives = {};
