@@ -56,12 +56,94 @@ export const metamask: Wallet = {
   ],
   [SECTIONS.SECURITY_ANALYSIS]: {},
   [SECTIONS.FEATURES]: {
-    [FEATURE_TYPE.IN_APP]: {
-      // toDO
-    },
-    [FEATURE_TYPE.SECURITY]: {
-      // toDO
-    },
+    [FEATURE_TYPE.IN_APP]: [
+      {
+        feature: 'KYC required?',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Support social login?',
+        description: '',
+        isSupported: false,
+        remark: 'Could be supported in future using snaps',
+      },
+      {
+        feature: 'Portfolio tracking',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'On-ramp support',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Off-ramp support',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Watching wallets',
+        description: '',
+        isSupported: false,
+      },
+      {
+        feature: 'Ability to point to custom rpc',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Swap support',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Bridge support',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Stake support',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'View NFTs',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'Dapp browser',
+        description: '',
+        isSupported: true,
+        remark: 'In Mobile',
+      },
+      {
+        feature: 'gas fees customization',
+        description: '',
+        isSupported: true,
+      },
+      {
+        feature: 'token importing',
+        description: '',
+        isSupported: true,
+      },
+    ],
+    [FEATURE_TYPE.SECURITY]: [
+      {
+        feature: 'Screenshot possibility while doing backup',
+        description: '',
+        isSupported: false,
+        remark: 'Cannot take screenshot on mobile (but possible on browser)',
+      },
+      {
+        feature: 'Transaction Simulation',
+        description: '',
+        isSupported: true,
+        remark: 'Using snaps like tenderly tx preview',
+      },
+    ],
   },
   [SECTIONS.SUPPORTED_STANDARD]: {
     [SUPPORTED_STANDARD_TYPE.EIP_SUPPORT_STATUS]: [

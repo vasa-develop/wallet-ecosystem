@@ -29,8 +29,18 @@ type Activity = Array<{
 type SecurityAnalysis = {};
 
 type Features = {
-  [FEATURE_TYPE.IN_APP]: {};
-  [FEATURE_TYPE.SECURITY]: {};
+  [FEATURE_TYPE.IN_APP]: Array<{
+    feature: string;
+    description: string;
+    isSupported: Boolean;
+    remark?: string;
+  }>;
+  [FEATURE_TYPE.SECURITY]: Array<{
+    feature: string;
+    description: string;
+    isSupported: Boolean;
+    remark?: string;
+  }>;
 };
 
 type EIPSupportStatus = Array<{
