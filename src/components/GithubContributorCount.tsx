@@ -28,7 +28,7 @@ export default async function GithubContributorCount({
 }) {
   const contributorsCount = await getCountributorsCount(repo);
   return (
-    <p className="text-sm text-gray-400">
+    <p className="text-sm my-2 text-gray-400">
       {contributorsCount} contributors in the last year
     </p>
   );

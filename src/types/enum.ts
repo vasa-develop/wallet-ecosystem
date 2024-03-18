@@ -1,3 +1,10 @@
+declare global {
+  interface ObjectConstructor {
+    typedKeys<T>(obj: T): Array<keyof T>;
+  }
+}
+Object.typedKeys = Object.keys as any;
+
 export enum SECTIONS {
   STATS = 'Stats',
   ACTIVITY = 'Activity',
@@ -6,7 +13,7 @@ export enum SECTIONS {
   SUPPORTED_STANDARD = 'Supported Standards',
   INCENTIVES = 'Incentives',
   SUPPORTED_CHAIN = 'Chain Supported',
-  SECURITY_AUDIT = 'Security Audits',
+  SECURITY = 'Security',
   INCIDENTS = 'Past Incidents',
   LEGAL_COMPLIANCE = 'Legal Compliance',
   LICENSE = 'License',
@@ -30,6 +37,14 @@ export enum WALLET_PLATFORM {
   ANDROID = 'Android',
   IOS = 'IOS',
 }
+export const PLATFORM_IMAGES: { [ket in WALLET_PLATFORM]: string } = {
+  Chrome: '/chrome.png',
+  Firefox: '/firefox.png',
+  Opera: '/opera.png',
+  Edge: '/edge.png',
+  Android: '/play-store.png',
+  IOS: '/app-store.png',
+};
 export enum SUPPORTED_STANDARD_TYPE {
   SUPPORTED_EIP = 'EIP Support Status',
 }

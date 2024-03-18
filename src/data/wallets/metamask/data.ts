@@ -10,7 +10,7 @@ import {
   WALLET_PLATFORM,
 } from '@/types/enum';
 
-export const metamask: Wallet = {
+const metamask: Wallet = {
   [SECTIONS.STATS]: {
     [STAT_SECTIONS.DOWNLOADS]: {
       [WALLET_PLATFORM.CHROME]: '10,000,000+',
@@ -153,7 +153,43 @@ export const metamask: Wallet = {
       [ENSSupportType.L2]: true,
       [ENSSupportType.CUSTOM]: false,
     },
-    [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [],
+    [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [
+      {
+        name: 'Ledger',
+        imgUrl:
+          'https://developers.ledger.com/connectivity/ledger-horizontal.png',
+      },
+      {
+        name: 'Trezor',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+      },
+      {
+        name: 'Lattice',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+      },
+      {
+        name: 'Keystone',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+      },
+      {
+        name: 'AirGap Vault',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+      },
+      {
+        name: 'CoolWallet',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+      },
+      {
+        name: "D'Cent ",
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+      },
+    ],
   },
   [SECTIONS.SUPPORTED_STANDARD]: {
     [SUPPORTED_STANDARD_TYPE.SUPPORTED_EIP]: [
@@ -372,7 +408,7 @@ export const metamask: Wallet = {
   },
   [SECTIONS.INCENTIVES]: {},
   [SECTIONS.SUPPORTED_CHAIN]: {},
-  [SECTIONS.SECURITY_AUDIT]: {
+  [SECTIONS.SECURITY]: {
     [SECURITY_AUDIT_TYPE.AUDIT]: [
       {
         auditor: 'Least Authority TFA GmbH',
@@ -442,3 +478,4 @@ export const metamask: Wallet = {
     },
   ],
 };
+export default metamask;

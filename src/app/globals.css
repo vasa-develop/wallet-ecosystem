@@ -76,5 +76,5 @@
 }
 
 a {
-  @apply hover:text-white;
+  @apply hover:underline;
 }
