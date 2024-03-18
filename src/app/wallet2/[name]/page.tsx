@@ -86,7 +86,10 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
         <div className="grid grid-cols-4 gap-2">
           {Object.typedKeys(stats.Downloads).map((platform, index) => {
             return (
-              <div className="flex hover:shadow-xl transition-shadow border rounded px-3 py-2 gap-3 border-gray-700 items-center">
+              <div
+                key={index}
+                className="flex hover:shadow-xl transition-shadow border rounded px-3 py-2 gap-3 border-gray-700 items-center"
+              >
                 <Image
                   src={PLATFORM_IMAGES[platform]}
                   width={30}
@@ -115,8 +118,9 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
                     'grid grid-cols-2 gap-2': data.duneEmbeds.length > 1,
                   })}
                 >
-                  {data.duneEmbeds.map((link) => (
+                  {data.duneEmbeds.map((link, index) => (
                     <iframe
+                      key={index}
                       className={'invert mt-1 w-full'}
                       src={link}
                       height={400}
@@ -167,6 +171,7 @@ function WalletLicense({ data }: { data: Wallet[SECTIONS.LICENSE] }) {
         {data.map((data, index) => {
           return (
             <Link
+              key={index}
               href={data.link}
               target="_blank"
               className="flex items-center gap-2"
@@ -190,8 +195,8 @@ function WalletLegalComplieance({
       <CardContent className="p-4">
         <div className=" shadow rounded-lg">
           <p className=" text-sm leading-5 text-gray-400 mb-4">
-            Legal Compliance refers to the wallet's adherence to relevant laws,
-            regulations, and guidelines in the jurisdictions in which it
+            Legal Compliance refers to the wallet&apos;s adherence to relevant
+            laws, regulations, and guidelines in the jurisdictions in which it
             operates. This includes regulations regarding user data privacy,
             anti-money laundering (AML), Know Your Customer (KYC) processes, and
             more. Compliance ensures that the wallet operates in a legal and
@@ -201,7 +206,10 @@ function WalletLegalComplieance({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.map((licence, index) => {
               return (
-                <div className="border  border-gray-600 p-4 rounded-lg">
+                <div
+                  key={index}
+                  className="border  border-gray-600 p-4 rounded-lg"
+                >
                   <h4 className="opacity-70 font-semibold mb-2">
                     {licence[0]}
                   </h4>
