@@ -45,12 +45,15 @@ export default function RootLayout({
                 </NavigationMenuLink>
                 <NavigationMenuLink>Documentation</NavigationMenuLink>
                 <NavigationMenuLink>Documentation</NavigationMenuLink>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <NavigationMenuLink>Link</NavigationMenuLink>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                <NavigationMenuLink>
+                  <Link
+                    href={
+                      'https://wallet-ecosystem.notion.site/Wallet-Ecosystem-Standards-Tracker-9151e788ab7243f7a53a70c6e9834b0c'
+                    }
+                  >
+                    Standards Tracker
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuList>
             </NavigationMenu>
           </div>
