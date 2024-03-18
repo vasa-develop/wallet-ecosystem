@@ -1,7 +1,7 @@
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
 import WalletSideNav from '@/components/WalletSideNav';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
   TableBody,
@@ -11,7 +11,12 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { wallets2 } from '@/data/wallets';
-import { PLATFORM_IMAGES, SECTIONS, STAT_SECTIONS } from '@/types/enum';
+import {
+  PLATFORM_IMAGES,
+  SECTIONS,
+  SECURITY_AUDIT_TYPE,
+  STAT_SECTIONS,
+} from '@/types/enum';
 import { Wallet } from '@/types/wallet';
 import { clsx } from 'clsx';
 import { ExternalLinkIcon } from 'lucide-react';
@@ -200,48 +205,109 @@ function WalletLegalComplieance({
 
 function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
   return (
-    <Card>
-      <CardContent className="p-4">
-        {data.Audits && (
-          <>
-            <p className=" text-sm leading-5 text-gray-400 mb-4">
-              Audits in Web3 refer to the process of conducting comprehensive
-              security assessments and evaluations of blockchain-based projects,
-              smart contracts, decentralized applications (dApps), and other
-              Web3 protocols. The purpose of these audits is to identify
-              vulnerabilities, potential risks, and weaknesses in the code and
-              system architecture to enhance security, reliability, and
-              trustworthiness.
-            </p>
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>Auditor</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Audited Version</TableHead>
-                  <TableHead>Current Version</TableHead>
-                  <TableHead>Audit Relevance</TableHead>
-                  <TableHead>Audit Report</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {data.Audits.map((audit, rowIndex) => {
-                  return (
-                    <TableRow key={rowIndex}>
-                      <TableCell>{audit.auditor}</TableCell>
-                      <TableCell>{audit.date}</TableCell>
-                      <TableCell>{audit.auditedVersion}</TableCell>
-                      <TableCell>{audit.currentVersion}</TableCell>
-                      <TableCell>{audit.relevance}</TableCell>
-                      <TableCell>{audit.report}</TableCell>
-                    </TableRow>
-                  );
-                })}
-              </TableBody>
-            </Table>
-          </>
-        )}
-      </CardContent>
-    </Card>
+    <div className="flex flex-col gap-2">
+      {data.Audits && (
+        <Card>
+          <CardContent className="p-4 pt-0">
+            <h4 className="font-semibold text-xl py-4">Audit</h4>
+
+            <>
+              <p className=" text-sm leading-5 text-gray-400 mb-4">
+                Audits in Web3 refer to the process of conducting comprehensive
+                security assessments and evaluations of blockchain-based
+                projects, smart contracts, decentralized applications (dApps),
+                and other Web3 protocols. The purpose of these audits is to
+                identify vulnerabilities, potential risks, and weaknesses in the
+                code and system architecture to enhance security, reliability,
+                and trustworthiness.
+              </p>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Auditor</TableHead>
+                    <TableHead>Date</TableHead>
+                    <TableHead>Audited Version</TableHead>
+                    <TableHead>Current Version</TableHead>
+                    <TableHead>Audit Relevance</TableHead>
+                    <TableHead>Audit Report</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {data.Audits.map((audit, rowIndex) => {
+                    return (
+                      <TableRow key={rowIndex}>
+                        <TableCell>{audit.auditor}</TableCell>
+                        <TableCell>{audit.date}</TableCell>
+                        <TableCell>{audit.auditedVersion}</TableCell>
+                        <TableCell>{audit.currentVersion}</TableCell>
+                        <TableCell>{audit.relevance}</TableCell>
+                        <TableCell>
+                          <Link
+                            href={audit.report}
+                            target="_blank"
+                            className="flex-inline "
+                          >
+                            {audit.report}{' '}
+                            <ExternalLinkIcon className="inline" size={18} />
+                          </Link>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </>
+          </CardContent>
+        </Card>
+      )}
+      {data['Bug Bounty'] && (
+        <Card>
+          <CardContent className="p-4 pt-0">
+            <h4 className="font-semibold text-xl py-4">Audit</h4>
+
+            <>
+              <p className=" text-sm leading-5 text-gray-400 mb-4">
+                A bug bounty program in Web3 is an initiative offered by
+                blockchain projects, cryptocurrency platforms, or decentralized
+                applications (dApps) to incentivize security researchers and
+                ethical hackers to discover and report vulnerabilities or bugs
+                in their systems. It is a crowdsourced approach to security
+                testing where individuals or teams are rewarded for responsibly
+                disclosing vulnerabilities they find.
+              </p>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Platform</TableHead>
+                    <TableHead>Reward</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead>Scope</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {data[SECURITY_AUDIT_TYPE.BUG_BOUNTY].map(
+                    (bugBounty, rowIndex) => {
+                      return (
+                        <TableRow key={rowIndex}>
+                          <TableCell>{bugBounty.platform}</TableCell>
+                          <TableCell>{bugBounty.reward}</TableCell>
+                          <TableCell>{bugBounty.status}</TableCell>
+                          <TableCell>
+                            <Link href={bugBounty.scope} target="_blank">
+                              {bugBounty.scope}{' '}
+                              <ExternalLinkIcon className="inline" size={20} />
+                            </Link>
+                          </TableCell>
+                        </TableRow>
+                      );
+                    }
+                  )}
+                </TableBody>
+              </Table>
+            </>
+          </CardContent>
+        </Card>
+      )}
+    </div>
   );
 }
