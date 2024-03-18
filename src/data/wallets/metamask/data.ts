@@ -10,7 +10,7 @@ import {
   WALLET_PLATFORM,
 } from '@/types/enum';
 
-export const metamask: Wallet = {
+const metamask: Wallet = {
   [SECTIONS.STATS]: {
     [STAT_SECTIONS.DOWNLOADS]: {
       [WALLET_PLATFORM.CHROME]: '10,000,000+',
@@ -408,7 +408,7 @@ export const metamask: Wallet = {
   },
   [SECTIONS.INCENTIVES]: {},
   [SECTIONS.SUPPORTED_CHAIN]: {},
-  [SECTIONS.SECURITY_AUDIT]: {
+  [SECTIONS.SECURITY]: {
     [SECURITY_AUDIT_TYPE.AUDIT]: [
       {
         auditor: 'Least Authority TFA GmbH',
@@ -478,3 +478,4 @@ export const metamask: Wallet = {
     },
   ],
 };
+export default metamask;

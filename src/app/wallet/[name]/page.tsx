@@ -65,13 +65,7 @@ export default function Page({ params }: { params: { name: string } }) {
                           return (
                             <>
                               <GithubContributorCount repo={sub_section.repo} />
-                              <GithubHeatmap
-                                colour={sub_section.colour}
-                                squareNumber={sub_section.squareNumber}
-                                count={sub_section.count}
-                                squareGap={sub_section.squareGap}
-                                squareSize={sub_section.squareSize}
-                              />
+                              <GithubHeatmap />
                             </>
                           );
                         case WalletSubSectionTypes.DUNE_CHART:
