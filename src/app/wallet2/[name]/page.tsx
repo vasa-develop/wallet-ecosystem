@@ -1,6 +1,8 @@
+import EipSupportTable from '@/components/EipSupportTable';
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
 import WalletSideNav from '@/components/WalletSideNav';
+import WalletSupportedStatus from '@/components/WalletSupportedStatus';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
@@ -16,8 +18,15 @@ import {
   SECTIONS,
   SECURITY_AUDIT_TYPE,
   STAT_SECTIONS,
+  SUPPORTED_STANDARD_TYPE,
 } from '@/types/enum';
 import { Wallet } from '@/types/wallet';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@radix-ui/react-tooltip';
 import { clsx } from 'clsx';
 import { ExternalLinkIcon } from 'lucide-react';
 import Image from 'next/image';
@@ -51,6 +60,11 @@ export default function page({ params }: { params: { name: string } }) {
               break;
             case SECTIONS.SECURITY:
               SectionComponent = <WalletSecurity data={walletData[section]} />;
+              break;
+            case SECTIONS.SUPPORTED_STANDARD:
+              SectionComponent = (
+                <WalletSupportedStatus data={walletData[section]} />
+              );
               break;
           }
           return (
@@ -245,9 +259,9 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                           <Link
                             href={audit.report}
                             target="_blank"
-                            className="flex-inline "
+                            className="flex items-center gap-1"
                           >
-                            {audit.report}{' '}
+                            Link
                             <ExternalLinkIcon className="inline" size={18} />
                           </Link>
                         </TableCell>
@@ -293,8 +307,12 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                           <TableCell>{bugBounty.reward}</TableCell>
                           <TableCell>{bugBounty.status}</TableCell>
                           <TableCell>
-                            <Link href={bugBounty.scope} target="_blank">
-                              {bugBounty.scope}{' '}
+                            <Link
+                              href={bugBounty.scope}
+                              target="_blank"
+                              className="flex items-center gap-1"
+                            >
+                              Link
                               <ExternalLinkIcon className="inline" size={20} />
                             </Link>
                           </TableCell>
