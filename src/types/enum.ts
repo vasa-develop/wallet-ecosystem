@@ -69,6 +69,11 @@ export enum ENSSupportType {
   CUSTOM = 'custom',
 }
 
+export enum AUDIT_RELEVANCE {
+  UP_TO_DATE = 'Up to date',
+  OUTDATED = 'Outdated',
+}
+
 export const ENSSupportDescription: { [key in ENSSupportType]: string } = {
   [ENSSupportType.MAINNET]:
     'Whether a user is able to send transactions to a standard ENS (e.g. user.eth) on mainnet',

@@ -7,6 +7,7 @@ import {
   STAT_SECTIONS,
   SUPPORTED_STANDARD_TYPE,
   WALLET_PLATFORM,
+  AUDIT_RELEVANCE,
 } from './enum';
 
 type Downloads = {
@@ -70,7 +71,7 @@ type Audit = Array<{
   date: string;
   auditedVersion: string;
   currentVersion: string;
-  relevance: string;
+  relevance: AUDIT_RELEVANCE;
   report: string;
 }>;
 
