@@ -3,6 +3,8 @@ import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
 import WalletSideNav from '@/components/WalletSideNav';
 import WalletSupportedStatus from '@/components/WalletSupportedStatus';
+import { ArrowTopRightOnSquareIcon } from '@/components/icons/ArrowTopRightOnSquareIcon';
+import GithubIcon from '@/components/icons/GithubIcon';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -145,7 +147,17 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
       {activity.map((data, index) => {
         return (
           <>
-            <h3 className="text-lg mt-4 mb-1">{data.name}</h3>
+            <h3 className="text-lg flex items-center gap-2 mt-4 mb-1">
+              <GithubIcon width={20} height={20} />
+              <Link
+                href={`https://github.com/${data.repo}`}
+                target="_blank"
+                className="flex items-center gap-2"
+              >
+                {data.name}
+                <ArrowTopRightOnSquareIcon className="opacity-50" width={20} />
+              </Link>
+            </h3>
             <GithubContributorCount repo={data.repo} />
             <GithubHeatmap
             //   colour={sub_section.colour}
