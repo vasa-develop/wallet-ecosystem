@@ -3,6 +3,7 @@ import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
 import WalletSideNav from '@/components/WalletSideNav';
 import WalletSupportedStatus from '@/components/WalletSupportedStatus';
+import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
@@ -260,8 +261,28 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                       <TableRow key={rowIndex}>
                         <TableCell>{audit.auditor}</TableCell>
                         <TableCell>{audit.date}</TableCell>
-                        <TableCell>{audit.auditedVersion}</TableCell>
-                        <TableCell>{audit.currentVersion}</TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-2">
+                            {audit.auditedVersion.map((v) => (
+                              <Badge variant="outline">
+                                <Link href={v.link} target="_blank">
+                                  {v.name}
+                                </Link>
+                              </Badge>
+                            ))}
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex flex-wrap gap-2">
+                            {audit.currentVersion.map((v) => (
+                              <Badge variant="outline">
+                                <Link href={v.link} target="_blank">
+                                  {v.name}
+                                </Link>
+                              </Badge>
+                            ))}
+                          </div>
+                        </TableCell>
                         <TableCell>{audit.relevance}</TableCell>
                         <TableCell>
                           <Link

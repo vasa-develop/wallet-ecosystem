@@ -69,8 +69,14 @@ type SupportedChain = {};
 type Audit = Array<{
   auditor: string;
   date: string;
-  auditedVersion: string;
-  currentVersion: string;
+  auditedVersion: Array<{
+    name: string;
+    link: string;
+  }>;
+  currentVersion: Array<{
+    name: string;
+    link: string;
+  }>;
   relevance: AUDIT_RELEVANCE;
   report: string;
 }>;
