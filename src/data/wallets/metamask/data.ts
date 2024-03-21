@@ -428,7 +428,6 @@ const metamask: Wallet = {
     ],
   },
   [SECTIONS.INCENTIVES]: undefined,
-  [SECTIONS.SUPPORTED_CHAIN]: {},
   [SECTIONS.SECURITY]: {
     [SECURITY_AUDIT_TYPE.AUDIT]: [
       {

@@ -111,7 +111,6 @@ export type Wallet = {
   [SECTIONS.FEATURES]: Features;
   [SECTIONS.SUPPORTED_STANDARD]: SupportedStandard;
   [SECTIONS.INCENTIVES]: Incentives;
-  [SECTIONS.SUPPORTED_CHAIN]: SupportedChain;
   [SECTIONS.SECURITY]: SecurityAudit;
   [SECTIONS.INCIDENTS]: Incidents;
   [SECTIONS.LEGAL_COMPLIANCE]: LegalCompliance;

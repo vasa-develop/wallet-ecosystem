@@ -12,7 +12,6 @@ export enum SECTIONS {
   FEATURES = 'Features',
   SUPPORTED_STANDARD = 'Supported Standards',
   INCENTIVES = 'Incentives',
-  SUPPORTED_CHAIN = 'Chain Supported',
   SECURITY = 'Security',
   INCIDENTS = 'Past Incidents',
   LEGAL_COMPLIANCE = 'Legal Compliance',
