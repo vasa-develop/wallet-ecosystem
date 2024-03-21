@@ -74,3 +74,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+p {
+  @apply font-medium leading-6 text-sm;
+}

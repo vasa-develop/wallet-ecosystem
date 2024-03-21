@@ -1,3 +1,4 @@
+import { WalletData } from '@/app/types';
 import EipSupportTable from '@/components/EipSupportTable';
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
@@ -15,31 +16,32 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { wallets2 } from '@/data/wallets';
-import {
-  PLATFORM_IMAGES,
-  SECTIONS,
-  SECURITY_AUDIT_TYPE,
-  STAT_SECTIONS,
-  SUPPORTED_STANDARD_TYPE,
-} from '@/types/enum';
-import { Wallet } from '@/types/wallet';
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from '@radix-ui/react-tooltip';
+} from '@/components/ui/tooltip';
+import { wallets2 } from '@/data/wallets';
+import {
+  FEATURE_TYPE,
+  PLATFORM_IMAGES,
+  SECTIONS,
+  SECURITY_AUDIT_TYPE,
+  STAT_SECTIONS,
+} from '@/types/enum';
+import { Wallet } from '@/types/wallet';
+
 import { clsx } from 'clsx';
 import { ExternalLinkIcon } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { Fragment } from 'react';
 
 export default function page({ params }: { params: { name: string } }) {
   const walletData = wallets2[params.name];
   return (
-    <div className=" flex gap-2 m-auto">
+    <div className=" py-2 flex gap-2 m-auto">
       <WalletSideNav sections={Object.typedKeys(walletData)} />
       <div className="flex-1  flex flex-col p-2">
         {Object.typedKeys(walletData).map((section, index) => {
@@ -64,6 +66,14 @@ export default function page({ params }: { params: { name: string } }) {
             case SECTIONS.SECURITY:
               SectionComponent = <WalletSecurity data={walletData[section]} />;
               break;
+            case SECTIONS.INCENTIVES:
+              SectionComponent = (
+                <WalletIncentives data={walletData[section]} />
+              );
+              break;
+            case SECTIONS.FEATURES:
+              SectionComponent = <WalletFeatures data={walletData[section]} />;
+              break;
             case SECTIONS.SUPPORTED_STANDARD:
               SectionComponent = (
                 <WalletSupportedStatus data={walletData[section]} />
@@ -71,10 +81,10 @@ export default function page({ params }: { params: { name: string } }) {
               break;
           }
           return (
-            <>
-              <h2 className="text-xl font-bold">{section}</h2>
+            <div className="mb-8">
+              <h2 className="text-xl mb-3 font-bold">{section}</h2>
               <div>{SectionComponent}</div>
-            </>
+            </div>
           );
         })}
       </div>
@@ -141,12 +151,16 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
   );
 }
 
+function WalletIncentives({ data }: { data: Wallet[SECTIONS.INCENTIVES] }) {
+  return !data && <p className="text-gray-400 description">No incentives</p>;
+}
+
 function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
   return (
     <>
       {activity.map((data, index) => {
         return (
-          <>
+          <Fragment key={index}>
             <h3 className="text-lg flex items-center gap-2 mt-4 mb-1">
               <GithubIcon width={20} height={20} />
               <Link
@@ -166,10 +180,84 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
             //   squareGap={sub_section.squareGap}
             //   squareSize={sub_section.squareSize}
             />
-          </>
+          </Fragment>
         );
       })}
     </>
+  );
+}
+
+function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
+  return (
+    <div className=" py-2 flex gap-2 m-auto">
+      <div className="flex-1  flex flex-col p-2">
+        {Object.typedKeys(data).map((section, index) => {
+          let SectionComponent = <NotDone />;
+          switch (section) {
+            case FEATURE_TYPE.IN_APP:
+            case FEATURE_TYPE.SECURITY:
+              SectionComponent = <WalletInAppFeature data={data[section]} />;
+              break;
+            case FEATURE_TYPE.ENS_SUPPORT:
+              SectionComponent = (
+                <WalletInAppFeature
+                  data={Object.typedKeys(data[section]).map((k) => ({
+                    feature: k.toString(),
+                    description: data[section][k].description,
+                    isSupported: data[section][k].isSupported,
+                  }))}
+                />
+              );
+              break;
+          }
+          return (
+            <div className="mb-8">
+              <h2 className="text-xl mb-3 font-bold">{section}</h2>
+              <div>{SectionComponent}</div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function WalletInAppFeature({
+  data,
+}: {
+  data:
+    | Wallet[SECTIONS.FEATURES][FEATURE_TYPE.IN_APP]
+    | Wallet[SECTIONS.FEATURES][FEATURE_TYPE.SECURITY];
+}) {
+  return (
+    <Card>
+      <CardContent className="p-2">
+        <TooltipProvider>
+          <Table>
+            <TableBody>
+              {data.map((row, rowIndex) => (
+                <TableRow key={rowIndex}>
+                  <TableCell className="font-medium">{row.feature}</TableCell>
+                  <TableCell className="text-gray-500">
+                    {row.description || '-'}
+                  </TableCell>
+                  <TableCell align="center">
+                    <Tooltip>
+                      <TooltipTrigger>
+                        {row.isSupported ? '✅' : '❌'}
+                      </TooltipTrigger>
+                      <TooltipContent>
+                        <p>{row.remark}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TooltipProvider>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -207,7 +295,7 @@ function WalletLegalComplieance({
     <Card>
       <CardContent className="p-4">
         <div className=" shadow rounded-lg">
-          <p className=" text-sm leading-5 text-gray-400 mb-4">
+          <p className="description text-gray-400 mb-4">
             Legal Compliance refers to the wallet&apos;s adherence to relevant
             laws, regulations, and guidelines in the jurisdictions in which it
             operates. This includes regulations regarding user data privacy,

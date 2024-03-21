@@ -148,11 +148,31 @@ const metamask: Wallet = {
       },
     ],
     [FEATURE_TYPE.ENS_SUPPORT]: {
-      [ENSSupportType.MAINNET]: true,
-      [ENSSupportType.SUBDOMAINS]: true,
-      [ENSSupportType.OFFCHAIN]: false,
-      [ENSSupportType.L2]: true,
-      [ENSSupportType.CUSTOM]: false,
+      [ENSSupportType.MAINNET]: {
+        isSupported: true,
+        description:
+          'Whether a user is able to send transactions to a standard ENS (e.g. user.eth) on mainnet',
+      },
+      [ENSSupportType.SUBDOMAINS]: {
+        isSupported: true,
+        description:
+          'Whether a user is able to send transactions to an ENS subdomain (e.g. hot.user.eth) on mainnet ',
+      },
+      [ENSSupportType.OFFCHAIN]: {
+        isSupported: false,
+        description:
+          'Whether a user is able to send transactions to an ENS with an offchain resolver on mainnet.',
+      },
+      [ENSSupportType.L2]: {
+        isSupported: true,
+        description:
+          'Whether a user is able to send transactions to an ENS on an L2 (tested on Optimism)',
+      },
+      [ENSSupportType.CUSTOM]: {
+        isSupported: false,
+        description:
+          'Whether a user is able to send transactions to an ENS with a custom domain on mainnet (e.g. user.cb.id)',
+      },
     },
     [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [
       {
@@ -407,7 +427,7 @@ const metamask: Wallet = {
       },
     ],
   },
-  [SECTIONS.INCENTIVES]: {},
+  [SECTIONS.INCENTIVES]: undefined,
   [SECTIONS.SUPPORTED_CHAIN]: {},
   [SECTIONS.SECURITY]: {
     [SECURITY_AUDIT_TYPE.AUDIT]: [

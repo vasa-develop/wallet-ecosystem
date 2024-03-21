@@ -35,16 +35,18 @@ type Features = {
   [FEATURE_TYPE.IN_APP]: Array<{
     feature: string;
     description: string;
-    isSupported: Boolean;
+    isSupported: boolean;
     remark?: string;
   }>;
   [FEATURE_TYPE.SECURITY]: Array<{
     feature: string;
     description: string;
-    isSupported: Boolean;
+    isSupported: boolean;
     remark?: string;
   }>;
-  [FEATURE_TYPE.ENS_SUPPORT]: { [key in ENSSupportType]: boolean };
+  [FEATURE_TYPE.ENS_SUPPORT]: {
+    [key in ENSSupportType]: { isSupported: boolean; description: string };
+  };
   [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: Array<{
     name: string;
     imgUrl: string;
@@ -62,7 +64,7 @@ type SupportedStandard = {
   [SUPPORTED_STANDARD_TYPE.SUPPORTED_EIP]: EIPSupportStatus;
 };
 
-type Incentives = {};
+type Incentives = {} | undefined;
 
 type SupportedChain = {};
 
