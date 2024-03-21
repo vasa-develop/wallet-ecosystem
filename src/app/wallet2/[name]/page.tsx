@@ -189,14 +189,19 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
 
 function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
   return (
-    <div className=" py-2 flex gap-2 m-auto">
-      <div className="flex-1  flex flex-col p-2">
+    <div className=" rounded border p-4 py-2 flex gap-2 m-auto">
+      <div className="flex-1 flex flex-col p-2">
         {Object.typedKeys(data).map((section, index) => {
           let SectionComponent = <NotDone />;
           switch (section) {
             case FEATURE_TYPE.IN_APP:
             case FEATURE_TYPE.SECURITY:
               SectionComponent = <WalletInAppFeature data={data[section]} />;
+              break;
+            case FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS:
+              SectionComponent = (
+                <SupportedHardwareWallets data={data[section]} />
+              );
               break;
             case FEATURE_TYPE.ENS_SUPPORT:
               SectionComponent = (
@@ -211,8 +216,8 @@ function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
               break;
           }
           return (
-            <div className="mb-8">
-              <h2 className="text-xl mb-3 font-bold">{section}</h2>
+            <div className="mb-8  last:mb-0 ">
+              <h2 className="text-lg mb-3 font-bold">{section}</h2>
               <div>{SectionComponent}</div>
             </div>
           );
@@ -237,11 +242,11 @@ function WalletInAppFeature({
             <TableBody>
               {data.map((row, rowIndex) => (
                 <TableRow key={rowIndex}>
-                  <TableCell className="font-medium">{row.feature}</TableCell>
-                  <TableCell className="text-gray-500">
+                  <TableCell className="font-medium ">{row.feature}</TableCell>
+                  <TableCell className="text-gray-500 ">
                     {row.description || '-'}
                   </TableCell>
-                  <TableCell align="center">
+                  <TableCell align="center" className="w-20">
                     <Tooltip>
                       <TooltipTrigger>
                         {row.isSupported ? '✅' : '❌'}
@@ -258,6 +263,33 @@ function WalletInAppFeature({
         </TooltipProvider>
       </CardContent>
     </Card>
+  );
+}
+
+function SupportedHardwareWallets({
+  data,
+}: {
+  data: Wallet[SECTIONS.FEATURES][FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS];
+}) {
+  return (
+    <TooltipProvider>
+      <div className="grid grid-cols-6 gap-2">
+        {data.map((d) => {
+          return (
+            <Tooltip>
+              <TooltipTrigger>
+                <div className="border rounded px-8 py-4">
+                  <img className="invert" src={d.imgUrl} alt={d.name} />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{d.name}</p>
+              </TooltipContent>
+            </Tooltip>
+          );
+        })}
+      </div>
+    </TooltipProvider>
   );
 }
 
