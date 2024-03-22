@@ -40,51 +40,76 @@ import React, { Fragment } from 'react';
 
 export default function page({ params }: { params: { name: string } }) {
   const walletData = wallets2[params.name];
+  const walletSectionData = walletData.sections;
   return (
     <div className=" py-2 flex gap-2 m-auto">
-      <WalletSideNav sections={Object.typedKeys(walletData)} />
+      <WalletSideNav sections={Object.typedKeys(walletSectionData)} />
+
       <div className="flex-1  flex flex-col p-2">
-        {Object.typedKeys(walletData).map((section, index) => {
+        <div className="flex items-center gap-2 mb-4">
+          <img src={walletData.image} width={64} className="p-2" height={64} />
+          <div>
+            <h2 className="text-lg font-bold">{walletData.name}</h2>
+            <Link
+              href={`https://${walletData.url}`}
+              target="_blank"
+              className="text-sm text-gray-400"
+            >
+              {walletData.url}
+            </Link>
+          </div>
+        </div>
+        {Object.typedKeys(walletSectionData).map((section, index) => {
           let SectionComponent = <NotDone />;
           switch (section) {
             case SECTIONS.STATS:
-              SectionComponent = <WalletStats stats={walletData[section]} />;
+              SectionComponent = (
+                <WalletStats stats={walletSectionData[section]} />
+              );
               break;
             case SECTIONS.ACTIVITY:
               SectionComponent = (
-                <WalletActivity activity={walletData[section]} />
+                <WalletActivity activity={walletSectionData[section]} />
               );
               break;
             case SECTIONS.LEGAL_COMPLIANCE:
               SectionComponent = (
-                <WalletLegalComplieance data={walletData[section]} />
+                <WalletLegalComplieance data={walletSectionData[section]} />
               );
               break;
             case SECTIONS.LICENSE:
-              SectionComponent = <WalletLicense data={walletData[section]} />;
+              SectionComponent = (
+                <WalletLicense data={walletSectionData[section]} />
+              );
               break;
             case SECTIONS.SECURITY:
-              SectionComponent = <WalletSecurity data={walletData[section]} />;
+              SectionComponent = (
+                <WalletSecurity data={walletSectionData[section]} />
+              );
               break;
             case SECTIONS.INCENTIVES:
               SectionComponent = (
-                <WalletIncentives data={walletData[section]} />
+                <WalletIncentives data={walletSectionData[section]} />
               );
               break;
             case SECTIONS.FEATURES:
-              SectionComponent = <WalletFeatures data={walletData[section]} />;
+              SectionComponent = (
+                <WalletFeatures data={walletSectionData[section]} />
+              );
               break;
             case SECTIONS.SUPPORTED_STANDARD:
               SectionComponent = (
-                <WalletSupportedStatus data={walletData[section]} />
+                <WalletSupportedStatus data={walletSectionData[section]} />
               );
               break;
           }
           return (
-            <div className="mb-8">
-              <h2 className="text-xl mb-3 font-bold">{section}</h2>
-              <div>{SectionComponent}</div>
-            </div>
+            <>
+              <div className="mb-8">
+                <h2 className="text-xl mb-3 font-bold">{section}</h2>
+                <div>{SectionComponent}</div>
+              </div>
+            </>
           );
         })}
       </div>
@@ -125,7 +150,7 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
           {stats[STAT_SECTIONS.DUNE_CHART].map((data, index) => {
             return (
               <>
-                <h3 className="text-lg mt-4 mb-1">{data.name}</h3>
+                <h3 className="text-lg font-bold mt-4">{data.name}</h3>
                 <div
                   className={clsx({
                     'grid grid-cols-2 gap-2': data.duneEmbeds.length > 1,
