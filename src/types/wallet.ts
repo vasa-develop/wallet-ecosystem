@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   EIP_SUPPORT_STATUS,
   ENSSupportType,
@@ -28,8 +29,6 @@ type Activity = Array<{
   name: string;
   repo: string;
 }>;
-
-type SecurityAnalysis = {};
 
 type Features = {
   [FEATURE_TYPE.IN_APP]: Array<{
@@ -107,7 +106,7 @@ type License = Array<{
 export type Wallet = {
   [SECTIONS.STATS]: Stats;
   [SECTIONS.ACTIVITY]: Activity;
-  [SECTIONS.SECURITY_ANALYSIS]: SecurityAnalysis;
+  [SECTIONS.SECURITY_ANALYSIS]: () => React.JSX.Element;
   [SECTIONS.FEATURES]: Features;
   [SECTIONS.SUPPORTED_STANDARD]: SupportedStandard;
   [SECTIONS.INCENTIVES]: Incentives;

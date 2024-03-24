@@ -1,12 +1,4 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+import { Table } from '@radix-ui/themes';
 import { Key } from 'react';
 
 export default function DataTable({
@@ -19,26 +11,28 @@ export default function DataTable({
   data: any[];
 }) {
   return (
-    <Table>
-      {caption && <TableCaption>{caption}</TableCaption>}
+    <Table.Root>
+      {caption && <p>{caption}</p>}
       {columns?.length > 0 && (
-        <TableHeader>
-          <TableRow>
+        <Table.Header>
+          <Table.Row>
             {columns.map((column, index) => (
-              <TableHead key={index}>{column}</TableHead>
+              <Table.ColumnHeaderCell key={index}>
+                {column}
+              </Table.ColumnHeaderCell>
             ))}
-          </TableRow>
-        </TableHeader>
+          </Table.Row>
+        </Table.Header>
       )}
-      <TableBody>
+      <Table.Body>
         {data.map((row, rowIndex) => (
-          <TableRow key={rowIndex}>
+          <Table.Row key={rowIndex}>
             {row.map((cell: string, rowIndex: Key) => (
-              <TableCell key={rowIndex}>{cell}</TableCell>
+              <Table.Cell key={rowIndex}>{cell}</Table.Cell>
             ))}
-          </TableRow>
+          </Table.Row>
         ))}
-      </TableBody>
-    </Table>
+      </Table.Body>
+    </Table.Root>
   );
 }

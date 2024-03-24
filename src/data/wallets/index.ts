@@ -8,9 +8,16 @@ const wallets: { [key: string]: WalletData } = {
 };
 
 export const wallets2: {
-  [key: string]: { sections: Wallet; name: string; image: string; url: string };
+  [key: string]: {
+    updatedAt: string;
+    sections: Wallet;
+    name: string;
+    image: string;
+    url: string;
+  };
 } = {
   metamask: {
+    updatedAt: '22-Mar 2024',
     name: 'Metamask',
     image:
       'https://cdn.iconscout.com/icon/free/png-256/free-metamask-2728406-2261817.png',

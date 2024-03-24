@@ -1,4 +1,5 @@
 import { Wallet } from '@/types/wallet';
+
 import {
   AUDIT_RELEVANCE,
   EIP_SUPPORT_STATUS,
@@ -10,6 +11,7 @@ import {
   SUPPORTED_STANDARD_TYPE,
   WALLET_PLATFORM,
 } from '@/types/enum';
+import MetamaskSecurityAnalysis from './MetamaskSecurityAnalysis';
 
 const metamask: Wallet = {
   [SECTIONS.STATS]: {
@@ -57,7 +59,7 @@ const metamask: Wallet = {
       repo: 'MetaMask/snaps',
     },
   ],
-  [SECTIONS.SECURITY_ANALYSIS]: {},
+  [SECTIONS.SECURITY_ANALYSIS]: MetamaskSecurityAnalysis,
   [SECTIONS.FEATURES]: {
     [FEATURE_TYPE.IN_APP]: [
       {

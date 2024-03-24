@@ -1,18 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from '@/components/ui/navigation-menu';
+import '@radix-ui/themes/styles.css';
 import './globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { TabNav, Theme } from '@radix-ui/themes';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -29,36 +21,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + ' dark'}>
-        <div className="bg-gray-900 shadow-md ">
-          <div className="container">
-            <NavigationMenu className="py-4 ">
-              <NavigationMenuList className="gap-6">
-                <NavigationMenuLink>
-                  <Link href={'/'}>
-                    <Image
-                      alt="Logo"
-                      width={40}
-                      height={20}
-                      src={'/logo.svg'}
-                    />
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink>Documentation</NavigationMenuLink>
-                <NavigationMenuLink>Documentation</NavigationMenuLink>
-                <NavigationMenuLink>
-                  <Link
-                    href={
-                      'https://wallet-ecosystem.notion.site/Wallet-Ecosystem-Standards-Tracker-9151e788ab7243f7a53a70c6e9834b0c'
-                    }
-                  >
-                    Standards Tracker
-                  </Link>
-                </NavigationMenuLink>
-              </NavigationMenuList>
-            </NavigationMenu>
+        <Theme accentColor="iris" radius="small" scaling="95%">
+          <div className="shadow-md border-b border-gray-700">
+            <div className="container flex justify-between py-2">
+              <Link href={'/'}>
+                <Image alt="Logo" width={40} height={20} src={'/logo.svg'} />
+              </Link>
+              <TabNav.Root className="shadow-none">
+                <TabNav.Link href="#" active>
+                  Account
+                </TabNav.Link>
+                <TabNav.Link href="#">Documents</TabNav.Link>
+                <TabNav.Link href="https://wallet-ecosystem.notion.site/Wallet-Ecosystem-Standards-Tracker-9151e788ab7243f7a53a70c6e9834b0c">
+                  Standards Tracker
+                </TabNav.Link>
+              </TabNav.Root>
+              <div />
+            </div>
           </div>
-        </div>
-        <div className="container">{children}</div>
+          <div className="container">{children}</div>
+        </Theme>
       </body>
     </html>
   );

@@ -2,21 +2,7 @@
 import { SECTIONS, SUPPORTED_STANDARD_TYPE } from '@/types/enum';
 import { Wallet } from '@/types/wallet';
 import React from 'react';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from './ui/tooltip';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from './ui/table';
-import { Card, CardContent } from './ui/card';
+import { Card, Table, Tooltip } from '@radix-ui/themes';
 
 export default function WalletSupportedStatus({
   data,
@@ -25,39 +11,42 @@ export default function WalletSupportedStatus({
 }) {
   return (
     <Card>
-      <CardContent className="p-2">
-        <TooltipProvider>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>EIP name</TableHead>
-                <TableHead>EIP type</TableHead>
-                <TableHead>EIP status</TableHead>
-                <TableHead>Wallet Support status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {data[SUPPORTED_STANDARD_TYPE.SUPPORTED_EIP].map(
-                (row, rowIndex) => (
-                  <TableRow key={rowIndex}>
-                    <TableCell>{row.eipName}</TableCell>
-                    <TableCell>{row.eipType}</TableCell>
-                    <TableCell>{row.eipStatus}</TableCell>
-                    <TableCell align="center">
-                      <Tooltip>
-                        <TooltipTrigger>{row.supportStatus}</TooltipTrigger>
-                        <TooltipContent>
-                          <p>{row.supportStatus}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TableCell>
-                  </TableRow>
-                )
-              )}
-            </TableBody>
-          </Table>
-        </TooltipProvider>
-      </CardContent>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeaderCell>EIP name</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>EIP type</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell align="center">
+              EIP status
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell align="center">
+              Wallet Support status
+            </Table.ColumnHeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
+          {data[SUPPORTED_STANDARD_TYPE.SUPPORTED_EIP].map((row, rowIndex) => (
+            <Table.Row key={rowIndex}>
+              <Table.RowHeaderCell>{row.eipName}</Table.RowHeaderCell>
+              <Table.Cell>{row.eipType}</Table.Cell>
+              <Table.Cell align="center">{row.eipStatus}</Table.Cell>
+              <Table.Cell align="center">
+                <Tooltip content={SupportStatusTooltip[row.supportStatus]}>
+                  <div>{row.supportStatus}</div>
+                </Tooltip>
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table.Root>
     </Card>
   );
 }
+const SupportStatusTooltip: any = {
+  '✅': 'Supported',
+  '❎': 'Not needed',
+  '⌛': 'WIP',
+  '❌': 'Not supported',
+  '❓': 'Not clear',
+  '🛑': 'EIP not ready',
+};

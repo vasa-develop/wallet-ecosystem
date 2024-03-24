@@ -1,27 +1,10 @@
 import { WalletData } from '@/app/types';
-import EipSupportTable from '@/components/EipSupportTable';
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
 import WalletSideNav from '@/components/WalletSideNav';
 import WalletSupportedStatus from '@/components/WalletSupportedStatus';
 import { ArrowTopRightOnSquareIcon } from '@/components/icons/ArrowTopRightOnSquareIcon';
 import GithubIcon from '@/components/icons/GithubIcon';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip';
 import { wallets2 } from '@/data/wallets';
 import {
   FEATURE_TYPE,
@@ -31,6 +14,7 @@ import {
   STAT_SECTIONS,
 } from '@/types/enum';
 import { Wallet } from '@/types/wallet';
+import { Badge, Card, Table, Tooltip } from '@radix-ui/themes';
 
 import { clsx } from 'clsx';
 import { ExternalLinkIcon } from 'lucide-react';
@@ -46,17 +30,30 @@ export default function page({ params }: { params: { name: string } }) {
       <WalletSideNav sections={Object.typedKeys(walletSectionData)} />
 
       <div className="flex-1  flex flex-col p-2">
-        <div className="flex items-center gap-2 mb-4">
-          <img src={walletData.image} width={64} className="p-2" height={64} />
-          <div>
-            <h2 className="text-lg font-bold">{walletData.name}</h2>
-            <Link
-              href={`https://${walletData.url}`}
-              target="_blank"
-              className="text-sm text-gray-400"
-            >
-              {walletData.url}
-            </Link>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 mb-4">
+            <img
+              src={walletData.image}
+              width={64}
+              className="p-2"
+              height={64}
+            />
+            <div>
+              <h2 className="text-lg font-bold">{walletData.name}</h2>
+              <Link
+                href={`https://${walletData.url}`}
+                target="_blank"
+                className="text-sm text-gray-400"
+              >
+                {walletData.url}
+              </Link>
+            </div>
+          </div>
+          <div className="text-sm  text-gray-400">
+            Last Updated:{' '}
+            <span className="font-medium text-white">
+              {walletData.updatedAt}
+            </span>
           </div>
         </div>
         {Object.typedKeys(walletSectionData).map((section, index) => {
@@ -92,6 +89,9 @@ export default function page({ params }: { params: { name: string } }) {
                 <WalletIncentives data={walletSectionData[section]} />
               );
               break;
+            case SECTIONS.SECURITY_ANALYSIS:
+              SectionComponent = <Card>{walletSectionData[section]()}</Card>;
+              break;
             case SECTIONS.FEATURES:
               SectionComponent = (
                 <WalletFeatures data={walletSectionData[section]} />
@@ -119,14 +119,14 @@ export default function page({ params }: { params: { name: string } }) {
 
 function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
   return (
-    <>
+    <Card>
       {stats.Downloads && (
         <div className="grid grid-cols-4 gap-2">
           {Object.typedKeys(stats.Downloads).map((platform, index) => {
             return (
-              <div
+              <Card
                 key={index}
-                className="flex hover:shadow-xl transition-shadow border rounded px-3 py-2 gap-3 border-gray-700 items-center"
+                className="flex hover:shadow-xl transition-shadow gap-3 items-center"
               >
                 <Image
                   src={PLATFORM_IMAGES[platform]}
@@ -140,7 +140,7 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
                     {stats.Downloads[platform]}
                   </div>
                 </div>
-              </div>
+              </Card>
             );
           })}
         </div>
@@ -172,7 +172,7 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
           })}
         </div>
       )}
-    </>
+    </Card>
   );
 }
 
@@ -182,7 +182,7 @@ function WalletIncentives({ data }: { data: Wallet[SECTIONS.INCENTIVES] }) {
 
 function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
   return (
-    <>
+    <Card>
       {activity.map((data, index) => {
         return (
           <Fragment key={index}>
@@ -208,47 +208,45 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
           </Fragment>
         );
       })}
-    </>
+    </Card>
   );
 }
 
 function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
   return (
-    <div className=" rounded border p-4 py-2 flex gap-2 m-auto">
-      <div className="flex-1 flex flex-col p-2">
-        {Object.typedKeys(data).map((section, index) => {
-          let SectionComponent = <NotDone />;
-          switch (section) {
-            case FEATURE_TYPE.IN_APP:
-            case FEATURE_TYPE.SECURITY:
-              SectionComponent = <WalletInAppFeature data={data[section]} />;
-              break;
-            case FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS:
-              SectionComponent = (
-                <SupportedHardwareWallets data={data[section]} />
-              );
-              break;
-            case FEATURE_TYPE.ENS_SUPPORT:
-              SectionComponent = (
-                <WalletInAppFeature
-                  data={Object.typedKeys(data[section]).map((k) => ({
-                    feature: k.toString(),
-                    description: data[section][k].description,
-                    isSupported: data[section][k].isSupported,
-                  }))}
-                />
-              );
-              break;
-          }
-          return (
-            <div className="mb-8  last:mb-0 ">
-              <h2 className="text-lg mb-3 font-bold">{section}</h2>
-              <div>{SectionComponent}</div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
+    <Card className="flex gap-2 flex flex-col">
+      {Object.typedKeys(data).map((section, index) => {
+        let SectionComponent = <NotDone />;
+        switch (section) {
+          case FEATURE_TYPE.IN_APP:
+          case FEATURE_TYPE.SECURITY:
+            SectionComponent = <WalletInAppFeature data={data[section]} />;
+            break;
+          case FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS:
+            SectionComponent = (
+              <SupportedHardwareWallets data={data[section]} />
+            );
+            break;
+          case FEATURE_TYPE.ENS_SUPPORT:
+            SectionComponent = (
+              <WalletInAppFeature
+                data={Object.typedKeys(data[section]).map((k) => ({
+                  feature: k.toString(),
+                  description: data[section][k].description,
+                  isSupported: data[section][k].isSupported,
+                }))}
+              />
+            );
+            break;
+        }
+        return (
+          <div className="mb-8  last:mb-0 ">
+            <h2 className="text-lg mb-3 font-bold">{section}</h2>
+            <div>{SectionComponent}</div>
+          </div>
+        );
+      })}
+    </Card>
   );
 }
 
@@ -261,32 +259,23 @@ function WalletInAppFeature({
 }) {
   return (
     <Card>
-      <CardContent className="p-2">
-        <TooltipProvider>
-          <Table>
-            <TableBody>
-              {data.map((row, rowIndex) => (
-                <TableRow key={rowIndex}>
-                  <TableCell className="font-medium ">{row.feature}</TableCell>
-                  <TableCell className="text-gray-500 ">
-                    {row.description || '-'}
-                  </TableCell>
-                  <TableCell align="center" className="w-20">
-                    <Tooltip>
-                      <TooltipTrigger>
-                        {row.isSupported ? '✅' : '❌'}
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>{row.remark}</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TooltipProvider>
-      </CardContent>
+      <Table.Root>
+        <Table.Body>
+          {data.map((row, rowIndex) => (
+            <Table.Row key={rowIndex}>
+              <Table.Cell className="font-medium ">{row.feature}</Table.Cell>
+              <Table.Cell className="text-gray-500 ">
+                {row.description || '-'}
+              </Table.Cell>
+              <Table.Cell align="center" className="w-20">
+                <Tooltip content={row.remark}>
+                  <div>{row.isSupported ? '✅' : '❌'}</div>
+                </Tooltip>
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table.Root>
     </Card>
   );
 }
@@ -297,24 +286,17 @@ function SupportedHardwareWallets({
   data: Wallet[SECTIONS.FEATURES][FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS];
 }) {
   return (
-    <TooltipProvider>
-      <div className="grid grid-cols-6 gap-2">
-        {data.map((d) => {
-          return (
-            <Tooltip>
-              <TooltipTrigger>
-                <div className="border rounded px-8 py-4">
-                  <img className="invert" src={d.imgUrl} alt={d.name} />
-                </div>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{d.name}</p>
-              </TooltipContent>
-            </Tooltip>
-          );
-        })}
-      </div>
-    </TooltipProvider>
+    <div className="grid grid-cols-6 gap-2">
+      {data.map((d) => {
+        return (
+          <Tooltip content={d.name}>
+            <Card className="px-8 py-4">
+              <img className="invert" src={d.imgUrl} alt={d.name} />
+            </Card>
+          </Tooltip>
+        );
+      })}
+    </div>
   );
 }
 
@@ -325,7 +307,7 @@ function NotDone() {
 function WalletLicense({ data }: { data: Wallet[SECTIONS.LICENSE] }) {
   return (
     <Card>
-      <CardContent className="p-4 flex flex-col gap-2">
+      <div className="p-4 flex flex-col gap-2">
         {data.map((data, index) => {
           return (
             <Link
@@ -338,7 +320,7 @@ function WalletLicense({ data }: { data: Wallet[SECTIONS.LICENSE] }) {
             </Link>
           );
         })}
-      </CardContent>
+      </div>
     </Card>
   );
 }
@@ -350,7 +332,7 @@ function WalletLegalComplieance({
 }) {
   return (
     <Card>
-      <CardContent className="p-4">
+      <div className="p-4">
         <div className=" shadow rounded-lg">
           <p className="description text-gray-400 mb-4">
             Legal Compliance refers to the wallet&apos;s adherence to relevant
@@ -364,21 +346,18 @@ function WalletLegalComplieance({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {data.map((licence, index) => {
               return (
-                <div
-                  key={index}
-                  className="border  border-gray-600 p-4 rounded-lg"
-                >
+                <Card key={index}>
                   <h4 className="opacity-70 font-semibold mb-2">
                     {licence[0]}
                   </h4>
                   <p className=" text-sm text-gray-500 mb-2">{licence[1]}</p>
                   <p className="font-semibold ">{licence[2]}</p>
-                </div>
+                </Card>
               );
             })}
           </div>
         </div>
-      </CardContent>
+      </div>
     </Card>
   );
 }
@@ -388,7 +367,7 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
     <div className="flex flex-col gap-2">
       {data.Audits && (
         <Card>
-          <CardContent className="p-4 pt-0">
+          <div className="p-4 pt-0">
             <h4 className="font-semibold text-xl py-4">Audit</h4>
 
             <>
@@ -401,24 +380,32 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                 code and system architecture to enhance security, reliability,
                 and trustworthiness.
               </p>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Auditor</TableHead>
-                    <TableHead>Date</TableHead>
-                    <TableHead>Audited Version</TableHead>
-                    <TableHead>Current Version</TableHead>
-                    <TableHead>Audit Relevance</TableHead>
-                    <TableHead>Audit Report</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
+              <Table.Root>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.ColumnHeaderCell>Auditor</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>Date</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                      Audited Version
+                    </Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                      Current Version
+                    </Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                      Audit Relevance
+                    </Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>
+                      Audit Report
+                    </Table.ColumnHeaderCell>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
                   {data.Audits.map((audit, rowIndex) => {
                     return (
-                      <TableRow key={rowIndex}>
-                        <TableCell>{audit.auditor}</TableCell>
-                        <TableCell>{audit.date}</TableCell>
-                        <TableCell>
+                      <Table.Row key={rowIndex}>
+                        <Table.Cell>{audit.auditor}</Table.Cell>
+                        <Table.Cell>{audit.date}</Table.Cell>
+                        <Table.Cell>
                           <div className="flex flex-wrap gap-2">
                             {audit.auditedVersion.map((v) => (
                               <Badge variant="outline">
@@ -428,8 +415,8 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                               </Badge>
                             ))}
                           </div>
-                        </TableCell>
-                        <TableCell>
+                        </Table.Cell>
+                        <Table.Cell>
                           <div className="flex flex-wrap gap-2">
                             {audit.currentVersion.map((v) => (
                               <Badge variant="outline">
@@ -439,9 +426,9 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                               </Badge>
                             ))}
                           </div>
-                        </TableCell>
-                        <TableCell>{audit.relevance}</TableCell>
-                        <TableCell>
+                        </Table.Cell>
+                        <Table.Cell>{audit.relevance}</Table.Cell>
+                        <Table.Cell>
                           <Link
                             href={audit.report}
                             target="_blank"
@@ -450,19 +437,19 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                             Link
                             <ExternalLinkIcon className="inline" size={18} />
                           </Link>
-                        </TableCell>
-                      </TableRow>
+                        </Table.Cell>
+                      </Table.Row>
                     );
                   })}
-                </TableBody>
-              </Table>
+                </Table.Body>
+              </Table.Root>
             </>
-          </CardContent>
+          </div>
         </Card>
       )}
       {data['Bug Bounty'] && (
         <Card>
-          <CardContent className="p-4 pt-0">
+          <div className="p-4 pt-0">
             <h4 className="font-semibold text-xl py-4">Audit</h4>
 
             <>
@@ -475,24 +462,24 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                 testing where individuals or teams are rewarded for responsibly
                 disclosing vulnerabilities they find.
               </p>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Platform</TableHead>
-                    <TableHead>Reward</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Scope</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
+              <Table.Root>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.ColumnHeaderCell>Platform</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>Reward</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>Scope</Table.ColumnHeaderCell>
+                  </Table.Row>
+                </Table.Header>
+                <Table.Body>
                   {data[SECURITY_AUDIT_TYPE.BUG_BOUNTY].map(
                     (bugBounty, rowIndex) => {
                       return (
-                        <TableRow key={rowIndex}>
-                          <TableCell>{bugBounty.platform}</TableCell>
-                          <TableCell>{bugBounty.reward}</TableCell>
-                          <TableCell>{bugBounty.status}</TableCell>
-                          <TableCell>
+                        <Table.Row key={rowIndex}>
+                          <Table.Cell>{bugBounty.platform}</Table.Cell>
+                          <Table.Cell>{bugBounty.reward}</Table.Cell>
+                          <Table.Cell>{bugBounty.status}</Table.Cell>
+                          <Table.Cell>
                             <Link
                               href={bugBounty.scope}
                               target="_blank"
@@ -501,15 +488,15 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                               Link
                               <ExternalLinkIcon className="inline" size={20} />
                             </Link>
-                          </TableCell>
-                        </TableRow>
+                          </Table.Cell>
+                        </Table.Row>
                       );
                     }
                   )}
-                </TableBody>
-              </Table>
+                </Table.Body>
+              </Table.Root>
             </>
-          </CardContent>
+          </div>
         </Card>
       )}
     </div>
