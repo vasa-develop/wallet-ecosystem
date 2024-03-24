@@ -3,13 +3,12 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-24">
-      <Table.Root>
-        <p>A list of your recent invoices.</p>
+    <main>
+      <Table.Root variant="surface" className="mt-6">
         <Table.Header>
           <Table.Row>
             <Table.ColumnHeaderCell className="w-[100px]">
-              Invoice
+              Wallet
             </Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Method</Table.ColumnHeaderCell>

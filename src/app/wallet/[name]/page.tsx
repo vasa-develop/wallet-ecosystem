@@ -1,11 +1,10 @@
-import { WalletData } from '@/app/types';
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
 import WalletSideNav from '@/components/WalletSideNav';
 import WalletSupportedStatus from '@/components/WalletSupportedStatus';
 import { ArrowTopRightOnSquareIcon } from '@/components/icons/ArrowTopRightOnSquareIcon';
 import GithubIcon from '@/components/icons/GithubIcon';
-import { wallets2 } from '@/data/wallets';
+import { wallets } from '@/data/wallets';
 import {
   FEATURE_TYPE,
   PLATFORM_IMAGES,
@@ -23,7 +22,7 @@ import Link from 'next/link';
 import React, { Fragment } from 'react';
 
 export default function page({ params }: { params: { name: string } }) {
-  const walletData = wallets2[params.name];
+  const walletData = wallets[params.name];
   const walletSectionData = walletData.sections;
   return (
     <div className=" py-2 flex gap-2 m-auto">

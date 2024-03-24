@@ -29,7 +29,7 @@ export default function RootLayout({
               </Link>
               <TabNav.Root className="shadow-none">
                 <TabNav.Link href="#" active>
-                  Account
+                  Wallets
                 </TabNav.Link>
                 <TabNav.Link href="#">Documents</TabNav.Link>
                 <TabNav.Link href="https://wallet-ecosystem.notion.site/Wallet-Ecosystem-Standards-Tracker-9151e788ab7243f7a53a70c6e9834b0c">

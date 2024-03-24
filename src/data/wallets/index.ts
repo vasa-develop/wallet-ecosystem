@@ -1,13 +1,8 @@
 import { WalletData } from '@/app/types';
-import * as metamask from './metamask';
-import metamask2 from './metamask/data';
+import metamask from './metamask/data';
 import { Wallet } from '@/types/wallet';
 
-const wallets: { [key: string]: WalletData } = {
-  metamask: metamask.wallet_data,
-};
-
-export const wallets2: {
+export const wallets: {
   [key: string]: {
     updatedAt: string;
     sections: Wallet;
@@ -22,7 +17,7 @@ export const wallets2: {
     image:
       'https://cdn.iconscout.com/icon/free/png-256/free-metamask-2728406-2261817.png',
     url: 'www.metamask.io',
-    sections: metamask2,
+    sections: metamask,
   },
 };
 
