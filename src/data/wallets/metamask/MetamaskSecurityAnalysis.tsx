@@ -50,9 +50,9 @@ export default function MetamaskSecurityAnalysis() {
         A random number selected from the secp256k1 elliptic curve serves as the
         private key. This key is then multiplied by a predefined point on the
         curve to generate the public key. The Ethereum address is derived from
-        the last 20 bytes of the hashed public key. The 'seed phrase' is usually
-        introduced for human-readable backup, enabling the deterministic
-        derivation of private and public keys.
+        the last 20 bytes of the hashed public key. The &apos;seed phrase&apos;
+        is usually introduced for human-readable backup, enabling the
+        deterministic derivation of private and public keys.
       </p>
       <Title level={4}>Transaction process</Title>
       <Figure src="/wallets/secp256k1_trx_sig.png" />
@@ -68,10 +68,10 @@ export default function MetamaskSecurityAnalysis() {
       <Figure src="/wallets/eth_trx_verification.png" />
       <p>
         Verifying Transactions: Once a transaction reaches Ethereum nodes, it
-        undergoes a validation process in the node's mempool. To verify the
+        undergoes a validation process in the node&apos;s mempool. To verify the
         signer, the nodes use the signature and hashed transaction to derive the
-        sender's public key and confirm the transaction’s authenticity by
-        matching the derived address with the sender's.
+        sender&apos;s public key and confirm the transaction&apos;s authenticity
+        by matching the derived address with the sender&apos;s.
       </p>
       <Title level={4}>Recovery process</Title>
       <p>
