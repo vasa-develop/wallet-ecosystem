@@ -239,7 +239,7 @@ function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
             break;
         }
         return (
-          <div className="mb-8  last:mb-0 ">
+          <div key={index} className="mb-8  last:mb-0 ">
             <h2 className="text-lg mb-3 font-bold">{section}</h2>
             <div>{SectionComponent}</div>
           </div>
@@ -286,9 +286,9 @@ function SupportedHardwareWallets({
 }) {
   return (
     <div className="grid grid-cols-6 gap-2">
-      {data.map((d) => {
+      {data.map((d, i) => {
         return (
-          <Tooltip content={d.name}>
+          <Tooltip key={i} content={d.name}>
             <Card className="px-8 py-4">
               <img className="invert" src={d.imgUrl} alt={d.name} />
             </Card>
@@ -406,8 +406,8 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                         <Table.Cell>{audit.date}</Table.Cell>
                         <Table.Cell>
                           <div className="flex flex-wrap gap-2">
-                            {audit.auditedVersion.map((v) => (
-                              <Badge variant="outline">
+                            {audit.auditedVersion.map((v, i) => (
+                              <Badge key={i} variant="outline">
                                 <Link href={v.link} target="_blank">
                                   {v.name}
                                 </Link>
@@ -417,8 +417,8 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
                         </Table.Cell>
                         <Table.Cell>
                           <div className="flex flex-wrap gap-2">
-                            {audit.currentVersion.map((v) => (
-                              <Badge variant="outline">
+                            {audit.currentVersion.map((v, i) => (
+                              <Badge key={i} variant="outline">
                                 <Link href={v.link} target="_blank">
                                   {v.name}
                                 </Link>
