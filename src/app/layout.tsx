@@ -35,6 +35,9 @@ export default function RootLayout({
                 <TabNav.Link href="https://wallet-ecosystem.notion.site/Wallet-Ecosystem-Standards-Tracker-9151e788ab7243f7a53a70c6e9834b0c">
                   Standards Tracker
                 </TabNav.Link>
+                <TabNav.Link href="https://wallet-ecosystem.notion.site/Smart-Account-Modules-8873025da42c49648bfe03bf980c89d6">
+                  Smart Account Modules List
+                </TabNav.Link>
               </TabNav.Root>
               <div />
             </div>
