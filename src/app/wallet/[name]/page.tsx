@@ -197,13 +197,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
               </Link>
             </h3>
             <GithubContributorCount repo={data.repo} />
-            <GithubHeatmap
-            //   colour={sub_section.colour}
-            //   squareNumber={sub_section.squareNumber}
-            //   count={sub_section.count}
-            //   squareGap={sub_section.squareGap}
-            //   squareSize={sub_section.squareSize}
-            />
+            {/* <GithubHeatmap repo={data.repo} /> */}
           </Fragment>
         );
       })}

@@ -1,7 +1,9 @@
 import { Table } from '@radix-ui/themes';
 import Link from 'next/link';
+import { wallets } from '@/data/wallets';
 
 export default function Home() {
+  const wallet_names = Object.keys(wallets);
   return (
     <main>
       <Table.Root variant="surface" className="mt-6">
@@ -18,26 +20,21 @@ export default function Home() {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          <Table.Row>
-            <Table.RowHeaderCell className="font-medium">
-              <Link className="w-full" href={'/wallet/metamask'}>
-                Metamask
-              </Link>
-            </Table.RowHeaderCell>
-            <Table.Cell>Paid</Table.Cell>
-            <Table.Cell>Credit Card</Table.Cell>
-            <Table.Cell className="text-right">$250.00</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.RowHeaderCell className="font-medium">
-              <Link className="w-full" href={'/wallet/rainbow'}>
-                Rainbow
-              </Link>
-            </Table.RowHeaderCell>
-            <Table.Cell>Paid</Table.Cell>
-            <Table.Cell>Credit Card</Table.Cell>
-            <Table.Cell className="text-right">$250.00</Table.Cell>
-          </Table.Row>
+          {wallet_names.map((wallet_name, index) => {
+            const wallet = wallets[wallet_name];
+            return (
+              <Table.Row key={index}>
+                <Table.RowHeaderCell className="font-medium">
+                  <Link className="w-full" href={'/wallet/metamask'}>
+                    {wallet.name}
+                  </Link>
+                </Table.RowHeaderCell>
+                <Table.Cell>Paid</Table.Cell>
+                <Table.Cell>Credit Card</Table.Cell>
+                <Table.Cell className="text-right">$250.00</Table.Cell>
+              </Table.Row>
+            );
+          })}
         </Table.Body>
       </Table.Root>
     </main>

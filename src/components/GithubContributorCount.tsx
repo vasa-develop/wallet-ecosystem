@@ -1,4 +1,4 @@
-const getCountributorsCount = async (repo: string) => {
+const getCountributorsCount = async (repo: string): Promise<number> => {
   let contributorsCount = 0;
   // Replace 'YOUR_TOKEN' with your GitHub Personal Access Token
   const headers = {
