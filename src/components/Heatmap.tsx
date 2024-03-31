@@ -33,6 +33,7 @@ export default function Heatmap({
   return (
     <CalendarHeatmap
       showWeekdayLabels
+      gutterSize={2.5}
       showOutOfRangeDays
       startDate={new Date((commitActivity[0].week - 24 * 3600) * 1000)}
       endDate={addDays(
@@ -44,7 +45,7 @@ export default function Heatmap({
         if (!value) {
           return 'color-empty';
         }
-        return `bg-green heatmap-day-opacity-${parseInt(
+        return `bg-green heatmap-day-box heatmap-day-opacity-${parseInt(
           (colorMultiplier * value.count * 10).toString()
         )}`;
       }}
