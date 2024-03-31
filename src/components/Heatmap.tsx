@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react';
 import CalendarHeatmap from 'react-calendar-heatmap';
 import { addDays, format } from 'date-fns';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 import 'react-calendar-heatmap/dist/styles.css';
 
 export default function Heatmap({
@@ -31,24 +32,36 @@ export default function Heatmap({
   let colorMultiplier = 1 / (max - min);
 
   return (
-    <CalendarHeatmap
-      showWeekdayLabels
-      gutterSize={2.5}
-      showOutOfRangeDays
-      startDate={new Date((commitActivity[0].week - 24 * 3600) * 1000)}
-      endDate={addDays(
-        new Date(commitActivity[commitActivity.length - 1].week * 1000),
-        6
-      )}
-      values={days}
-      classForValue={(value) => {
-        if (!value) {
-          return 'color-empty';
-        }
-        return `bg-green heatmap-day-box heatmap-day-opacity-${parseInt(
-          (colorMultiplier * value.count * 10).toString()
-        )}`;
-      }}
-    />
+    <>
+      <CalendarHeatmap
+        showWeekdayLabels
+        gutterSize={2.5}
+        showOutOfRangeDays
+        startDate={new Date((commitActivity[0].week - 24 * 3600) * 1000)}
+        endDate={addDays(
+          new Date(commitActivity[commitActivity.length - 1].week * 1000),
+          6
+        )}
+        values={days}
+        tooltipDataAttrs={(value: any) => {
+          return {
+            'data-tooltip-content': `${value.count} on ${format(
+              new Date(value.date),
+              'dd MMM'
+            )}`,
+            'data-tooltip-id': 'heatmap-tooltip',
+          };
+        }}
+        classForValue={(value) => {
+          if (!value) {
+            return 'heatmap-day-opacity-0';
+          }
+          return `bg-green heatmap-day-box heatmap-day-opacity-${parseInt(
+            (colorMultiplier * value.count * 10).toString()
+          )}`;
+        }}
+      />
+      <ReactTooltip id="heatmap-tooltip" />
+    </>
   );
 }
