@@ -23,7 +23,7 @@ const nextConfig = {
       },
       {
         source: '/modules',
-        destination: 'https://wallet-ecosystem.notion.site/Smart-Account-Modules-8873025da42c49648bfe03bf980c89d6',
+        destination: 'https://wallet-ecosystem.notion.site/100-Smart-Account-Modules-8873025da42c49648bfe03bf980c89d6',
         permanent: false,
       }
     ];
