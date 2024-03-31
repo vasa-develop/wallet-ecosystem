@@ -45,7 +45,7 @@ export default function Heatmap({
         values={days}
         tooltipDataAttrs={(value: any) => {
           return {
-            'data-tooltip-content': `${value.count} on ${format(
+            'data-tooltip-content': `${value.count} contribution on ${format(
               new Date(value.date),
               'dd MMM'
             )}`,
