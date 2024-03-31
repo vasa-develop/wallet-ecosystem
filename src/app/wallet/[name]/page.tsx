@@ -197,7 +197,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
               </Link>
             </h3>
             <GithubContributorCount repo={data.repo} />
-            {/* <GithubHeatmap repo={data.repo} /> */}
+            <GithubHeatmap repo={data.repo} />
           </Fragment>
         );
       })}

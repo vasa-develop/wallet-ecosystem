@@ -1,4 +1,4 @@
-import { Heatmap } from 'contribution-heatmap';
+import Heatmap from './Heatmap';
 
 interface CommitActivity {
   total: number;
@@ -18,14 +18,5 @@ const getCommitActivity = async (repo: string): Promise<CommitActivity[]> => {
 
 export default async function GithubHeatmap({ repo }: { repo: string }) {
   const commitActivity = await getCommitActivity(repo);
-
-  return (
-    <Heatmap
-      colour={['#ebedf0', '#c6e48b', '#40c463', '#30a14e', '#216e39']}
-      squareNumber={365}
-      count={commitActivity.flatMap((activity) => activity.days)}
-      squareGap={'4px'}
-      squareSize={'15px'}
-    />
-  );
+  return <Heatmap commitActivity={commitActivity} />;
 }
