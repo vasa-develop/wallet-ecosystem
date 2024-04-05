@@ -7,7 +7,7 @@ export default function MetamaskSecurityAnalysis() {
   return (
     <div className="flex flex-col gap-2">
       <Title level={4}>Key Management</Title>
-      <Figure src="/wallets/metamask_key_management.png" />
+      <Figure src="/wallets/metamask/metamask_key_management.png" />
       <p>
         Metamask allows users to use a password to access the key stored in the
         user’s local browser’s storage.
@@ -45,7 +45,7 @@ export default function MetamaskSecurityAnalysis() {
         time used to perform the operation.
       </p>
       <Title level={5}>Key generation</Title>
-      <Figure src="/wallets/secp256k1_key_generation.png" />
+      <Figure src="/wallets/metamask/secp256k1_key_generation.png" />
       <p>
         A random number selected from the secp256k1 elliptic curve serves as the
         private key. This key is then multiplied by a predefined point on the
@@ -55,7 +55,7 @@ export default function MetamaskSecurityAnalysis() {
         deterministic derivation of private and public keys.
       </p>
       <Title level={5}>Transaction process</Title>
-      <Figure src="/wallets/secp256k1_trx_sig.png" />
+      <Figure src="/wallets/metamask/secp256k1_trx_sig.png" />
       <p>
         Signing Transactions: A transaction, containing details such as nonce(a
         sequential number), amount, gas price, and recipient address, is signed
@@ -65,7 +65,7 @@ export default function MetamaskSecurityAnalysis() {
         s, v). The signature and the original transaction are then broadcast on
         the network.
       </p>
-      <Figure src="/wallets/eth_trx_verification.png" />
+      <Figure src="/wallets/metamask/eth_trx_verification.png" />
       <p>
         Verifying Transactions: Once a transaction reaches Ethereum nodes, it
         undergoes a validation process in the node&apos;s mempool. To verify the

@@ -8,7 +8,7 @@ export default function ClaveSecurityAnalysis() {
   return (
     <div className="flex flex-col gap-2">
       <Title level={4}>Key Management</Title>
-      <Figure src="/wallets/clave_key_management.jpeg" />
+      <Figure src="/wallets/clave/clave_key_management.jpeg" />
 
       <Title level={5}>Responsibility</Title>
       <p>
@@ -368,7 +368,7 @@ try {
             same salt to deploy the account that was used to pre generate the
             address.
           </p>
-          <Figure src="/wallets/clave_account_activation.png" />
+          <Figure src="/wallets/clave/clave_account_activation.png" />
           <figcaption style={{ textAlign: 'center' }}>
             An example transaction showing how Clave wallet deploys user’s SCA
             on the first transaction from the Clave wallet (
@@ -424,7 +424,7 @@ try {
             <b>Gas abstraction/sponsership</b> : Clave wallet sponsors first few
             (~5) transactions using a paymaster.
           </p>
-          <Figure src="/wallets/clave_gas_abstraction.png" />
+          <Figure src="/wallets/clave/clave_gas_abstraction.png" />
           <figcaption style={{ textAlign: 'center' }}>
             An example{' '}
             <a
