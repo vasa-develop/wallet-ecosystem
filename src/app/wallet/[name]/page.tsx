@@ -90,7 +90,11 @@ export default function page({ params }: { params: { name: string } }) {
                 );
                 break;
               case SECTIONS.SECURITY_ANALYSIS:
-                SectionComponent = <Card>{walletSectionData[section]()}</Card>;
+                SectionComponent = (
+                  <Card id={SECTIONS.SECURITY_ANALYSIS}>
+                    {walletSectionData[section]()}
+                  </Card>
+                );
                 break;
               case SECTIONS.FEATURES:
                 SectionComponent = (
@@ -100,6 +104,13 @@ export default function page({ params }: { params: { name: string } }) {
               case SECTIONS.SUPPORTED_STANDARD:
                 SectionComponent = (
                   <WalletSupportedStatus data={walletSectionData[section]} />
+                );
+                break;
+              case SECTIONS.INCIDENTS:
+                SectionComponent = (
+                  <div id={SECTIONS.INCIDENTS}>
+                    <NotDone />
+                  </div>
                 );
                 break;
             }
@@ -120,7 +131,7 @@ export default function page({ params }: { params: { name: string } }) {
 
 function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
   return (
-    <Card>
+    <Card id={SECTIONS.STATS}>
       {stats.Downloads && (
         <div className="grid grid-cols-4 gap-2">
           {Object.typedKeys(stats.Downloads).map((platform, index) => {
@@ -178,12 +189,18 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
 }
 
 function WalletIncentives({ data }: { data: Wallet[SECTIONS.INCENTIVES] }) {
-  return !data && <p className="text-gray-400 description">No incentives</p>;
+  return (
+    !data && (
+      <p id={SECTIONS.INCENTIVES} className="text-gray-400 description">
+        No incentives
+      </p>
+    )
+  );
 }
 
 function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
   return (
-    <Card>
+    <Card id={SECTIONS.ACTIVITY}>
       {activity.map((data, index) => {
         return (
           <Fragment key={index}>
@@ -209,7 +226,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
 
 function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
   return (
-    <Card className="flex gap-2 flex flex-col">
+    <Card id={SECTIONS.FEATURES} className="flex gap-2 flex flex-col">
       {Object.typedKeys(data).map((section, index) => {
         let SectionComponent = <NotDone />;
         switch (section) {
@@ -301,7 +318,7 @@ function NotDone() {
 
 function WalletLicense({ data }: { data: Wallet[SECTIONS.LICENSE] }) {
   return (
-    <Card>
+    <Card id={SECTIONS.LICENSE}>
       <div className="p-4 flex flex-col gap-2">
         {data.map((data, index) => {
           return (
@@ -326,7 +343,7 @@ function WalletLegalComplieance({
   data: Wallet[SECTIONS.LEGAL_COMPLIANCE];
 }) {
   return (
-    <Card>
+    <Card id={SECTIONS.LEGAL_COMPLIANCE}>
       <div className="p-4">
         <div className=" shadow rounded-lg">
           <p className="description text-gray-400 mb-4">
@@ -359,7 +376,7 @@ function WalletLegalComplieance({
 
 function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div id={SECTIONS.SECURITY} className="flex flex-col gap-2">
       {data.Audits && (
         <Card>
           <div className="p-4 pt-0">

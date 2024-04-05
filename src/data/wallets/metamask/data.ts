@@ -68,10 +68,29 @@ const metamask: Wallet = {
         isSupported: true,
       },
       {
-        feature: 'Support social login?',
+        feature: 'Social login',
         description: '',
         isSupported: false,
         remark: 'Could be supported in future using snaps',
+      },
+      {
+        feature: 'Email login',
+        description: '',
+        isSupported: false,
+        remark: 'Could be supported in future using snaps',
+      },
+      {
+        feature: 'Passkey login',
+        description: '',
+        isSupported: false,
+        remark: 'Could be supported in future using snaps',
+      },
+      {
+        feature: 'Smart Account support',
+        description: '',
+        isSupported: false,
+        remark:
+          'Experimental Support using snaps: https://metamask.io/news/developers/aa-snap-democratizing-account-abstraction/',
       },
       {
         feature: 'Portfolio tracking',

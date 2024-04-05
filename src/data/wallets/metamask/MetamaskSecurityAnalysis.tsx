@@ -44,7 +44,7 @@ export default function MetamaskSecurityAnalysis() {
         For each case, check, how this works and some benchmarks on cost and
         time used to perform the operation.
       </p>
-      <Title level={4}>Key generation</Title>
+      <Title level={5}>Key generation</Title>
       <Figure src="/wallets/secp256k1_key_generation.png" />
       <p>
         A random number selected from the secp256k1 elliptic curve serves as the
@@ -54,7 +54,7 @@ export default function MetamaskSecurityAnalysis() {
         is usually introduced for human-readable backup, enabling the
         deterministic derivation of private and public keys.
       </p>
-      <Title level={4}>Transaction process</Title>
+      <Title level={5}>Transaction process</Title>
       <Figure src="/wallets/secp256k1_trx_sig.png" />
       <p>
         Signing Transactions: A transaction, containing details such as nonce(a
@@ -73,20 +73,20 @@ export default function MetamaskSecurityAnalysis() {
         sender&apos;s public key and confirm the transaction&apos;s authenticity
         by matching the derived address with the sender&apos;s.
       </p>
-      <Title level={4}>Recovery process</Title>
+      <Title level={5}>Account Recovery process</Title>
       <p>
         Users are suggested to maintain a secure back up of the seed
         phrase/private key(s) in order to recover their account if needed. If a
         user loses their private key/seed phrase, then they cannot recover their
         account.
       </p>
-      <Title level={4}>Migrating from another wallet</Title>
+      <Title level={5}>Migrating from another wallet</Title>
       <ul className="list-disc pl-4">
         <li>Seed phrase import supported (seed format supported: 12/24)</li>
         <li>Private key import supported</li>
         <li>Hierarchical deterministic (HD) address derivation</li>
       </ul>
-      <Title level={4}>Migrating to another wallet</Title>
+      <Title level={5}>Migrating to another wallet</Title>
       <p>
         You can export your private key/seed phrase and import that to any other
         compatible wallet.

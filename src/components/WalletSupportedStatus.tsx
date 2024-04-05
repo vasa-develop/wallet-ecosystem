@@ -10,7 +10,7 @@ export default function WalletSupportedStatus({
   data: Wallet[SECTIONS.SUPPORTED_STANDARD];
 }) {
   return (
-    <Card>
+    <Card id={SECTIONS.SUPPORTED_STANDARD}>
       <Table.Root>
         <Table.Header>
           <Table.Row>

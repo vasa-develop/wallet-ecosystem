@@ -25,7 +25,7 @@ export default function Home() {
             return (
               <Table.Row key={index}>
                 <Table.RowHeaderCell className="font-medium">
-                  <Link className="w-full" href={'/wallet/metamask'}>
+                  <Link className="w-full" href={`/wallet/${wallet_name}`}>
                     {wallet.name}
                   </Link>
                 </Table.RowHeaderCell>

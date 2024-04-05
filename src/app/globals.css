@@ -77,3 +77,44 @@ a {
   rx: 2.5;
   ry: 2.5;
 }
+
+/* Add this CSS to your stylesheet */
+code {
+  background-color: rgba(27, 31, 35, 0.05); /* Light grey background */
+  border-radius: 3px; /* Rounded corners */
+  font-family: monospace; /* Monospaced font */
+  padding: 0.2em 0.4em; /* Padding inside the code element */
+  margin: 0; /* No margin */
+  font-size: 85%; /* Smaller font size */
+  color: #d63384; /* Whatever color you want for the text */
+}
+
+/* Add this CSS to your stylesheet */
+a {
+  color: grey; /* Set your preferred shade of grey */
+}
+
+/* Style for 'code' links */
+a.code-link {
+  background-color: rgba(27, 31, 35, 0.05); /* Light grey background */
+  border-radius: 3px; /* Rounded corners */
+  font-family: monospace; /* Monospaced font */
+  padding: 0.2em 0.4em; /* Padding inside the code element */
+  margin: 0; /* No margin */
+  font-size: 85%; /* Smaller font size */
+  color: #d63384; /* Custom color for the text, set it to grey for your use case */
+  text-decoration: none; /* Always underline */
+}
+
+a.code-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+figcaption {
+  font-size: 0.9em; /* Slightly smaller than the body text */
+  color: #666; /* A lighter shade of grey */
+  font-style: italic; /* Italicize the text */
+  text-align: center; /* Center-align the text */
+  margin-top: 0.5em; /* Add space above the caption */
+  margin-bottom: 1em; /* Add space below the caption */
+}

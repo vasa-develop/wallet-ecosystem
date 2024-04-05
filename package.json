@@ -21,10 +21,13 @@
     "date-fns": "^3.6.0",
     "lucide-react": "^0.343.0",
     "next": "14.1.0",
+    "prism-react-renderer": "^2.3.1",
     "react": "^18",
     "react-calendar-heatmap": "^1.9.0",
+    "react-code-block": "^1.0.0",
     "react-dom": "^18",
     "react-tooltip": "^5.26.3",
+    "react-use": "^17.5.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7"
   },
