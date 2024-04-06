@@ -13,6 +13,7 @@ export default function Heatmap({
   const min = 0;
   const { days, max } = useMemo(() => {
     let max = 1;
+    if (!Array.isArray(commitActivity)) return { days: [], max };
     return {
       days: commitActivity.flatMap((record) =>
         record.days.map((d, i) => {

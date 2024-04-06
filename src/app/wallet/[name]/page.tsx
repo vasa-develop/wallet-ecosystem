@@ -9,6 +9,7 @@ import {
   FEATURE_TYPE,
   PLATFORM_IMAGES,
   SECTIONS,
+  SECTION_ICON,
   SECURITY_AUDIT_TYPE,
   STAT_SECTIONS,
 } from '@/types/enum';
@@ -90,11 +91,7 @@ export default function page({ params }: { params: { name: string } }) {
                 );
                 break;
               case SECTIONS.SECURITY_ANALYSIS:
-                SectionComponent = (
-                  <Card id={SECTIONS.SECURITY_ANALYSIS}>
-                    {walletSectionData[section]()}
-                  </Card>
-                );
+                SectionComponent = <Card>{walletSectionData[section]()}</Card>;
                 break;
               case SECTIONS.FEATURES:
                 SectionComponent = (
@@ -108,16 +105,20 @@ export default function page({ params }: { params: { name: string } }) {
                 break;
               case SECTIONS.INCIDENTS:
                 SectionComponent = (
-                  <div id={SECTIONS.INCIDENTS}>
+                  <div>
                     <NotDone />
                   </div>
                 );
                 break;
             }
+            const Icon = SECTION_ICON[section];
             return (
               <>
-                <div className="mb-8">
-                  <h2 className="text-xl mb-3 font-bold">{section}</h2>
+                <div id={section} className="mb-8">
+                  <h2 className="text-xl mb-3 font-bold flex items-center gap-1.5">
+                    <Icon width={20} strokeWidth={2} />
+                    {section}
+                  </h2>
                   <div>{SectionComponent}</div>
                 </div>
               </>
@@ -131,7 +132,7 @@ export default function page({ params }: { params: { name: string } }) {
 
 function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
   return (
-    <Card id={SECTIONS.STATS}>
+    <Card>
       {stats.Downloads && (
         <div className="grid grid-cols-4 gap-2">
           {Object.typedKeys(stats.Downloads).map((platform, index) => {
@@ -189,18 +190,12 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
 }
 
 function WalletIncentives({ data }: { data: Wallet[SECTIONS.INCENTIVES] }) {
-  return (
-    !data && (
-      <p id={SECTIONS.INCENTIVES} className="text-gray-400 description">
-        No incentives
-      </p>
-    )
-  );
+  return !data && <p className="text-gray-400 description">No incentives</p>;
 }
 
 function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
   return (
-    <Card id={SECTIONS.ACTIVITY}>
+    <Card>
       {activity.map((data, index) => {
         return (
           <Fragment key={index}>
@@ -226,7 +221,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
 
 function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
   return (
-    <Card id={SECTIONS.FEATURES} className="flex gap-2 flex flex-col">
+    <Card className="flex gap-2 flex flex-col">
       {Object.typedKeys(data).map((section, index) => {
         let SectionComponent = <NotDone />;
         switch (section) {
@@ -302,8 +297,8 @@ function SupportedHardwareWallets({
       {data.map((d, i) => {
         return (
           <Tooltip key={i} content={d.name}>
-            <Card className="px-8 py-4">
-              <img className="invert" src={d.imgUrl} alt={d.name} />
+            <Card className="px-8 py-4 flex items-center">
+              <img src={d.imgUrl} alt={d.name} />
             </Card>
           </Tooltip>
         );
@@ -318,7 +313,7 @@ function NotDone() {
 
 function WalletLicense({ data }: { data: Wallet[SECTIONS.LICENSE] }) {
   return (
-    <Card id={SECTIONS.LICENSE}>
+    <Card>
       <div className="p-4 flex flex-col gap-2">
         {data.map((data, index) => {
           return (
@@ -343,7 +338,7 @@ function WalletLegalComplieance({
   data: Wallet[SECTIONS.LEGAL_COMPLIANCE];
 }) {
   return (
-    <Card id={SECTIONS.LEGAL_COMPLIANCE}>
+    <Card>
       <div className="p-4">
         <div className=" shadow rounded-lg">
           <p className="description text-gray-400 mb-4">
@@ -376,7 +371,7 @@ function WalletLegalComplieance({
 
 function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
   return (
-    <div id={SECTIONS.SECURITY} className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2">
       {data.Audits && (
         <Card>
           <div className="p-4 pt-0">

@@ -1,3 +1,15 @@
+import { ChartBarIcon } from '@/components/icons/ChartBarIcon';
+import { ClipboardDocumentListIcon } from '@/components/icons/ClipboardDocumentListIcon';
+import { CreditCardIcon } from '@/components/icons/CreditCardIcon';
+import { GiftIcon } from '@/components/icons/GiftIcon';
+import { KeyIcon } from '@/components/icons/KeyIcon';
+import { PresentationChartLineIcon } from '@/components/icons/PresentationChartLineIcon';
+import { ScaleIcon } from '@/components/icons/ScaleIcon';
+import { ShieldCheckIcon } from '@/components/icons/ShieldCheckIcon';
+import { ShieldExclamationIcon } from '@/components/icons/ShieldExclamationIcon';
+import { Squares2X2Icon } from '@/components/icons/Squares2X2Icon';
+import { SVGAttributes } from 'react';
+
 declare global {
   interface ObjectConstructor {
     typedKeys<T>(obj: T): Array<keyof T>;
@@ -17,6 +29,21 @@ export enum SECTIONS {
   LEGAL_COMPLIANCE = 'Legal Compliance',
   LICENSE = 'License',
 }
+
+export const SECTION_ICON: {
+  [key in SECTIONS]: (props: SVGAttributes<SVGElement>) => JSX.Element;
+} = {
+  [SECTIONS.STATS]: ChartBarIcon,
+  [SECTIONS.ACTIVITY]: PresentationChartLineIcon,
+  [SECTIONS.SECURITY_ANALYSIS]: KeyIcon,
+  [SECTIONS.FEATURES]: Squares2X2Icon,
+  [SECTIONS.SUPPORTED_STANDARD]: ClipboardDocumentListIcon,
+  [SECTIONS.INCENTIVES]: GiftIcon,
+  [SECTIONS.SECURITY]: ShieldCheckIcon,
+  [SECTIONS.INCIDENTS]: ShieldExclamationIcon,
+  [SECTIONS.LEGAL_COMPLIANCE]: ScaleIcon,
+  [SECTIONS.LICENSE]: CreditCardIcon,
+};
 
 export enum STAT_SECTIONS {
   DOWNLOADS = 'Downloads',
