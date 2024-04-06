@@ -200,11 +200,11 @@ const metamask: Wallet = {
     [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [
       {
         name: 'Ledger',
-        imgUrl: '/wallets/ledger/ledger.png',
+        imgUrl: '/wallets/ledger/ledger.webp',
       },
       {
         name: 'Trezor',
-        imgUrl: '/wallets/trezor/trezor.png',
+        imgUrl: '/wallets/trezor/trezor.webp',
       },
       {
         name: 'Lattice',

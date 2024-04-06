@@ -297,8 +297,8 @@ function SupportedHardwareWallets({
       {data.map((d, i) => {
         return (
           <Tooltip key={i} content={d.name}>
-            <Card className="px-8 py-4">
-              <img className="invert" src={d.imgUrl} alt={d.name} />
+            <Card className="px-8 py-4 flex items-center">
+              <img src={d.imgUrl} alt={d.name} />
             </Card>
           </Tooltip>
         );
