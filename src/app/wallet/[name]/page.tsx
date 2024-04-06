@@ -115,7 +115,7 @@ export default function page({ params }: { params: { name: string } }) {
             return (
               <>
                 <div id={section} className="mb-8">
-                  <h2 className="text-xl mb-3 font-bold flex items-center gap-1">
+                  <h2 className="text-xl mb-3 font-bold flex items-center gap-1.5">
                     <Icon width={20} strokeWidth={2} />
                     {section}
                   </h2>
