@@ -1,0 +1,31 @@
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg59297" viewBox="0 0 1024 768" height="768px" width="1024px" version="1.1">
+  <metadata id="metadata59303">
+    <rdf:rdf>
+      <cc:work rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+      </cc:work>
+    </rdf:rdf>
+  </metadata>
+  <defs id="defs59301"></defs>
+  <linearGradient spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient2-logo-5093ff91-da4f-4ce3-8e3c-3677df24bc89">
+    <stop id="stop59278" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
+    <stop id="stop59280" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
+  </linearGradient>
+  <linearGradient gradientTransform="rotate(-30)" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient3-logo-5093ff91-da4f-4ce3-8e3c-3677df24bc89">
+    <stop id="stop59283" stop-opacity="1" stop-color="#ffffff" offset="0%"></stop>
+    <stop id="stop59285" stop-opacity="1" stop-color="#cccccc" offset="50%"></stop>
+    <stop id="stop59287" stop-opacity="1" stop-color="#000000" offset="100%"></stop>
+  </linearGradient>
+  <g id="logo-group">
+    <image xlink:href="" id="container" x="272" y="144" width="480" height="480" style="display: none;" transform="translate(0 0)"></image>
+    <g id="logo-center" transform="translate(0 0)">
+      <image xlink:href="" id="icon_container" style="display: none;" x="0" y="0"></image>
+      <g id="slogan" style="font-style:normal;font-weight:400;font-size:32px;line-height:1;font-family:Karla;font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(0 0)"></g>
+      <g id="title" style="font-style:normal;font-weight:800;font-size:72px;line-height:1;font-family:'Montserrat ExtraBold Alt1';font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(0 0)">
+        <path id="path59306" style="font-style:normal;font-weight:800;font-size:72px;line-height:1;font-family:'Montserrat ExtraBold Alt1';font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 485.23062,-50.4 h -14.688 l 12.81601,39.672 7.19999,-22.608 z m 54.64801,0 -10.58401,32.472 -5.904,17.928 h 13.752 l 16.344,-50.4 z m -20.73601,0 h -13.10399 l -10.656,32.184 L 489.76662,0 h 12.384 l 10.08001,-30.672 5.32799,16.992 6.76801,-20.016 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#8d98f1" stroke="#8d98f1" transform="translate(0 359.2) translate(387.584 -50.79999999999999) scale(3) translate(-470.54262 50.4)"></path>
+      </g>
+      <image xlink:href="" id="icon" style="display: none;" x="0" y="0"></image>
+    </g>
+  </g>
+</svg>

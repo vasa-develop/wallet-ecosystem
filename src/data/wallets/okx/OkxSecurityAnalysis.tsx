@@ -7,6 +7,12 @@ export default function OkxSecurityAnalysis() {
   return (
     <div className="flex flex-col gap-2">
       <Title level={4}>Key Management</Title>
+      <p>OKX wallet support 2 different key management options:</p>
+
+      <Title level={5}>Standard HD Wallet</Title>
+      <Figure src="/wallets/metamask/metamask_key_management.png" />
+
+      <Title level={5}>MPC Wallet</Title>
       <Figure src="/wallets/metamask/metamask_key_management.png" />
 
       <Title level={5}>Responsibility</Title>

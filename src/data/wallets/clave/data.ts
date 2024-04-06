@@ -422,7 +422,7 @@ const clave: Wallet = {
         eipName: 'ERC-7555: Single Sign-On for Account Discovery',
         eipType: '',
         eipStatus: '',
-        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
+        supportStatus: EIP_SUPPORT_STATUS.EIP_NOT_READY,
       },
     ],
   },

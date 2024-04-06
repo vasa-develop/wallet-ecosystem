@@ -7,7 +7,7 @@ export default function MetamaskSecurityAnalysis() {
   return (
     <div className="flex flex-col gap-2">
       <Title level={4}>Key Management</Title>
-      <Figure src="/wallets/metamask/metamask_key_management.png" />
+      <Figure src="/wallets/metamask/metamask_key_management.jpeg" />
 
       <Title level={5}>Responsibility</Title>
       <p>

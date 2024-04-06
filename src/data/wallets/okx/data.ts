@@ -234,38 +234,19 @@ const okx: Wallet = {
     [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [
       {
         name: 'Ledger',
-        imgUrl:
-          'https://developers.ledger.com/connectivity/ledger-horizontal.png',
+        imgUrl: '/wallets/ledger/ledger.png',
       },
       {
         name: 'Trezor',
-        imgUrl:
-          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
-      },
-      {
-        name: 'Lattice',
-        imgUrl:
-          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+        imgUrl: '/wallets/trezor/trezor.png',
       },
       {
         name: 'Keystone',
-        imgUrl:
-          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+        imgUrl: '/wallets/keystone/keystone.png',
       },
       {
-        name: 'AirGap Vault',
-        imgUrl:
-          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
-      },
-      {
-        name: 'CoolWallet',
-        imgUrl:
-          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
-      },
-      {
-        name: "D'Cent ",
-        imgUrl:
-          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
+        name: 'OneKey',
+        imgUrl: '/wallets/onekey/onekey.png',
       },
     ],
   },
@@ -275,7 +256,7 @@ const okx: Wallet = {
         eipName: 'ERC-4337: Account Abstraction Using Alt Mempool',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Draft',
-        supportStatus: EIP_SUPPORT_STATUS.WIP,
+        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
       },
       {
         eipName: 'ERC-6900: Modular Smart Contract Accounts and Plugins',
@@ -335,7 +316,7 @@ const okx: Wallet = {
         eipName: 'ERC-831: URI Format for Ethereum',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Stagnant',
-        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
       },
       {
         eipName: 'EIP-1102: Opt-in account exposure',
@@ -347,7 +328,7 @@ const okx: Wallet = {
         eipName: 'EIP-1474: Remote procedure call specification',
         eipType: 'Standards Track: Interface',
         eipStatus: 'Stagnant',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'EIP-2015: wallet_updateEthereumChain RPC Method',
@@ -408,7 +389,7 @@ const okx: Wallet = {
         eipName: 'ERC-681: URL Format for Transaction Requests',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Final',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
       },
       {
         eipName: 'EIP-712: Typed structured data hashing and signing',
@@ -450,13 +431,13 @@ const okx: Wallet = {
         eipName: 'EIP-2930: Optional access lists',
         eipType: 'Standards Track: Core',
         eipStatus: 'Final',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'EIP-6492: Signature Validation for Predeploy Contracts',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Final',
-        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'EIP-6963: Multi Injected Provider Discovery',
@@ -468,7 +449,7 @@ const okx: Wallet = {
         eipName: 'ERC-945: wallet_scanQRCode RPC Method',
         eipType: '',
         eipStatus: '',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
       },
       {
         eipName: 'RIP-7560: Native Account Abstraction',
@@ -480,7 +461,7 @@ const okx: Wallet = {
         eipName: 'ERC-7555: Single Sign-On for Account Discovery',
         eipType: '',
         eipStatus: '',
-        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
+        supportStatus: EIP_SUPPORT_STATUS.EIP_NOT_READY,
       },
     ],
   },
@@ -488,199 +469,59 @@ const okx: Wallet = {
   [SECTIONS.SECURITY]: {
     [SECURITY_AUDIT_TYPE.AUDIT]: [
       {
-        auditor: 'Cure53',
-        date: 'April 27, 2016',
+        auditor: 'SlowMist',
+        date: 'Aug 14, 2022',
         auditedVersion: [
           {
-            name: 'Extension (0e6bc6)',
-            link: 'https://github.com/MetaMask/metamask-extension/commit/0e6bc6647ee5c0554a4e149514c87ca4d8585d2c',
+            name: 'N/A',
+            link: '',
           },
         ],
 
         currentVersion: [
           {
-            name: 'Extension (0e6bc6)',
-            link: 'https://github.com/MetaMask/metamask-extension/commit/0e76174df6d6efb1828098b169b58cfed80d9012',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report: 'https://metamask.io/files/pentest-report_metamask.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'April 9, 2019',
-        auditedVersion: [
-          {
-            name: 'Core (92cf95)',
-            link: 'https://github.com/MetaMask/core/commit/92cf95476c0732a13c5e30cadfbf9296cdd7b1cf',
-          },
-          {
-            name: 'Mobile (b57476)',
-            link: 'https://github.com/MetaMask/metamask-mobile/commit/b57476b142cedbddf725f8787b668ca64642b4c2',
-          },
-          {
-            name: 'Keyring Controller (9e180e)',
-            link: 'https://github.com/MetaMask/KeyringController/commit/9e180e5b10c0ceeb437f6d44360b525b3083c723',
-          },
-          {
-            name: 'Browser Passworder (089893)',
-            link: 'https://github.com/MetaMask/browser-passworder/commit/089893779ce366a9f0ee038b9c71708649fc0e1d',
-          },
-        ],
-
-        currentVersion: [
-          {
-            name: 'Core (aada25)',
-            link: 'https://github.com/MetaMask/core/commit/aada25179a3685fd3583293d61740b2571729726',
-          },
-          {
-            name: 'Mobile (973981)',
-            link: 'https://github.com/MetaMask/metamask-mobile/commit/973981620a5ce9dbdae7e622c3b7da11bc9cba13',
-          },
-          {
-            name: 'Keyring Controller (d5ae5c)',
-            link: 'https://github.com/MetaMask/KeyringController/commit/d5ae5c809751acebb9deb5b755b90455f2b3b7c4',
-          },
-          {
-            name: 'Browser Passworder (1eb936)',
-            link: 'https://github.com/MetaMask/browser-passworder/commit/1eb9361176cea81d24fedf42697d31b112090ab2',
+            name: 'N/A',
+            link: '',
           },
         ],
 
         relevance: AUDIT_RELEVANCE.OUTDATED,
         report:
-          'https://metamask.io/files/LeastAuthority-MetaMask-Audit-Report.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'March 4, 2020',
-        auditedVersion: [
-          {
-            name: 'Snaps (7d758d)',
-            link: 'https://github.com/MetaMask/metamask-snaps-beta/commit/7d758d335279bd0d25e3a9c170fcf60709eb7828',
-          },
-          {
-            name: 'Lavamoat Browserify (9bd7fa)',
-            link: 'https://github.com/LeastAuthority/lavamoat-browserify/commit/9bd7fad6eddd54691caf55ee37a64b6f0bb1057a',
-          },
-        ],
-
-        currentVersion: [
-          {
-            name: 'Snaps (4169c2)',
-            link: 'https://github.com/MetaMask/metamask-snaps-beta/commit/4169c2445e025631fa963e03da24379607a9beab',
-          },
-          {
-            name: 'Lavamoat Browserify (9bd7fa)',
-            link: 'https://github.com/LeastAuthority/lavamoat-browserify/commit/9bd7fad6eddd54691caf55ee37a64b6f0bb1057a',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report:
-          'https://metamask.io/files/LeastAuthority-MetaMask-Plugin-System-LavaMoat-Audit-Report.pdf',
-      },
-
-      {
-        auditor: 'Cure53',
-        date: 'March 3, 2023',
-        auditedVersion: [
-          {
-            name: 'Key Tree (7b6bec)',
-            link: 'https://github.com/MetaMask/key-tree/commit/7b6becf3edd8e22f6cdab40f3724bd93e15bd5c4',
-          },
-        ],
-        currentVersion: [
-          {
-            name: 'Key Tree (4411c8)',
-            link: 'https://github.com/MetaMask/key-tree/commit/4411c8670a0e3cba01b11bb1f748eb88eb4bfcb3',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report: 'https://metamask.io/files/key-tree-audit-report.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'September 8, 2023',
-        auditedVersion: [
-          {
-            name: 'Extension (b963c9)',
-            link: 'https://github.com/MetaMask/metamask-extension/commit/b963c9a40e6fea02b972f30d43bb893d9d7e84c7',
-          },
-        ],
-        currentVersion: [
-          {
-            name: 'Extension (0e7617)',
-            link: 'https://github.com/MetaMask/metamask-extension/commit/0e76174df6d6efb1828098b169b58cfed80d9012',
-          },
-        ],
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report:
-          'https://metamask.io/files/least-authority-metamask-snaps-audit-extension.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'September 8, 2023',
-        auditedVersion: [
-          {
-            name: 'Snaps (4b6bcf)',
-            link: 'https://github.com/MetaMask/snaps/commit/4b6bcfa933b2f09a12baebbb026b8ef160217857',
-          },
-        ],
-
-        currentVersion: [
-          {
-            name: 'Snaps (866945)',
-            link: 'https://github.com/MetaMask/snaps/commit/86694591ce95c8f9552dcd1f16fcbe527fbe9d6e',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report:
-          'https://metamask.io/files/least-authority-metamask-snaps-audit-api.pdf',
+          'https://www.okx.com/help/okx-wallet-passed-security-key-audit-by-slowmist',
       },
     ],
-    [SECURITY_AUDIT_TYPE.BUG_BOUNTY]: [
-      {
-        platform: 'HackerOne',
-        reward: '$1K - $50K',
-        status: 'Active',
-        scope: 'https://hackerone.com/metamask?type=team',
-      },
-    ],
+    [SECURITY_AUDIT_TYPE.BUG_BOUNTY]: [],
   },
   [SECTIONS.INCIDENTS]: [],
   [SECTIONS.LEGAL_COMPLIANCE]: [
     [
       'Where is the company registered?',
       "This is important as it can impact the regulatory standards the company must adhere to, the legal protections available to users, and the company's overall credibility and trustworthiness.",
-      'Texas, U.S.',
+      'Australia, Malta, Bahamas, Hong Kong, Brazil, Singapore, Seychelles',
     ],
     [
       'Data Safety Policy',
       "It's essential for ensuring the privacy and security of user data, demonstrating the company's commitment to maintaining user trust and adhering to data protection regulations. It provides users with an understanding of what to expect regarding their personal information when using the wallet.",
-      'https://consensys.io/privacy-policy',
+      'https://www.okx.com/help/privacy-policy-statement',
     ],
     [
       'Website Cookie policy',
       'Website cookies in this wallet are used for:',
-      'https://consensys.io/privacy-policy/cookies',
+      'https://www.okx.com/help/privacy-policy-statement',
     ],
   ],
   [SECTIONS.LICENSE]: [
     {
-      name: 'Metamask Extension',
-      link: 'https://github.com/MetaMask/metamask-extension/blob/develop/LICENSE',
+      name: 'OKX Extension - Closed Source',
+      link: '',
     },
     {
-      name: 'Metamask Mobile',
-      link: 'https://github.com/MetaMask/metamask-mobile/blob/main/LICENSE',
+      name: 'OKX Mobile - Closed Source',
+      link: '',
+    },
+    {
+      name: 'OKX Desktop - Closed Source',
+      link: '',
     },
   ],
 };

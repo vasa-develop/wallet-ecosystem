@@ -1,5 +1,6 @@
 import metamask from './metamask/data';
 import clave from './clave/data';
+import okx from './okx/data';
 import { Wallet } from '@/types/wallet';
 
 export const wallets: {
@@ -14,18 +15,23 @@ export const wallets: {
   metamask: {
     updatedAt: '22-Mar 2024',
     name: 'Metamask',
-    image:
-      'https://cdn.iconscout.com/icon/free/png-256/free-metamask-2728406-2261817.png',
+    image: '/wallets/metamask/metamask.png',
     url: 'www.metamask.io',
     sections: metamask,
   },
   clave: {
     updatedAt: '22-Mar 2024',
     name: 'Clave Wallet',
-    image:
-      'https://www.getclave.io/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flogo-black.adba12b6.png&w=640&q=75',
+    image: '/wallets/clave/clave.webp',
     url: 'www.getclave.io/',
     sections: clave,
+  },
+  okx: {
+    updatedAt: '22-Mar 2024',
+    name: 'OKX Wallet',
+    image: '/wallets/okx/okx.png',
+    url: 'www.okx.com/web3',
+    sections: okx,
   },
 };
 

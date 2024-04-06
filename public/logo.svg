@@ -1,1 +1,31 @@
-<svg id="logo-86" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path class="ccustom" fill-rule="evenodd" clip-rule="evenodd" d="M25.5557 11.6853C23.9112 10.5865 21.9778 10 20 10V0C23.9556 0 27.8224 1.17298 31.1114 3.37061C34.4004 5.56823 36.9638 8.69181 38.4776 12.3463C39.9913 16.0008 40.3874 20.0222 39.6157 23.9018C38.844 27.7814 36.9392 31.3451 34.1421 34.1421C31.3451 36.9392 27.7814 38.844 23.9018 39.6157C20.0222 40.3874 16.0008 39.9913 12.3463 38.4776C8.69181 36.9638 5.56823 34.4004 3.37061 31.1114C1.17298 27.8224 0 23.9556 0 20H10C10 21.9778 10.5865 23.9112 11.6853 25.5557C12.7841 27.2002 14.3459 28.4819 16.1732 29.2388C18.0004 29.9957 20.0111 30.1937 21.9509 29.8078C23.8907 29.422 25.6725 28.4696 27.0711 27.0711C28.4696 25.6725 29.422 23.8907 29.8078 21.9509C30.1937 20.0111 29.9957 18.0004 29.2388 16.1732C28.4819 14.3459 27.2002 12.7841 25.5557 11.6853Z" fill="#007DFC"></path><path class="ccustom" fill-rule="evenodd" clip-rule="evenodd" d="M10 5.16562e-07C10 1.31322 9.74135 2.61358 9.2388 3.82683C8.73625 5.04009 7.99966 6.14248 7.07107 7.07107C6.14249 7.99966 5.0401 8.73625 3.82684 9.2388C2.61358 9.74134 1.31322 10 5.4439e-06 10L5.00679e-06 20C2.62644 20 5.22716 19.4827 7.65368 18.4776C10.0802 17.4725 12.285 15.9993 14.1421 14.1421C15.9993 12.285 17.4725 10.0802 18.4776 7.65367C19.4827 5.22715 20 2.62643 20 -3.81469e-06L10 5.16562e-07Z" fill="#007DFC"></path></svg>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="svg240250" viewBox="0 0 1024 768" height="768px" width="1024px" version="1.1">
+  <metadata id="metadata240256" fill="#000000">
+    <rdf:rdf fill="#000000">
+      <cc:work rdf:about="" fill="#000000">
+        <dc:format fill="#000000">image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" fill="#000000"/>
+      </cc:work>
+    </rdf:rdf>
+  </metadata>
+  <defs id="defs240254" fill="#000000"/>
+  <linearGradient spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient2-logo-181dbf6a-049d-4551-a9f4-ee726509a96a" fill="#000000">
+    <stop id="stop240231" stop-opacity="1" stop-color="#ffffff" offset="0%" fill="#000000"/>
+    <stop id="stop240233" stop-opacity="1" stop-color="#000000" offset="100%" fill="#000000"/>
+  </linearGradient>
+  <linearGradient gradientTransform="rotate(-30)" spreadMethod="pad" y2="30%" x2="-10%" y1="120%" x1="30%" id="3d_gradient3-logo-181dbf6a-049d-4551-a9f4-ee726509a96a" fill="#000000">
+    <stop id="stop240236" stop-opacity="1" stop-color="#ffffff" offset="0%" fill="#000000"/>
+    <stop id="stop240238" stop-opacity="1" stop-color="#cccccc" offset="50%" fill="#000000"/>
+    <stop id="stop240240" stop-opacity="1" stop-color="#000000" offset="100%" fill="#000000"/>
+  </linearGradient>
+  <g id="logo-group">
+    <image xlink:href="" id="container" x="272" y="144" width="480" height="480" style="display: none;" transform="translate(0 0)" fill="#000000"/>
+    <g id="logo-center" transform="translate(0 0)">
+      <image xlink:href="" id="icon_container" style="display: none;" x="0" y="0" fill="#000000"/>
+      <g id="slogan" style="font-style:normal;font-weight:400;font-size:32px;line-height:1;font-family:Montserrat;font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(0 0)"/>
+      <g id="title" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:Stanley;font-variant-ligatures:none;text-align:center;text-anchor:middle" transform="translate(0 0)">
+        <path id="path240259" style="font-style:normal;font-weight:normal;font-size:72px;line-height:1;font-family:Stanley;font-variant-ligatures:none;text-align:center;text-anchor:middle" d="m 481.27344,-43.344 22.104,43.416 5.904,-11.808 -16.056,-31.608 z m 21.6,0.072 21.96,43.344 5.976,-11.808 -15.984,-31.536 z m 32.976,0.072 c -3.672,0 -6.696,3.024 -6.696,6.696 0,3.672 3.024,6.696 6.696,6.696 3.744,0 6.768,-3.024 6.768,-6.696 0,-3.672 -3.024,-6.696 -6.768,-6.696 z" stroke-width="0" stroke-linejoin="miter" stroke-miterlimit="2" fill="#8c00ff" stroke="#8c00ff" transform="translate(0 368.5456) translate(401.5808 -62.694399999999995) scale(3.6) translate(-481.27344 43.344)"/>
+      </g>
+      <image xlink:href="" id="icon" style="display: none;" x="0" y="0" fill="#000000"/>
+    </g>
+  </g>
+</svg>
