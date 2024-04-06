@@ -35,14 +35,18 @@ export enum WALLET_PLATFORM {
   EDGE = 'Edge',
   ANDROID = 'Android',
   IOS = 'IOS',
+  WINDOWS = 'Windows',
+  MAC = 'Mac OS',
 }
-export const PLATFORM_IMAGES: { [ket in WALLET_PLATFORM]: string } = {
-  Chrome: '/chrome.png',
-  Firefox: '/firefox.png',
-  Opera: '/opera.png',
-  Edge: '/edge.png',
-  Android: '/play-store.png',
-  IOS: '/app-store.png',
+export const PLATFORM_IMAGES: { [key in WALLET_PLATFORM]: string } = {
+  Chrome: '/logos/chrome.png',
+  Firefox: '/logos/firefox.png',
+  Opera: '/logos/opera.png',
+  Edge: '/logos/edge.png',
+  Android: '/logos/play-store.png',
+  IOS: '/logos/app-store.png',
+  Windows: '/logos/windows.png',
+  'Mac OS': '/logos/mac.svg',
 };
 export enum SUPPORTED_STANDARD_TYPE {
   SUPPORTED_EIP = 'EIP Support Status',

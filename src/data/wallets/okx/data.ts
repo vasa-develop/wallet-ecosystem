@@ -11,43 +11,78 @@ import {
   SUPPORTED_STANDARD_TYPE,
   WALLET_PLATFORM,
 } from '@/types/enum';
-import MetamaskSecurityAnalysis from './MetamaskSecurityAnalysis';
+import OkxSecurityAnalysis from './OkxSecurityAnalysis';
 
-const metamask: Wallet = {
+const okx: Wallet = {
   [SECTIONS.STATS]: {
     [STAT_SECTIONS.DOWNLOADS]: {
-      [WALLET_PLATFORM.CHROME]: '10,000,000+',
-      [WALLET_PLATFORM.FIREFOX]: '491,097+',
-      [WALLET_PLATFORM.OPERA]: '359,633+',
-      [WALLET_PLATFORM.EDGE]: '2,000,000+',
+      [WALLET_PLATFORM.CHROME]: '1,000,000+',
+      [WALLET_PLATFORM.FIREFOX]: '0',
+      [WALLET_PLATFORM.OPERA]: '0',
+      [WALLET_PLATFORM.EDGE]: '40,000+',
       [WALLET_PLATFORM.ANDROID]: '10,000,000+',
-      [WALLET_PLATFORM.IOS]: '??',
-      [WALLET_PLATFORM.WINDOWS]: '0',
-      [WALLET_PLATFORM.MAC]: '0',
+      [WALLET_PLATFORM.IOS]: '200,000+',
+      [WALLET_PLATFORM.WINDOWS]: '??',
+      [WALLET_PLATFORM.MAC]: '??',
     },
     [STAT_SECTIONS.DUNE_CHART]: [
       {
         name: 'Staking',
-        duneEmbeds: ['https://dune.com/embeds/1901264/3192714/'],
+        duneEmbeds: [
+          /* TODO(vasa): Add a chart like this: https://dune.com/queries/1901264/3192714 */
+        ],
       },
       {
         name: 'Swap',
         duneEmbeds: [
-          'https://dune.com/embeds/1793048/2953820/',
-          'https://dune.com/embeds/1793048/4456070/',
+          /* TODO(vasa): Add 2 charts:
+            1. Daily Swap Volume across all chains: Eg. https://dune.com/embeds/1793048/2953820/
+            2. Daily Swap Users across all chains: Eg. https://dune.com/embeds/1793048/4456070/ 
+            3. OPTIONAL: Daily Swap Revenue across all chains: ???
+            
+            Existing chart without source: https://dune.com/lz_web3/wallet-war
+            */
         ],
       },
       {
         name: 'Bridge',
         duneEmbeds: [
-          'https://dune.com/embeds/1767108/2914176/',
-          'https://dune.com/embeds/1767108/2914417/',
-          'https://dune.com/embeds/2372425/3889795/',
+          /* TODO(vasa): Add 2 charts:
+            1. Daily Bridge Volume across all chains: Eg. https://dune.com/embeds/1767108/2914176/
+            2. Daily Bridge Users across all chains: Eg. https://dune.com/embeds/1767108/2914417/ 
+            3. OPTIONAL: Daily Bridge Revenue across all chains: Eg. https://dune.com/embeds/2372425/3889795/
+            */
+        ],
+      },
+      {
+        name: 'Daily Transaction Count (Smart Account)',
+        duneEmbeds: [
+          /* TODO(vasa): Add a chart like this: https://dune.com/queries/3441787/5782482 */
+        ],
+      },
+      {
+        name: 'Daily Deployed OKX Smart Accounts',
+        duneEmbeds: [
+          /* TODO(vasa): Add a chart like this: https://dune.com/queries/3455151/5806400 */
+        ],
+      },
+      {
+        name: 'Daily Active OKX Smart Accounts',
+        duneEmbeds: [
+          /* TODO(vasa): Add a chart like this: https://dune.com/queries/3456126/5807993 */
+        ],
+      },
+      {
+        name: 'Weekly Active OKX Smart Accounts',
+        duneEmbeds: [
+          /* TODO(vasa): Add a chart like this: https://dune.com/queries/3456134/5808006 */
         ],
       },
     ],
   },
   [SECTIONS.ACTIVITY]: [
+    /* 
+    TODO(vasa): Find the relevant repos and add them here (most of the relevant ones are private I guess)
     {
       name: 'Metamask Extension',
       repo: 'MetaMask/metamask-extension',
@@ -59,40 +94,37 @@ const metamask: Wallet = {
     {
       name: 'Metamask Snaps',
       repo: 'MetaMask/snaps',
-    },
+    }, */
   ],
-  [SECTIONS.SECURITY_ANALYSIS]: MetamaskSecurityAnalysis,
+  [SECTIONS.SECURITY_ANALYSIS]: OkxSecurityAnalysis,
   [SECTIONS.FEATURES]: {
     [FEATURE_TYPE.IN_APP]: [
       {
         feature: 'KYC required',
         description: '',
-        isSupported: true,
+        isSupported: false,
       },
       {
         feature: 'Social login',
         description: '',
         isSupported: false,
-        remark: 'Could be supported in future using snaps',
       },
       {
         feature: 'Email login',
         description: '',
-        isSupported: false,
-        remark: 'Could be supported in future using snaps',
+        isSupported: true,
+        remark:
+          'Email login only works with MPC wallet, not with Smart Account.',
       },
       {
         feature: 'Passkey login',
         description: '',
         isSupported: false,
-        remark: 'Could be supported in future using snaps',
       },
       {
         feature: 'Smart Account support',
         description: '',
-        isSupported: false,
-        remark:
-          'Experimental Support using snaps: https://metamask.io/news/developers/aa-snap-democratizing-account-abstraction/',
+        isSupported: true,
       },
       {
         feature: 'Portfolio tracking',
@@ -160,14 +192,16 @@ const metamask: Wallet = {
       {
         feature: 'Screenshot possibility while doing backup',
         description: '',
-        isSupported: false,
-        remark: 'Cannot take screenshot on mobile (but possible on browser)',
+        isSupported: true,
+        remark:
+          'You can take screenshot on mobile but a warning is shown. You can take a screenshot on browser without any warning.',
       },
       {
         feature: 'Transaction Simulation',
         description: '',
         isSupported: true,
-        remark: 'Using snaps like tenderly tx preview',
+        remark:
+          'TODO(vasa): Check if they use an external provider or do they have their own infra for this.',
       },
     ],
     [FEATURE_TYPE.ENS_SUPPORT]: {
@@ -177,7 +211,7 @@ const metamask: Wallet = {
           'Whether a user is able to send transactions to a standard ENS (e.g. user.eth) on mainnet',
       },
       [ENSSupportType.SUBDOMAINS]: {
-        isSupported: true,
+        isSupported: false,
         description:
           'Whether a user is able to send transactions to an ENS subdomain (e.g. hot.user.eth) on mainnet ',
       },
@@ -187,7 +221,7 @@ const metamask: Wallet = {
           'Whether a user is able to send transactions to an ENS with an offchain resolver on mainnet.',
       },
       [ENSSupportType.L2]: {
-        isSupported: true,
+        isSupported: false,
         description:
           'Whether a user is able to send transactions to an ENS on an L2 (tested on Optimism)',
       },
@@ -200,31 +234,38 @@ const metamask: Wallet = {
     [FEATURE_TYPE.SUPPORTED_HARDWARE_WALLETS]: [
       {
         name: 'Ledger',
-        imgUrl: '/wallets/ledger/ledger.png',
+        imgUrl:
+          'https://developers.ledger.com/connectivity/ledger-horizontal.png',
       },
       {
         name: 'Trezor',
-        imgUrl: '/wallets/trezor/trezor.png',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
       },
       {
         name: 'Lattice',
-        imgUrl: '/wallets/grid_plus/grid_plus.webp',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
       },
       {
         name: 'Keystone',
-        imgUrl: '/wallets/keystone/keystone.png',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
       },
       {
         name: 'AirGap Vault',
-        imgUrl: '/wallets/airgap/airgap.svg',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
       },
       {
         name: 'CoolWallet',
-        imgUrl: '/wallets/coolwallet/coolwallet.svg',
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
       },
       {
-        name: "D'Cent",
-        imgUrl: '/wallets/dcent/dcent.svg',
+        name: "D'Cent ",
+        imgUrl:
+          'https://seeklogo.com/images/T/trezor-wallet-logo-E562E82748-seeklogo.com.png',
       },
     ],
   },
@@ -643,4 +684,4 @@ const metamask: Wallet = {
     },
   ],
 };
-export default metamask;
+export default okx;

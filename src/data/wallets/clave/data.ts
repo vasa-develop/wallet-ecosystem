@@ -22,6 +22,8 @@ const clave: Wallet = {
       [WALLET_PLATFORM.EDGE]: '0',
       [WALLET_PLATFORM.ANDROID]: '1000+',
       [WALLET_PLATFORM.IOS]: '??',
+      [WALLET_PLATFORM.WINDOWS]: '0',
+      [WALLET_PLATFORM.MAC]: '0',
     },
     [STAT_SECTIONS.DUNE_CHART]: [
       {

@@ -3,7 +3,7 @@ import Title from '@/components/Title';
 import Link from 'next/link';
 import React from 'react';
 
-export default function MetamaskSecurityAnalysis() {
+export default function OkxSecurityAnalysis() {
   return (
     <div className="flex flex-col gap-2">
       <Title level={4}>Key Management</Title>
