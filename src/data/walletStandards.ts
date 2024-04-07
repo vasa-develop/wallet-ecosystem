@@ -1,6 +1,48 @@
 const walletStandard = [
   {
-    name: 'EIP-7512',
+    name: 'ERC-7678: UserOperation Builder',
+    track: 'ERC',
+    status: 'Draft',
+    labels: ['Account Abstraction', 'Smart Contract Accounts', 'Dapps'],
+    createdOn: 'April 5, 2024',
+    lastActivity: 'April 5, 2024',
+    authors: [
+      'arein',
+      'bumblefudge',
+      'derekchiang',
+      'filmakarov',
+      'kristofgazso',
+      'plusminushalf',
+      'tomiir',
+    ],
+    requires: [
+      {
+        link: 'https://eips.ethereum.org/EIPS/eip-4337',
+        name: 'EIP-4337',
+      },
+    ],
+    notes: '',
+    link: 'https://github.com/ethereum/ERCs/pull/361/files',
+  },
+  {
+    name: 'ERC-7093: Social Recovery Interface',
+    track: 'ERC',
+    status: 'Draft',
+    labels: ['Account Abstraction', 'Smart Contract Accounts', 'Modular SCA'],
+    createdOn: 'May 29, 2023',
+    lastActivity: 'April 2, 2024',
+    authors: ['johnz1019', 'kylexyxu', 'odysseus0', 'xcshuan'],
+    requires: [
+      {
+        link: 'https://eips.ethereum.org/EIPS/eip-1271',
+        name: 'EIP-1271',
+      },
+    ],
+    notes: '',
+    link: 'https://eips.ethereum.org/EIPS/eip-7093',
+  },
+  {
+    name: 'ERC-7512: Onchain Representation for Audits',
     track: 'ERC',
     status: 'Draft',
     labels: ['Modular SCA'],
@@ -25,7 +67,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7512',
   },
   {
-    name: 'EIP-3091',
+    name: 'EIP-3091: Block Explorer API Routes',
     track: 'Interface',
     status: 'Draft',
     labels: ['Block Explorer'],
@@ -42,7 +84,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-3091',
   },
   {
-    name: 'EIP-4337',
+    name: 'ERC-4337: Account Abstraction Using Alt Mempool',
     track: 'ERC',
     status: 'Draft',
     labels: [
@@ -75,7 +117,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-4337',
   },
   {
-    name: 'EIP-7562',
+    name: 'ERC-7562: Account Abstraction Validation Scope Rules',
     track: 'ERC',
     status: 'Draft',
     labels: ['Account Abstraction', 'Aggregator (signature)', 'Paymaster'],
@@ -87,7 +129,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7562',
   },
   {
-    name: 'EIP-86',
+    name: 'EIP-86: Abstraction of transaction origin and signature',
     track: 'Core',
     status: 'Stagnant',
     labels: ['Account Abstraction', 'EVM'],
@@ -99,7 +141,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-86',
   },
   {
-    name: 'EIP-2938',
+    name: 'EIP-2938: Account Abstraction',
     track: 'Core',
     status: 'Stagnant',
     labels: ['Account Abstraction', 'EVM'],
@@ -122,7 +164,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-2938',
   },
   {
-    name: 'EIP-3074',
+    name: 'EIP-3074: AUTH and AUTHCALL opcodes',
     track: 'Core',
     status: 'Review',
     labels: ['Account Abstraction', 'EVM'],
@@ -139,7 +181,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-3074',
   },
   {
-    name: 'EIP-6900',
+    name: 'ERC-6900: Modular Smart Contract Accounts and Plugins',
     track: 'ERC',
     status: 'Draft',
     labels: ['Modular SCA', 'Smart Contract Accounts'],
@@ -160,7 +202,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-6900',
   },
   {
-    name: 'EIP-7039',
+    name: 'EIP-7039: Scheme-Handler Discovery Option for Wallets',
     track: 'Interface',
     status: 'Draft',
     labels: [
@@ -182,7 +224,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7039',
   },
   {
-    name: 'EIP-7521',
+    name: 'ERC-7521: General Intents for Smart Contract Wallets',
     track: 'ERC',
     status: 'Draft',
     labels: ['EntryPoint', 'Smart Contract Accounts', 'Solver'],
@@ -194,7 +236,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7521',
   },
   {
-    name: 'EIP-7377',
+    name: 'EIP-7377: Migration Transaction',
     track: 'Core',
     status: 'Draft',
     labels: ['EVM'],
@@ -223,7 +265,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7377',
   },
   {
-    name: 'EIP-7484',
+    name: 'ERC-7484: Registry Extension for ERC-7579',
     track: 'ERC',
     status: 'Draft',
     labels: ['Modular SCA'],
@@ -240,7 +282,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7484',
   },
   {
-    name: 'EIP-7529',
+    name: 'ERC-7529: Contract Discovery and eTLD+1 Association',
     track: 'ERC',
     status: 'Draft',
     labels: ['Wallets (all)'],
@@ -257,7 +299,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7529',
   },
   {
-    name: 'EIP-7579',
+    name: 'ERC-7579: Minimal Modular Smart Accounts',
     track: 'ERC',
     status: 'Draft',
     labels: ['Modular SCA'],
@@ -293,7 +335,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-7579',
   },
   {
-    name: 'EIP-3085',
+    name: 'EIP-3085: wallet_addEthereumChain RPC Method',
     track: 'Interface',
     status: 'Review',
     labels: ['Dapps', 'Wallets (all)'],
@@ -310,7 +352,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-3085',
   },
   {
-    name: 'EIP-5568',
+    name: 'ERC-5568: Well-Known Format for Required Actions',
     track: 'ERC',
     status: 'Review',
     labels: ['Smart Contract', 'Wallets (all)'],
@@ -327,7 +369,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-5568',
   },
   {
-    name: 'EIP-831',
+    name: 'ERC-831: URI Format for Ethereum',
     track: 'ERC',
     status: 'Stagnant',
     labels: ['Wallets (all)'],
@@ -348,7 +390,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-831',
   },
   {
-    name: 'EIP-1102',
+    name: 'EIP-1102: Opt-in account exposure',
     track: 'Interface',
     status: 'Stagnant',
     labels: ['Dapps', 'Wallet provider discovery', 'Wallets (all)'],
@@ -365,7 +407,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-1102',
   },
   {
-    name: 'EIP-1474',
+    name: 'EIP-1474: Remote procedure call specification',
     track: 'Interface',
     status: 'Stagnant',
     labels: ['Dapps', 'Wallets (all)'],
@@ -382,7 +424,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-1474',
   },
   {
-    name: 'EIP-2015',
+    name: 'EIP-2015: wallet_updateEthereumChain RPC Method',
     track: 'Interface',
     status: 'Stagnant',
     labels: ['Dapps', 'Wallets (all)'],
@@ -399,7 +441,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-2015',
   },
   {
-    name: 'EIP-3224',
+    name: 'ERC-3224: Described Data',
     track: 'ERC',
     status: 'Stagnant',
     labels: ['Dapps', 'Smart Contract', 'Wallets (all)'],
@@ -416,7 +458,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-3224',
   },
   {
-    name: 'EIP-191',
+    name: 'ERC-191: Signed Data Standard',
     track: 'ERC',
     status: 'Final',
     labels: ['Smart Contract', 'Smart Contract Accounts'],
@@ -433,7 +475,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-191',
   },
   {
-    name: 'EIP-3326',
+    name: 'EIP-3326: Wallet Switch Ethereum Chain RPC Method (wallet_switchEthereumChain)',
     track: 'Interface',
     status: 'Stagnant',
     labels: ['Dapps', 'Wallets (all)'],
@@ -454,7 +496,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-3326',
   },
   {
-    name: 'EIP-4430',
+    name: 'ERC-4430: Described Transactions',
     track: 'ERC',
     status: 'Stagnant',
     labels: ['Smart Contract', 'Wallets (all)'],
@@ -471,7 +513,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-4430',
   },
   {
-    name: 'EIP-5003',
+    name: 'EIP-5003: Insert Code into EOAs with AUTHUSURP',
     track: 'Core',
     status: 'Stagnant',
     labels: ['EVM'],
@@ -492,7 +534,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-5003',
   },
   {
-    name: 'EIP-5139',
+    name: 'ERC-5139: Remote Procedure Call Provider Lists',
     track: 'ERC',
     status: 'Stagnant',
     labels: ['Wallets (all)'],
@@ -513,7 +555,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-5139',
   },
   {
-    name: 'EIP-5792',
+    name: 'EIP-5792: Wallet Function Call API',
     track: 'Interface',
     status: 'Stagnant',
     labels: ['Dapps', 'Wallets (all)'],
@@ -530,7 +572,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-5792',
   },
   {
-    name: 'EIP-6384',
+    name: 'ERC-6384: Human-readable offline signatures',
     track: 'ERC',
     status: 'Stagnant',
     labels: ['Smart Contract', 'Wallets (all)'],
@@ -547,7 +589,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-6384',
   },
   {
-    name: 'EIP-4844',
+    name: 'EIP-4844: Shard Blob Transactions',
     track: 'Core',
     status: 'Last Call',
     labels: ['EVM', 'Wallets (all)'],
@@ -584,7 +626,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-4844',
   },
   {
-    name: 'EIP-681',
+    name: 'ERC-681: URL Format for Transaction Requests',
     track: 'ERC',
     status: 'Final',
     labels: ['Wallets (all)'],

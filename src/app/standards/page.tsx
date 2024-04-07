@@ -19,6 +19,7 @@ export default function page() {
             <Table.ColumnHeaderCell>Last Activity</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Authors</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Requires</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Notes</Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -30,6 +31,7 @@ export default function page() {
                     {row.name}
                   </Link>
                 </Table.RowHeaderCell>
+                <Table.Cell>{row.track}</Table.Cell>
                 <Table.Cell>{row.status}</Table.Cell>
                 <Table.Cell>
                   <div className="flex flex-wrap gap-1">
@@ -40,13 +42,6 @@ export default function page() {
                 </Table.Cell>
                 <Table.Cell>{row.createdOn}</Table.Cell>
                 <Table.Cell>{row.lastActivity}</Table.Cell>
-                <Table.Cell>
-                  <div className="flex flex-wrap gap-1">
-                    {row.authors.map((l, i) => (
-                      <Badge key={i}>{l}</Badge>
-                    ))}
-                  </div>
-                </Table.Cell>
                 <Table.Cell>
                   <div className="flex flex-wrap gap-1">
                     {row.authors.map((l, i) => (
@@ -68,6 +63,7 @@ export default function page() {
                     ))}
                   </div>
                 </Table.Cell>
+                <Table.Cell>{row.notes}</Table.Cell>
               </Table.Row>
             );
           })}
