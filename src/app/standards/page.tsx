@@ -19,7 +19,7 @@ export default function page() {
             <Table.ColumnHeaderCell>Last Activity</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Authors</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Requires</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Notes</Table.ColumnHeaderCell>
+            {/* <Table.ColumnHeaderCell>Notes</Table.ColumnHeaderCell> */}
           </Table.Row>
         </Table.Header>
         <Table.Body>
@@ -63,7 +63,7 @@ export default function page() {
                     ))}
                   </div>
                 </Table.Cell>
-                <Table.Cell>{row.notes}</Table.Cell>
+                {/* <Table.Cell>{row.notes}</Table.Cell> */}
               </Table.Row>
             );
           })}

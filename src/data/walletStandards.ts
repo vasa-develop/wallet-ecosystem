@@ -647,7 +647,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-681',
   },
   {
-    name: 'EIP-712',
+    name: 'EIP-712: Typed structured data hashing and signing',
     track: 'Interface',
     status: 'Final',
     labels: ['Dapps', 'Wallets (all)'],
@@ -668,7 +668,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-712',
   },
   {
-    name: 'EIP-747',
+    name: 'EIP-747: wallet_watchAsset RPC Method',
     track: 'Interface',
     status: 'Final',
     labels: ['Dapps', 'Wallets (all)'],
@@ -693,7 +693,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-747',
   },
   {
-    name: 'EIP-1193',
+    name: 'EIP-1193: Ethereum Provider JavaScript API',
     track: 'Interface',
     status: 'Final',
     labels: ['Dapps', 'Wallets (all)'],
@@ -714,7 +714,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-1193',
   },
   {
-    name: 'EIP-1271',
+    name: 'EIP-1271: Standard Signature Validation Method for Contracts',
     track: 'Interface',
     status: 'Final',
     labels: ['Smart Contract', 'Smart Contract Accounts'],
@@ -726,7 +726,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-1271',
   },
   {
-    name: 'EIP-1559',
+    name: 'EIP-1559: Fee market change for ETH 1.0 chain',
     track: 'Core',
     status: 'Final',
     labels: ['Dapps', 'EVM', 'Wallets (all)'],
@@ -754,7 +754,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-1559',
   },
   {
-    name: 'EIP-2255',
+    name: 'EIP-2255: Wallet Permissions System',
     track: 'Interface',
     status: 'Final',
     labels: ['Dapps', 'Wallets (all)'],
@@ -771,7 +771,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-2255',
   },
   {
-    name: 'EIP-2930',
+    name: 'EIP-2930: Optional access lists',
     track: 'Core',
     status: 'Final',
     labels: ['EVM'],
@@ -792,7 +792,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-2930',
   },
   {
-    name: 'EIP-6492',
+    name: 'EIP-6492: Signature Validation for Predeploy Contracts',
     track: 'ERC',
     status: 'Final',
     labels: ['Account Abstraction', 'Smart Contract Accounts'],
@@ -809,7 +809,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-6492',
   },
   {
-    name: 'EIP-6963',
+    name: 'EIP-6963: Multi Injected Provider Discovery',
     track: 'Interface',
     status: 'Final',
     labels: [
@@ -842,7 +842,7 @@ const walletStandard = [
     link: 'https://eips.ethereum.org/EIPS/eip-6963',
   },
   {
-    name: 'ERC-945',
+    name: 'ERC-945: wallet_scanQRCode RPC Method',
     track: 'ERC',
     status: 'Draft',
     labels: ['Dapps', 'Wallets (all)'],
@@ -890,7 +890,7 @@ const walletStandard = [
     link: 'https://ethereum-magicians.org/t/erc-7555-single-sign-on-for-account-discovery/16536',
   },
   {
-    name: 'RIP-7560-native-account-abstraction',
+    name: 'RIP-7560: native account abstraction',
     track: 'Core',
     status: 'Draft',
     labels: ['Account Abstraction', 'Rollups'],
@@ -911,7 +911,7 @@ const walletStandard = [
     link: 'https://ethereum-magicians.org/t/rip-7560-native-account-abstraction/16664',
   },
   {
-    name: 'EIP-7212-precompiled-for-secp256r1-curve-support',
+    name: 'EIP-7212: Precompiled for secp256r1 curve support',
     track: 'Core',
     status: 'Final',
     labels: ['Account Abstraction', 'Rollups'],
@@ -923,7 +923,7 @@ const walletStandard = [
     link: 'https://ethereum-magicians.org/t/eip-7212-precompiled-for-secp256r1-curve-support/14789',
   },
   {
-    name: 'CAIP-25',
+    name: 'CAIP-25: JSON-RPC Provider Authorization',
     track: '',
     status: 'Review',
     labels: ['Dapps', 'Wallets (all)'],
@@ -946,6 +946,18 @@ const walletStandard = [
     ],
     notes: '',
     link: 'https://chainagnostic.org/CAIPs/caip-25',
+  },
+  {
+    name: 'ERC-5189: Account Abstraction via Endorsed Operations',
+    track: 'ERC',
+    status: 'Draft',
+    labels: ['Account Abstraction', 'Smart Contract Accounts'],
+    createdOn: 'Jun 29, 2022',
+    lastActivity: 'October 19, 2023',
+    authors: ['Agusx1211', 'PhABC', 'ScreamingHawk'],
+    requires: [],
+    notes: '',
+    link: 'https://eips.ethereum.org/EIPS/eip-5189',
   },
 ];
 export default walletStandard;
