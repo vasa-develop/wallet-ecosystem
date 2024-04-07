@@ -6,10 +6,10 @@ import walletStandard from '@/data/walletStandards';
 export default function page() {
   return (
     <main>
-      <Table.Root variant="surface" className="mt-6">
-        <Table.Header>
+      <Table.Root variant="surface" className="mt-6 fixed-header-table">
+        <Table.Header className=" sticky top-0 z-10 bg-[#202224] align-middle">
           <Table.Row>
-            <Table.ColumnHeaderCell className="w-64">
+            <Table.ColumnHeaderCell className="w-64 items-center ">
               Name
             </Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Track</Table.ColumnHeaderCell>

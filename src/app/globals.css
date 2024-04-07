@@ -118,3 +118,9 @@ figcaption {
   margin-top: 0.5em; /* Add space above the caption */
   margin-bottom: 1em; /* Add space below the caption */
 }
+
+.fixed-header-table .rt-ScrollAreaRoot,
+.fixed-header-table .rt-ScrollAreaViewport,
+.fixed-header-table .rt-TableRootTable {
+  overflow: unset !important;
+}
