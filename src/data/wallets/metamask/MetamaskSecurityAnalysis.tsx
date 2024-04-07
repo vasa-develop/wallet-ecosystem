@@ -69,7 +69,7 @@ export default function MetamaskSecurityAnalysis() {
       <Title level={5} id="key_generation">
         Key generation
       </Title>
-      <Figure src="/wallets/metamask/secp256k1_key_generation.png" />
+      <Figure src="/common/secp256k1/secp256k1_key_generation.jpeg" />
       <p>
         A random number selected from the secp256k1 elliptic curve serves as the
         private key. This key is then multiplied by a predefined point on the
@@ -79,23 +79,23 @@ export default function MetamaskSecurityAnalysis() {
         deterministic derivation of private and public keys.
       </p>
       <Title level={5}>Transaction process</Title>
-      <Figure src="/wallets/metamask/secp256k1_trx_sig.png" />
+      <Figure src="/common/secp256k1/secp256k1_trx_sig.jpeg" />
       <p>
-        Signing Transactions: A transaction, containing details such as nonce(a
-        sequential number), amount, gas price, and recipient address, is signed
-        using the private key. This process, involving the ECDSA, a digital
-        signature algorithm that uses elliptic curve cryptography and adopts
-        secp256k1 as the curve, generates a signature consisting of values (r,
-        s, v). The signature and the original transaction are then broadcast on
-        the network.
+        <b>Signing Transactions</b>: A transaction, containing details such as
+        nonce(a sequential number), amount, gas price, and recipient address, is
+        signed using the private key. This process, involving the ECDSA, a
+        digital signature algorithm that uses elliptic curve cryptography and
+        adopts secp256k1 as the curve, generates a signature consisting of
+        values (r, s, v). The signature and the original transaction are then
+        broadcast on the network.
       </p>
-      <Figure src="/wallets/metamask/eth_trx_verification.png" />
+      <Figure src="/common/secp256k1/eth_trx_verification.jpeg" />
       <p>
-        Verifying Transactions: Once a transaction reaches Ethereum nodes, it
-        undergoes a validation process in the node&apos;s mempool. To verify the
-        signer, the nodes use the signature and hashed transaction to derive the
-        sender&apos;s public key and confirm the transaction&apos;s authenticity
-        by matching the derived address with the sender&apos;s.
+        <b>Verifying Transactions</b>: Once a transaction reaches Ethereum
+        nodes, it undergoes a validation process in the node&apos;s mempool. To
+        verify the signer, the nodes use the signature and hashed transaction to
+        derive the sender&apos;s public key and confirm the transaction&apos;s
+        authenticity by matching the derived address with the sender&apos;s.
       </p>
       <Title level={5}>Account Recovery process</Title>
       <p>
