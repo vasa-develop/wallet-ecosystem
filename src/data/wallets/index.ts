@@ -1,6 +1,7 @@
 import metamask from './metamask/data';
 import clave from './clave/data';
 import okx from './okx/data';
+import trust from './trust/data';
 import { Wallet } from '@/types/wallet';
 
 export const wallets: {
@@ -23,7 +24,7 @@ export const wallets: {
     updatedAt: '22-Mar 2024',
     name: 'Clave Wallet',
     image: '/wallets/clave/clave.webp',
-    url: 'www.getclave.io/',
+    url: 'www.getclave.io',
     sections: clave,
   },
   okx: {
@@ -32,6 +33,13 @@ export const wallets: {
     image: '/wallets/okx/okx.png',
     url: 'www.okx.com/web3',
     sections: okx,
+  },
+  trust: {
+    updatedAt: '22-Mar 2024',
+    name: 'Trust Wallet',
+    image: '/wallets/trust/trust.svg',
+    url: 'trustwallet.com',
+    sections: trust,
   },
 };
 

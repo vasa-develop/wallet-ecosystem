@@ -158,6 +158,10 @@ function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
           })}
         </div>
       )}
+      <figcaption>
+        These are best estimates on downloads from various extension and app
+        stores.
+      </figcaption>
       {stats[STAT_SECTIONS.DUNE_CHART] && (
         <div>
           {stats[STAT_SECTIONS.DUNE_CHART].map((data, index) => {
