@@ -369,7 +369,7 @@ const trust: Wallet = {
         eipName: 'ERC-681: URL Format for Transaction Requests',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Final',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
       },
       {
         eipName: 'EIP-712: Typed structured data hashing and signing',
@@ -411,7 +411,7 @@ const trust: Wallet = {
         eipName: 'EIP-2930: Optional access lists',
         eipType: 'Standards Track: Core',
         eipStatus: 'Final',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'EIP-6492: Signature Validation for Predeploy Contracts',
@@ -429,7 +429,7 @@ const trust: Wallet = {
         eipName: 'ERC-945: wallet_scanQRCode RPC Method',
         eipType: '',
         eipStatus: '',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'RIP-7560: Native Account Abstraction',
@@ -449,8 +449,57 @@ const trust: Wallet = {
   [SECTIONS.SECURITY]: {
     [SECURITY_AUDIT_TYPE.AUDIT]: [
       {
+        auditor: 'Kudelski Security',
+        date: 'September 15, 2023',
+        auditedVersion: [
+          {
+            name: 'Key Tree (7b6bec)',
+            link: 'https://github.com/MetaMask/key-tree/commit/7b6becf3edd8e22f6cdab40f3724bd93e15bd5c4',
+          },
+        ],
+        currentVersion: [
+          {
+            name: 'Key Tree (4411c8)',
+            link: 'https://github.com/MetaMask/key-tree/commit/4411c8670a0e3cba01b11bb1f748eb88eb4bfcb3',
+          },
+        ],
+
+        relevance: AUDIT_RELEVANCE.OUTDATED,
+        report:
+          'https://github.com/trustwallet/wallet-core/blob/master/audit/2023-09-15_TrustWallet_SecureCodeReviewReport_Public_v2.00.pdf',
+      },
+      {
+        auditor: 'Halborn',
+        date: 'June 12, 2023',
+        auditedVersion: [
+          {
+            name: 'Snaps (7d758d)',
+            link: 'https://github.com/MetaMask/metamask-snaps-beta/commit/7d758d335279bd0d25e3a9c170fcf60709eb7828',
+          },
+          {
+            name: 'Lavamoat Browserify (9bd7fa)',
+            link: 'https://github.com/LeastAuthority/lavamoat-browserify/commit/9bd7fad6eddd54691caf55ee37a64b6f0bb1057a',
+          },
+        ],
+
+        currentVersion: [
+          {
+            name: 'Snaps (4169c2)',
+            link: 'https://github.com/MetaMask/metamask-snaps-beta/commit/4169c2445e025631fa963e03da24379607a9beab',
+          },
+          {
+            name: 'Lavamoat Browserify (9bd7fa)',
+            link: 'https://github.com/LeastAuthority/lavamoat-browserify/commit/9bd7fad6eddd54691caf55ee37a64b6f0bb1057a',
+          },
+        ],
+
+        relevance: AUDIT_RELEVANCE.OUTDATED,
+        report:
+          'https://strapi-cdn.trustwallet.com/Halborn_Trustwallet_barz_Audit_1ef8a1f069.pdf',
+      },
+      {
         auditor: 'Cure53',
-        date: 'April 27, 2016',
+        date: 'May 20, 2023',
         auditedVersion: [
           {
             name: 'Extension (0e6bc6)',
@@ -466,12 +515,12 @@ const trust: Wallet = {
         ],
 
         relevance: AUDIT_RELEVANCE.OUTDATED,
-        report: 'https://metamask.io/files/pentest-report_metamask.pdf',
+        report:
+          'https://trustwallet.com/assets/files/cure53_tw_browser_extension_04.2023.pdf',
       },
-
       {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'April 9, 2019',
+        auditor: 'Certik',
+        date: 'Feb 24, 2023',
         auditedVersion: [
           {
             name: 'Core (92cf95)',
@@ -512,99 +561,7 @@ const trust: Wallet = {
 
         relevance: AUDIT_RELEVANCE.OUTDATED,
         report:
-          'https://metamask.io/files/LeastAuthority-MetaMask-Audit-Report.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'March 4, 2020',
-        auditedVersion: [
-          {
-            name: 'Snaps (7d758d)',
-            link: 'https://github.com/MetaMask/metamask-snaps-beta/commit/7d758d335279bd0d25e3a9c170fcf60709eb7828',
-          },
-          {
-            name: 'Lavamoat Browserify (9bd7fa)',
-            link: 'https://github.com/LeastAuthority/lavamoat-browserify/commit/9bd7fad6eddd54691caf55ee37a64b6f0bb1057a',
-          },
-        ],
-
-        currentVersion: [
-          {
-            name: 'Snaps (4169c2)',
-            link: 'https://github.com/MetaMask/metamask-snaps-beta/commit/4169c2445e025631fa963e03da24379607a9beab',
-          },
-          {
-            name: 'Lavamoat Browserify (9bd7fa)',
-            link: 'https://github.com/LeastAuthority/lavamoat-browserify/commit/9bd7fad6eddd54691caf55ee37a64b6f0bb1057a',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report:
-          'https://metamask.io/files/LeastAuthority-MetaMask-Plugin-System-LavaMoat-Audit-Report.pdf',
-      },
-
-      {
-        auditor: 'Cure53',
-        date: 'March 3, 2023',
-        auditedVersion: [
-          {
-            name: 'Key Tree (7b6bec)',
-            link: 'https://github.com/MetaMask/key-tree/commit/7b6becf3edd8e22f6cdab40f3724bd93e15bd5c4',
-          },
-        ],
-        currentVersion: [
-          {
-            name: 'Key Tree (4411c8)',
-            link: 'https://github.com/MetaMask/key-tree/commit/4411c8670a0e3cba01b11bb1f748eb88eb4bfcb3',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report: 'https://metamask.io/files/key-tree-audit-report.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'September 8, 2023',
-        auditedVersion: [
-          {
-            name: 'Extension (b963c9)',
-            link: 'https://github.com/MetaMask/metamask-extension/commit/b963c9a40e6fea02b972f30d43bb893d9d7e84c7',
-          },
-        ],
-        currentVersion: [
-          {
-            name: 'Extension (0e7617)',
-            link: 'https://github.com/MetaMask/metamask-extension/commit/0e76174df6d6efb1828098b169b58cfed80d9012',
-          },
-        ],
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report:
-          'https://metamask.io/files/least-authority-metamask-snaps-audit-extension.pdf',
-      },
-
-      {
-        auditor: 'Least Authority TFA GmbH',
-        date: 'September 8, 2023',
-        auditedVersion: [
-          {
-            name: 'Snaps (4b6bcf)',
-            link: 'https://github.com/MetaMask/snaps/commit/4b6bcfa933b2f09a12baebbb026b8ef160217857',
-          },
-        ],
-
-        currentVersion: [
-          {
-            name: 'Snaps (866945)',
-            link: 'https://github.com/MetaMask/snaps/commit/86694591ce95c8f9552dcd1f16fcbe527fbe9d6e',
-          },
-        ],
-
-        relevance: AUDIT_RELEVANCE.OUTDATED,
-        report:
-          'https://metamask.io/files/least-authority-metamask-snaps-audit-api.pdf',
+          'https://assets-cdn.trustwallet.com/audits/Certik-browser-extension_Feb24.pdf',
       },
     ],
     [SECURITY_AUDIT_TYPE.BUG_BOUNTY]: [
