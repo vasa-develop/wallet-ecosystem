@@ -242,7 +242,7 @@ const trust: Wallet = {
         eipName: 'ERC-6900: Modular Smart Contract Accounts and Plugins',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Draft',
-        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'EIP-7039: Scheme-Handler Discovery Option for Wallets',
@@ -296,7 +296,7 @@ const trust: Wallet = {
         eipName: 'ERC-831: URI Format for Ethereum',
         eipType: 'Standards Track: ERC',
         eipStatus: 'Stagnant',
-        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_SUPPORTED,
       },
       {
         eipName: 'EIP-1102: Opt-in account exposure',
@@ -308,7 +308,7 @@ const trust: Wallet = {
         eipName: 'EIP-1474: Remote procedure call specification',
         eipType: 'Standards Track: Interface',
         eipStatus: 'Stagnant',
-        supportStatus: EIP_SUPPORT_STATUS.SUPPORTED,
+        supportStatus: EIP_SUPPORT_STATUS.NOT_CLEAR,
       },
       {
         eipName: 'EIP-2015: wallet_updateEthereumChain RPC Method',

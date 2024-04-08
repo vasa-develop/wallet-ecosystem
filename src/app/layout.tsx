@@ -28,7 +28,7 @@ export default function RootLayout({
                 <Image alt="Logo" width={40} height={20} src={'/logo.svg'} />
               </Link>
               <TabNav.Root className="shadow-none">
-                <TabNav.Link href="#" active>
+                <TabNav.Link href="/" active>
                   Wallets
                 </TabNav.Link>
                 <TabNav.Link href="/standards">Standards Tracker</TabNav.Link>
