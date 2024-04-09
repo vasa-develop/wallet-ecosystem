@@ -31,7 +31,7 @@ export default function Heatmap({
     };
   }, commitActivity);
   let colorMultiplier = 1 / (max - min);
-
+  if (!commitActivity.length) return;
   return (
     <>
       <CalendarHeatmap
