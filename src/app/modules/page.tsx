@@ -10,7 +10,7 @@ export default function page() {
         variant="surface"
         className="mt-6 overflow-x-auto fixed-header-table"
       >
-        <Table.Header className=" sticky top-0 z-10 bg-[#202224] align-middle">
+        <Table.Header className="sticky top-0 z-10 bg-[#202224] align-middle">
           <Table.Row>
             <Table.ColumnHeaderCell className="w-64">
               Name

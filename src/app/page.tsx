@@ -13,10 +13,10 @@ export default function Home() {
               <Table.ColumnHeaderCell className="w-[100px]">
                 Wallet
               </Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
-              <Table.ColumnHeaderCell>Method</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>WIP</Table.ColumnHeaderCell>
+              <Table.ColumnHeaderCell>WIP</Table.ColumnHeaderCell>
               <Table.ColumnHeaderCell className="text-right">
-                Amount
+                WIP
               </Table.ColumnHeaderCell>
             </Table.Row>
           </Table.Header>
@@ -30,9 +30,9 @@ export default function Home() {
                       {wallet.name}
                     </Link>
                   </Table.RowHeaderCell>
-                  <Table.Cell>Paid</Table.Cell>
-                  <Table.Cell>Credit Card</Table.Cell>
-                  <Table.Cell className="text-right">$250.00</Table.Cell>
+                  <Table.Cell> WIP </Table.Cell>
+                  <Table.Cell> WIP </Table.Cell>
+                  <Table.Cell className="text-right"> WIP </Table.Cell>
                 </Table.Row>
               );
             })}
