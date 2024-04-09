@@ -5,14 +5,19 @@ import modules from '@/data/modules';
 
 export default function page() {
   return (
-    <main>
-      <Table.Root variant="surface" className="mt-6 fixed-header-table">
+    <main className="mx-4">
+      <Table.Root
+        variant="surface"
+        className="mt-6 overflow-x-auto fixed-header-table"
+      >
         <Table.Header className=" sticky top-0 z-10 bg-[#202224] align-middle">
           <Table.Row>
-            <Table.ColumnHeaderCell className="w-64 items-center ">
+            <Table.ColumnHeaderCell className="w-64">
               Name
             </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell>Description</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="w-24">
+              Description
+            </Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Category</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>Module Type</Table.ColumnHeaderCell>
             <Table.ColumnHeaderCell>

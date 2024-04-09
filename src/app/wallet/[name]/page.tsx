@@ -27,103 +27,107 @@ export default function page({ params }: { params: { name: string } }) {
   const walletSectionData = walletData.sections;
   return (
     <>
-      <div className=" py-2 flex gap-2 m-auto">
-        <WalletSideNav sections={Object.typedKeys(walletSectionData)} />
+      <div className="container">
+        <div className=" py-2 flex gap-2 m-auto">
+          <WalletSideNav sections={Object.typedKeys(walletSectionData)} />
 
-        <div className="flex-1  flex flex-col p-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 mb-4">
-              <img
-                src={walletData.image}
-                width={64}
-                className="p-2"
-                height={64}
-              />
-              <div>
-                <h2 className="text-lg font-bold">{walletData.name}</h2>
-                <Link
-                  href={`https://${walletData.url}`}
-                  target="_blank"
-                  className="text-sm text-gray-400"
-                >
-                  {walletData.url}
-                </Link>
+          <div className="flex-1  flex flex-col p-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 mb-4">
+                <img
+                  src={walletData.image}
+                  width={64}
+                  className="p-2"
+                  height={64}
+                />
+                <div>
+                  <h2 className="text-lg font-bold">{walletData.name}</h2>
+                  <Link
+                    href={`https://${walletData.url}`}
+                    target="_blank"
+                    className="text-sm text-gray-400"
+                  >
+                    {walletData.url}
+                  </Link>
+                </div>
+              </div>
+              <div className="text-sm  text-gray-400">
+                Last Updated:{' '}
+                <span className="font-medium text-white">
+                  {walletData.updatedAt}
+                </span>
               </div>
             </div>
-            <div className="text-sm  text-gray-400">
-              Last Updated:{' '}
-              <span className="font-medium text-white">
-                {walletData.updatedAt}
-              </span>
-            </div>
-          </div>
-          {Object.typedKeys(walletSectionData).map((section, index) => {
-            let SectionComponent = <NotDone />;
-            switch (section) {
-              case SECTIONS.STATS:
-                SectionComponent = (
-                  <WalletStats stats={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.ACTIVITY:
-                SectionComponent = (
-                  <WalletActivity activity={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.LEGAL_COMPLIANCE:
-                SectionComponent = (
-                  <WalletLegalComplieance data={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.LICENSE:
-                SectionComponent = (
-                  <WalletLicense data={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.SECURITY:
-                SectionComponent = (
-                  <WalletSecurity data={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.INCENTIVES:
-                SectionComponent = (
-                  <WalletIncentives data={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.SECURITY_ANALYSIS:
-                SectionComponent = <Card>{walletSectionData[section]()}</Card>;
-                break;
-              case SECTIONS.FEATURES:
-                SectionComponent = (
-                  <WalletFeatures data={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.SUPPORTED_STANDARD:
-                SectionComponent = (
-                  <WalletSupportedStatus data={walletSectionData[section]} />
-                );
-                break;
-              case SECTIONS.INCIDENTS:
-                SectionComponent = (
-                  <div>
-                    <NotDone />
+            {Object.typedKeys(walletSectionData).map((section, index) => {
+              let SectionComponent = <NotDone />;
+              switch (section) {
+                case SECTIONS.STATS:
+                  SectionComponent = (
+                    <WalletStats stats={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.ACTIVITY:
+                  SectionComponent = (
+                    <WalletActivity activity={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.LEGAL_COMPLIANCE:
+                  SectionComponent = (
+                    <WalletLegalComplieance data={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.LICENSE:
+                  SectionComponent = (
+                    <WalletLicense data={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.SECURITY:
+                  SectionComponent = (
+                    <WalletSecurity data={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.INCENTIVES:
+                  SectionComponent = (
+                    <WalletIncentives data={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.SECURITY_ANALYSIS:
+                  SectionComponent = (
+                    <Card>{walletSectionData[section]()}</Card>
+                  );
+                  break;
+                case SECTIONS.FEATURES:
+                  SectionComponent = (
+                    <WalletFeatures data={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.SUPPORTED_STANDARD:
+                  SectionComponent = (
+                    <WalletSupportedStatus data={walletSectionData[section]} />
+                  );
+                  break;
+                case SECTIONS.INCIDENTS:
+                  SectionComponent = (
+                    <div>
+                      <NotDone />
+                    </div>
+                  );
+                  break;
+              }
+              const Icon = SECTION_ICON[section];
+              return (
+                <>
+                  <div id={section} className="mb-8">
+                    <h2 className="text-xl mb-3 font-bold flex items-center gap-1.5">
+                      <Icon width={20} strokeWidth={2} />
+                      {section}
+                    </h2>
+                    <div>{SectionComponent}</div>
                   </div>
-                );
-                break;
-            }
-            const Icon = SECTION_ICON[section];
-            return (
-              <>
-                <div id={section} className="mb-8">
-                  <h2 className="text-xl mb-3 font-bold flex items-center gap-1.5">
-                    <Icon width={20} strokeWidth={2} />
-                    {section}
-                  </h2>
-                  <div>{SectionComponent}</div>
-                </div>
-              </>
-            );
-          })}
+                </>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

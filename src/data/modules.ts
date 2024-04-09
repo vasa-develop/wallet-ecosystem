@@ -133,7 +133,7 @@ const modules = [
     description:
       'Set up an inheritance system that transfers the account keys to a dedicated signer if the user does not interact with the account for a specified time period.',
     category: ['General'],
-    module_type: ['Hook, Validator'],
+    module_type: ['Hook', 'Validator'],
     compatible_sca_frameworks: [
       'Biconomy',
       'ERC-6900',
@@ -158,7 +158,7 @@ const modules = [
     description:
       'Install a hook that prevents certain assets from being traded unless certain high-security measures are met (e.g. 2FA or multi-sig)',
     category: ['Security'],
-    module_type: ['Hook, Plugin/Executor'],
+    module_type: ['Hook', 'Plugin/Executor'],
     compatible_sca_frameworks: [
       'Biconomy',
       'ERC-6900',
@@ -180,7 +180,7 @@ const modules = [
     description:
       'Allow users to set a max transfer per day/week/month unless the module is removed / disabled',
     category: ['Security'],
-    module_type: ['Hook, Plugin/Executor'],
+    module_type: ['Hook', 'Plugin/Executor'],
     compatible_sca_frameworks: [''],
     audits:
       '<a href="https://github.com/alchemyplatform/modular-account/tree/develop/audits" target="_blank">Modular Account (Alchemy)</a>',
@@ -1385,7 +1385,7 @@ const modules = [
     description:
       'The design of the Biconomy Account Recovery Module is highly inspired by Vitalik’s article. Enabling Account Recovery for the Smart Account means compromising on trustlessness and introducing additional risk which is an inevitable trade-off of enabling an opportunity to change a key that controls the Smart Account.',
     category: ['Security'],
-    module_type: ['Plugin/Executor, Validator'],
+    module_type: ['Plugin/Executor', 'Validator'],
     compatible_sca_frameworks: ['Biconomy'],
     audits:
       '<a href="https://github.com/bcnmy/scw-contracts/blob/develop/audits/Biconomy%20Account%20Recovery%20Module%20-%20Zellic%20Audit%20Report-II.pdf" target="_blank">Audit 1</a>, <a href="https://github.com/bcnmy/scw-contracts/blob/develop/audits/Biconomy%20Account%20Recovery%20Module%20-%20Kawach%20Security%20Assessment%20Report.pdf" target="_blank">Audit 2</a>',

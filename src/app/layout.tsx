@@ -39,7 +39,7 @@ export default function RootLayout({
               <div />
             </div>
           </div>
-          <div className="container">{children}</div>
+          <div>{children}</div>
         </Theme>
       </body>
     </html>
