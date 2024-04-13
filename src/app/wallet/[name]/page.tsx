@@ -213,7 +213,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
               <Link
                 href={`https://github.com/${data.repo}`}
                 target="_blank"
-                className="flex items-center gap-2"
+                className="flex items-center text-white font-semibold gap-2"
               >
                 {data.name}
                 <ArrowTopRightOnSquareIcon className="opacity-50" width={20} />
