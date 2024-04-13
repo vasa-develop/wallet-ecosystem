@@ -26,6 +26,7 @@
     "react-calendar-heatmap": "^1.9.0",
     "react-code-block": "^1.0.0",
     "react-dom": "^18",
+    "react-scrollspy-navigation": "^2.0.3",
     "react-tooltip": "^5.26.3",
     "react-use": "^17.5.0",
     "tailwind-merge": "^2.2.1",

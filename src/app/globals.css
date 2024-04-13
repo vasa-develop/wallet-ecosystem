@@ -124,3 +124,7 @@ figcaption {
 .fixed-header-table .rt-TableRootTable {
   overflow: unset !important;
 }
+
+.nav-active div {
+  @apply opacity-100 after:h-full after:top-0;
+}
