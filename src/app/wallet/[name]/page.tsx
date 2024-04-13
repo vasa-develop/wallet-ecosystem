@@ -1,5 +1,6 @@
 import GithubContributorCount from '@/components/GithubContributorCount';
 import GithubHeatmap from '@/components/GithubHeatmap';
+import Title from '@/components/Title';
 import WalletSideNav from '@/components/WalletSideNav';
 import WalletSupportedStatus from '@/components/WalletSupportedStatus';
 import { ArrowTopRightOnSquareIcon } from '@/components/icons/ArrowTopRightOnSquareIcon';
@@ -93,7 +94,7 @@ export default function page({ params }: { params: { name: string } }) {
                   break;
                 case SECTIONS.SECURITY_ANALYSIS:
                   SectionComponent = (
-                    <Card>{walletSectionData[section]()}</Card>
+                    <Card className="p-6">{walletSectionData[section]()}</Card>
                   );
                   break;
                 case SECTIONS.FEATURES:
@@ -136,7 +137,7 @@ export default function page({ params }: { params: { name: string } }) {
 
 function WalletStats({ stats }: { stats: Wallet[SECTIONS.STATS] }) {
   return (
-    <Card>
+    <Card className="p-6">
       {stats.Downloads && (
         <div className="grid grid-cols-4 gap-2">
           {Object.typedKeys(stats.Downloads).map((platform, index) => {
@@ -203,11 +204,11 @@ function WalletIncentives({ data }: { data: Wallet[SECTIONS.INCENTIVES] }) {
 
 function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
   return (
-    <Card>
+    <Card className="p-6 gap-3 flex flex-col">
       {activity.map((data, index) => {
         return (
-          <Fragment key={index}>
-            <h3 className="text-lg flex items-center gap-2 mt-4 mb-1">
+          <div key={index}>
+            <h3 className="text-lg flex items-center gap-2">
               <GithubIcon width={20} height={20} />
               <Link
                 href={`https://github.com/${data.repo}`}
@@ -220,7 +221,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
             </h3>
             <GithubContributorCount repo={data.repo} />
             <GithubHeatmap repo={data.repo} />
-          </Fragment>
+          </div>
         );
       })}
     </Card>
@@ -229,7 +230,7 @@ function WalletActivity({ activity }: { activity: Wallet[SECTIONS.ACTIVITY] }) {
 
 function WalletFeatures({ data }: { data: Wallet[SECTIONS.FEATURES] }) {
   return (
-    <Card className="flex gap-2 flex flex-col">
+    <Card className="flex gap-2 p-6 flex-col">
       {Object.typedKeys(data).map((section, index) => {
         let SectionComponent = <NotDone />;
         switch (section) {
@@ -321,8 +322,8 @@ function NotDone() {
 
 function WalletLicense({ data }: { data: Wallet[SECTIONS.LICENSE] }) {
   return (
-    <Card>
-      <div className="p-4 flex flex-col gap-2">
+    <Card className="p-6">
+      <div className="flex flex-col gap-2">
         {data.map((data, index) => {
           return (
             <Link
@@ -346,31 +347,27 @@ function WalletLegalComplieance({
   data: Wallet[SECTIONS.LEGAL_COMPLIANCE];
 }) {
   return (
-    <Card>
-      <div className="p-4">
-        <div className=" shadow rounded-lg">
-          <p className="description text-gray-400 mb-4">
-            Legal Compliance refers to the wallet&apos;s adherence to relevant
-            laws, regulations, and guidelines in the jurisdictions in which it
-            operates. This includes regulations regarding user data privacy,
-            anti-money laundering (AML), Know Your Customer (KYC) processes, and
-            more. Compliance ensures that the wallet operates in a legal and
-            ethical manner, providing users with a secure and trustworthy
-            platform for managing their digital assets.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {data.map((licence, index) => {
-              return (
-                <Card key={index}>
-                  <h4 className="opacity-70 font-semibold mb-2">
-                    {licence[0]}
-                  </h4>
-                  <p className=" text-sm text-gray-500 mb-2">{licence[1]}</p>
-                  <p className="font-semibold ">{licence[2]}</p>
-                </Card>
-              );
-            })}
-          </div>
+    <Card className="p-6">
+      <div className=" shadow rounded-lg">
+        <p className="description text-gray-400 mb-4">
+          Legal Compliance refers to the wallet&apos;s adherence to relevant
+          laws, regulations, and guidelines in the jurisdictions in which it
+          operates. This includes regulations regarding user data privacy,
+          anti-money laundering (AML), Know Your Customer (KYC) processes, and
+          more. Compliance ensures that the wallet operates in a legal and
+          ethical manner, providing users with a secure and trustworthy platform
+          for managing their digital assets.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {data.map((licence, index) => {
+            return (
+              <Card key={index}>
+                <h4 className="opacity-70 font-semibold mb-2">{licence[0]}</h4>
+                <p className=" text-sm text-gray-500 mb-2">{licence[1]}</p>
+                <p className="font-semibold ">{licence[2]}</p>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </Card>
@@ -381,137 +378,133 @@ function WalletSecurity({ data }: { data: Wallet[SECTIONS.SECURITY] }) {
   return (
     <div className="flex flex-col gap-2">
       {data.Audits && (
-        <Card>
-          <div className="p-4 pt-0">
-            <h4 className="font-semibold text-xl py-4">Audit</h4>
-
-            <>
-              <p className=" text-sm leading-5 text-gray-400 mb-4">
-                Audits in Web3 refer to the process of conducting comprehensive
-                security assessments and evaluations of blockchain-based
-                projects, smart contracts, decentralized applications (dApps),
-                and other Web3 protocols. The purpose of these audits is to
-                identify vulnerabilities, potential risks, and weaknesses in the
-                code and system architecture to enhance security, reliability,
-                and trustworthiness.
-              </p>
-              <Table.Root>
-                <Table.Header>
-                  <Table.Row>
-                    <Table.ColumnHeaderCell>Auditor</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Date</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>
-                      Audited Version
-                    </Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>
-                      Current Version
-                    </Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>
-                      Audit Relevance
-                    </Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>
-                      Audit Report
-                    </Table.ColumnHeaderCell>
-                  </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                  {data.Audits.map((audit, rowIndex) => {
+        <Card className="p-6">
+          <Title level={4} className="mb-3">
+            Audit
+          </Title>
+          <>
+            <p className=" text-sm leading-5 text-gray-400 mb-4">
+              Audits in Web3 refer to the process of conducting comprehensive
+              security assessments and evaluations of blockchain-based projects,
+              smart contracts, decentralized applications (dApps), and other
+              Web3 protocols. The purpose of these audits is to identify
+              vulnerabilities, potential risks, and weaknesses in the code and
+              system architecture to enhance security, reliability, and
+              trustworthiness.
+            </p>
+            <Table.Root>
+              <Table.Header>
+                <Table.Row>
+                  <Table.ColumnHeaderCell>Auditor</Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>Date</Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>
+                    Audited Version
+                  </Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>
+                    Current Version
+                  </Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>
+                    Audit Relevance
+                  </Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>Audit Report</Table.ColumnHeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {data.Audits.map((audit, rowIndex) => {
+                  return (
+                    <Table.Row key={rowIndex}>
+                      <Table.Cell>{audit.auditor}</Table.Cell>
+                      <Table.Cell>{audit.date}</Table.Cell>
+                      <Table.Cell>
+                        <div className="flex flex-wrap gap-2">
+                          {audit.auditedVersion.map((v, i) => (
+                            <Badge key={i} variant="outline">
+                              <Link href={v.link} target="_blank">
+                                {v.name}
+                              </Link>
+                            </Badge>
+                          ))}
+                        </div>
+                      </Table.Cell>
+                      <Table.Cell>
+                        <div className="flex flex-wrap gap-2">
+                          {audit.currentVersion.map((v, i) => (
+                            <Badge key={i} variant="outline">
+                              <Link href={v.link} target="_blank">
+                                {v.name}
+                              </Link>
+                            </Badge>
+                          ))}
+                        </div>
+                      </Table.Cell>
+                      <Table.Cell>{audit.relevance}</Table.Cell>
+                      <Table.Cell>
+                        <Link
+                          href={audit.report}
+                          target="_blank"
+                          className="flex items-center gap-1"
+                        >
+                          Link
+                          <ExternalLinkIcon className="inline" size={18} />
+                        </Link>
+                      </Table.Cell>
+                    </Table.Row>
+                  );
+                })}
+              </Table.Body>
+            </Table.Root>
+          </>
+        </Card>
+      )}
+      {data['Bug Bounty'] && (
+        <Card className="p-6">
+          <Title level={4} className="mb-3">
+            Bug Bounty
+          </Title>
+          <>
+            <p className=" text-sm leading-5 text-gray-400 mb-4">
+              A bug bounty program in Web3 is an initiative offered by
+              blockchain projects, cryptocurrency platforms, or decentralized
+              applications (dApps) to incentivize security researchers and
+              ethical hackers to discover and report vulnerabilities or bugs in
+              their systems. It is a crowdsourced approach to security testing
+              where individuals or teams are rewarded for responsibly disclosing
+              vulnerabilities they find.
+            </p>
+            <Table.Root>
+              <Table.Header>
+                <Table.Row>
+                  <Table.ColumnHeaderCell>Platform</Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>Reward</Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
+                  <Table.ColumnHeaderCell>Scope</Table.ColumnHeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                {data[SECURITY_AUDIT_TYPE.BUG_BOUNTY].map(
+                  (bugBounty, rowIndex) => {
                     return (
                       <Table.Row key={rowIndex}>
-                        <Table.Cell>{audit.auditor}</Table.Cell>
-                        <Table.Cell>{audit.date}</Table.Cell>
-                        <Table.Cell>
-                          <div className="flex flex-wrap gap-2">
-                            {audit.auditedVersion.map((v, i) => (
-                              <Badge key={i} variant="outline">
-                                <Link href={v.link} target="_blank">
-                                  {v.name}
-                                </Link>
-                              </Badge>
-                            ))}
-                          </div>
-                        </Table.Cell>
-                        <Table.Cell>
-                          <div className="flex flex-wrap gap-2">
-                            {audit.currentVersion.map((v, i) => (
-                              <Badge key={i} variant="outline">
-                                <Link href={v.link} target="_blank">
-                                  {v.name}
-                                </Link>
-                              </Badge>
-                            ))}
-                          </div>
-                        </Table.Cell>
-                        <Table.Cell>{audit.relevance}</Table.Cell>
+                        <Table.Cell>{bugBounty.platform}</Table.Cell>
+                        <Table.Cell>{bugBounty.reward}</Table.Cell>
+                        <Table.Cell>{bugBounty.status}</Table.Cell>
                         <Table.Cell>
                           <Link
-                            href={audit.report}
+                            href={bugBounty.scope}
                             target="_blank"
                             className="flex items-center gap-1"
                           >
                             Link
-                            <ExternalLinkIcon className="inline" size={18} />
+                            <ExternalLinkIcon className="inline" size={20} />
                           </Link>
                         </Table.Cell>
                       </Table.Row>
                     );
-                  })}
-                </Table.Body>
-              </Table.Root>
-            </>
-          </div>
-        </Card>
-      )}
-      {data['Bug Bounty'] && (
-        <Card>
-          <div className="p-4 pt-0">
-            <h4 className="font-semibold text-xl py-4">Audit</h4>
-
-            <>
-              <p className=" text-sm leading-5 text-gray-400 mb-4">
-                A bug bounty program in Web3 is an initiative offered by
-                blockchain projects, cryptocurrency platforms, or decentralized
-                applications (dApps) to incentivize security researchers and
-                ethical hackers to discover and report vulnerabilities or bugs
-                in their systems. It is a crowdsourced approach to security
-                testing where individuals or teams are rewarded for responsibly
-                disclosing vulnerabilities they find.
-              </p>
-              <Table.Root>
-                <Table.Header>
-                  <Table.Row>
-                    <Table.ColumnHeaderCell>Platform</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Reward</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Status</Table.ColumnHeaderCell>
-                    <Table.ColumnHeaderCell>Scope</Table.ColumnHeaderCell>
-                  </Table.Row>
-                </Table.Header>
-                <Table.Body>
-                  {data[SECURITY_AUDIT_TYPE.BUG_BOUNTY].map(
-                    (bugBounty, rowIndex) => {
-                      return (
-                        <Table.Row key={rowIndex}>
-                          <Table.Cell>{bugBounty.platform}</Table.Cell>
-                          <Table.Cell>{bugBounty.reward}</Table.Cell>
-                          <Table.Cell>{bugBounty.status}</Table.Cell>
-                          <Table.Cell>
-                            <Link
-                              href={bugBounty.scope}
-                              target="_blank"
-                              className="flex items-center gap-1"
-                            >
-                              Link
-                              <ExternalLinkIcon className="inline" size={20} />
-                            </Link>
-                          </Table.Cell>
-                        </Table.Row>
-                      );
-                    }
-                  )}
-                </Table.Body>
-              </Table.Root>
-            </>
-          </div>
+                  }
+                )}
+              </Table.Body>
+            </Table.Root>
+          </>
         </Card>
       )}
     </div>
