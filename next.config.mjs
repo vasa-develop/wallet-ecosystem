@@ -27,6 +27,12 @@ const nextConfig = {
       //     'https://wallet-ecosystem.notion.site/100-Smart-Account-Modules-8873025da42c49648bfe03bf980c89d6',
       //   permanent: false,
       // },
+      {
+        source: '/aa-faqs',
+        destination:
+          'https://wallet-ecosystem.notion.site/Account-Abstraction-FAQs-eda02ac6e46142cdaca7a9ebaca177d6',
+        permanent: false,
+      },
     ];
   },
 };
