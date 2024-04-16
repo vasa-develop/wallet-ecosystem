@@ -1453,5 +1453,30 @@ const modules = [
       'Etherspot (<a href="https://github.com/etherspot/etherspot-prime-contracts/blob/mew-audit/src/modular-etherspot-wallet/hooks/ModuleIsolationHook.sol" target="_blank">ModuleIsolationHook</a>)',
     notes: '',
   },
+  {
+    name: 'Timelocked Recovery (Ambire)',
+    description:
+      'Allows an account to be recovered after a given period of time',
+    category: ['Security'],
+    module_type: ['Validator'],
+    compatible_sca_frameworks: ['Ambire'],
+    audits: '',
+    implementation:
+      'Ambire (<a href="https://github.com/AmbireTech/ambire-common/blob/v2/contracts/RecoverySigValidator.sol" target="_blank">Timelocked Recovery</a>)',
+    notes: '',
+  },
+  {
+    name: 'DKIM Recovery (Ambire)',
+    description:
+      'Allows an account to be recovered by email using DKIM signatures',
+    category: ['Security'],
+    module_type: ['Validator'],
+    compatible_sca_frameworks: ['Ambire'],
+    audits:
+      '<a href="https://github.com/AmbireTech/ambire-common/tree/v2/audits" target="_blank">All Ambire audits</a>',
+    implementation:
+      'Ambire (<a href="https://github.com/AmbireTech/ambire-common/blob/v2/contracts/DKIMRecoverySigValidator.sol" target="_blank">DKIM Recovery</a>)',
+    notes: 'The DKIM Recovery won a grant from the Ethereum Foundation',
+  },
 ];
 export default modules;
