@@ -2,9 +2,8 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import '@radix-ui/themes/styles.css';
 import './globals.css';
-import Image from 'next/image';
-import Link from 'next/link';
-import { TabNav, Theme } from '@radix-ui/themes';
+import { Theme } from '@radix-ui/themes';
+import { Navbar } from './navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,23 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + ' dark'}>
         <Theme accentColor="iris" radius="small" scaling="95%">
-          <div className="shadow-md border-b border-gray-700">
-            <div className="container flex justify-between py-2">
-              <Link href={'/'}>
-                <Image alt="Logo" width={40} height={20} src={'/logo.svg'} />
-              </Link>
-              <TabNav.Root className="shadow-none">
-                <TabNav.Link href="/" active>
-                  Wallets
-                </TabNav.Link>
-                <TabNav.Link href="/standards">Standards Tracker</TabNav.Link>
-                <TabNav.Link href="/modules">
-                  Smart Account Modules List
-                </TabNav.Link>
-              </TabNav.Root>
-              <div />
-            </div>
-          </div>
+          <Navbar />
           <div>{children}</div>
         </Theme>
       </body>
