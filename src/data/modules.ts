@@ -8,7 +8,7 @@ const modules = [
     compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
     audits: '',
     implementation:
-      '<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/AutoSavings/AutoSavings.sol" target="_blank">Rhinestone (AutoSavings)</a>',
+      '<a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/AutoSavings/AutoSavings.sol" target="_blank">Rhinestone (AutoSavings)</a>',
     notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
   },
   {
@@ -27,12 +27,10 @@ const modules = [
     ],
     audits:
       '<a href="https://github.com/alchemyplatform/modular-account/tree/develop/audits" target="_blank">Modular Account (Alchemy)</a>',
-    implementation: `<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/AutoSend/AutoSend.sol" target="_blank"> Rhinestone (AutoSend) </a>
-      <br />
-      Alchemy (implemented with <a href="https://github.com/alchemyplatform/modular-account/blob/v1.0.x/src/plugins/session/SessionKeyPlugin.sol" target="_blank">SessionKeyPlugin</a>)
+    implementation: `Alchemy (implemented with <a href="https://github.com/alchemyplatform/modular-account/blob/v1.0.x/src/plugins/session/SessionKeyPlugin.sol" target="_blank">SessionKeyPlugin</a>)
       <br />
       Libree (implemented as stand alone)`,
-    notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
+    notes: '',
   },
   {
     name: 'Buy Now Pay Later / DeFi Credit',
@@ -50,37 +48,7 @@ const modules = [
     ],
     audits: '',
     implementation:
-      'Rhinestone (<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ColdStorage/FlashloanLender.sol" target="_blank">FlashloanLender</a>, <a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ColdStorage/FlashloanCallback.sol" target="_blank">FlashloanCallback</a>)',
-    notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
-  },
-  {
-    name: 'DollarCostAverage',
-    description: 'Dollar-cost averaging strategy natively in the wallet',
-    category: ['Defi'],
-    module_type: ['Plugin/Executor'],
-    compatible_sca_frameworks: [
-      'Biconomy',
-      'ERC-6900',
-      'ERC-7579',
-      'Kernel',
-      'Modular Account (Alchemy)',
-      'Safe',
-    ],
-    audits: '',
-    implementation:
-      'Rhinestone (<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/DollarCostAverage/DollarCostAverage.sol" target="_blank">DollarCostAverage</a>)',
-    notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
-  },
-  {
-    name: 'P2P Flash Loans',
-    description:
-      'Users can specify and create flash loans for ERC20 and ERC721 (e.g. offer monkey pic with X access rights for Y timeframe or Z transaction — such as a specific utility claim)',
-    category: ['Defi'],
-    module_type: ['Plugin/Executor'],
-    compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
-    audits: '',
-    implementation:
-      'Rhinestone (<a href="" target="_blank">FlashloanLender</a>, <a href="" target="_blank">FlashloanCallback</a>)',
+      'Rhinestone (<a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/Flashloan/FlashloanLender.sol" target="_blank">FlashloanLender</a>, <a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ColdStorage/FlashloanCallback.sol" target="_blank">FlashloanCallback</a>)',
     notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
   },
   {
@@ -144,7 +112,7 @@ const modules = [
     ],
     audits: '',
     implementation: `
-    Rhinestone (<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/DeadmanSwitch/DeadmanSwitch.sol" target="_blank">DeadmanSwitch</a>)
+    Rhinestone (<a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/DeadmanSwitch/DeadmanSwitch.sol" target="_blank">DeadmanSwitch</a>)
     <br />
     Kernel (<a href="https://github.com/zerodevapp/kernel_v3/blob/master/src/validator/WeightedECDSAValidator.sol" target="_blank">WeightedECDSAValidator</a>)
     <br />
@@ -169,7 +137,7 @@ const modules = [
     ],
     audits: '',
     implementation: `
-    Rhinestone (<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ColdStorage/ColdStorageExecutor.sol" target="_blank">ColdStorageExecutor</a>, <a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ColdStorage/ColdStorageHook.sol" target="_blank">ColdStorageHook</a>)
+    Rhinestone (<a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/ColdStorageHook/ColdStorageFlashloan.sol" target="_blank">ColdStorageFlashloan</a>, <a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/ColdStorageHook/ColdStorageHook.sol" target="_blank">ColdStorageHook</a>)
     <br />
     Alchemy (different implementation requirements - <a href="https://github.com/alchemyplatform/aa-virtual-cold-storage/blob/main/contracts/src/ColdStoragePlugin.sol" target="_blank">ColdStoragePlugin</a>, <a href="https://aa-virtual-cold-storage.vercel.app/" target="_blank">demo</a>)
     `,
@@ -189,17 +157,6 @@ const modules = [
     notes: '',
   },
   {
-    name: 'ERC1271PrehashValidator',
-    description: '',
-    category: [''],
-    module_type: ['Validator'],
-    compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
-    audits: '',
-    implementation:
-      '<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ERC1271PreHash/ERC1271PrehashValidator.sol" target="_blank">Rhinestone</a>',
-    notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
-  },
-  {
     name: 'MultiFactor',
     description: 'Multi-plex multiple validators together',
     category: [''],
@@ -207,7 +164,7 @@ const modules = [
     compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
     audits: '',
     implementation:
-      '<a href="https://github.com/rhinestonewtf/modulekit/tree/main/examples/src/MultiFactor" target="_blank">Rhinestone</a>',
+      '<a href="https://github.com/rhinestonewtf/core-modules/tree/main/src/MultiFactor" target="_blank">Rhinestone</a>',
     notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
   },
   {
@@ -225,7 +182,7 @@ const modules = [
     ],
     audits: '',
     implementation: `
-    <a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/OwnableValidator/OwnableValidator.sol" target="_blank">Rhinestone</a>
+    <a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/OwnableValidator/OwnableValidator.sol" target="_blank">Rhinestone</a>
     <br />
     ERC-6900 ecosystem (Link coming soon)`,
     notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
@@ -238,7 +195,7 @@ const modules = [
     compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
     audits: '',
     implementation:
-      '<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ScheduledTransactions/ScheduledOrders.sol" target="_blank">Rhinestone</a>',
+      '<a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/ScheduledOrders/ScheduledOrders.sol" target="_blank">Rhinestone</a>',
     notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
   },
   {
@@ -249,7 +206,7 @@ const modules = [
     compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
     audits: '',
     implementation:
-      '<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/ScheduledTransactions/ScheduledTransfers.sol" target="_blank">Rhinestone</a>',
+      '<a href="https://github.com/rhinestonewtf/core-modules/blob/main/src/ScheduledTransfers/ScheduledTransfers.sol" target="_blank">Rhinestone</a>',
     notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
   },
   {
@@ -268,13 +225,11 @@ const modules = [
     ],
     audits: '',
     implementation: `
-    Rhinestone (<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/WebAuthnValidator/WebAuthnValidator.sol" target="_blank">WebauthnValidator</a>)
-    <br />
     Kernel (<a href="https://github.com/zerodevapp/kernel/blob/main/src/validator/webauthn/WebAuthnFclValidator.sol" target="_blank">WebAuthnFclValidator</a>)
     <br />
     ERC-6900 ecosystem (Link coming soon)
     `,
-    notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
+    notes: '',
   },
   {
     name: 'Burner Factory',
@@ -297,18 +252,6 @@ const modules = [
     audits: '',
     implementation: '',
     notes: '',
-  },
-  {
-    name: 'Automated Revoke Access',
-    description:
-      'Automate onchain revocations of ERC20 and ERC721 access rights on a schedule or after each transaction via a hook module',
-    category: ['Security'],
-    module_type: [''],
-    compatible_sca_frameworks: ['Biconomy', 'ERC-7579', 'Kernel', 'Safe'],
-    audits: '',
-    implementation:
-      'Rhinestone (<a href="https://github.com/rhinestonewtf/modulekit/blob/main/examples/src/TokenRevocation/ERC20Revocation.sol" target="_blank">ERC20Revocation</a>)',
-    notes: 'Rhinestone module not yet compatible with Safe, Biconomy, Kernel.',
   },
   {
     name: 'Timelock',
